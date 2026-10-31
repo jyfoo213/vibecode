@@ -1,0 +1,715 @@
+{
+  "schemaVersion": 1,
+  "researchStatus": "Unverified seed research; not a current market ranking",
+  "layers": [
+    {
+      "id": "silicon",
+      "name": "Silicon & chips",
+      "subtitle": "The physical foundation"
+    },
+    {
+      "id": "cloud",
+      "name": "Cloud & compute",
+      "subtitle": "Infrastructure at scale"
+    },
+    {
+      "id": "models",
+      "name": "Foundation models",
+      "subtitle": "The intelligence layer"
+    },
+    {
+      "id": "data",
+      "name": "Data & tooling",
+      "subtitle": "Make AI usable"
+    },
+    {
+      "id": "apps",
+      "name": "Applications",
+      "subtitle": "Where people meet AI"
+    }
+  ],
+  "companies": [
+    {
+      "id": "asml",
+      "name": "ASML",
+      "ticker": "ASML",
+      "ownership": "Public",
+      "focus": "Diversified",
+      "layer": "silicon",
+      "description": "Builds lithography equipment used by semiconductor manufacturers to pattern advanced chips.",
+      "website": "https://www.asml.com/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Market capitalization",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Seed profile; verification pending"
+    },
+    {
+      "id": "tsmc",
+      "name": "TSMC",
+      "ticker": "TSM",
+      "ownership": "Public",
+      "focus": "Diversified",
+      "layer": "silicon",
+      "description": "Manufactures advanced chips designed by companies such as NVIDIA and AMD.",
+      "website": "https://www.tsmc.com/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Market capitalization",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Seed profile; verification pending"
+    },
+    {
+      "id": "nvidia",
+      "name": "NVIDIA",
+      "ticker": "NVDA",
+      "ownership": "Public",
+      "focus": "Diversified",
+      "layer": "silicon",
+      "description": "Designs GPUs, networking, and CUDA software used to train and run AI models.",
+      "website": "https://www.nvidia.com/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Market capitalization",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Seed profile; verification pending"
+    },
+    {
+      "id": "amd",
+      "name": "AMD",
+      "ticker": "AMD",
+      "ownership": "Public",
+      "focus": "Diversified",
+      "layer": "silicon",
+      "description": "Designs CPUs and Instinct GPU accelerators for data centers and AI workloads.",
+      "website": "https://www.amd.com/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Market capitalization",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Seed profile; verification pending"
+    },
+    {
+      "id": "broadcom",
+      "name": "Broadcom",
+      "ticker": "AVGO",
+      "ownership": "Public",
+      "focus": "Diversified",
+      "layer": "silicon",
+      "description": "Supplies networking silicon and custom accelerator technology for data centers.",
+      "website": "https://www.broadcom.com/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Market capitalization",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Seed profile; verification pending"
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "ticker": "MSFT",
+      "ownership": "Public",
+      "focus": "Diversified",
+      "layer": "cloud",
+      "description": "Operates Azure, develops Copilot products, and invests in model development and distribution.",
+      "website": "https://www.microsoft.com/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Market capitalization",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Seed profile; verification pending"
+    },
+    {
+      "id": "amazon",
+      "name": "Amazon",
+      "ticker": "AMZN",
+      "ownership": "Public",
+      "focus": "Diversified",
+      "layer": "cloud",
+      "description": "Operates AWS, offers Bedrock model access, and designs Trainium and Inferentia chips.",
+      "website": "https://aws.amazon.com/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Market capitalization",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Seed profile; verification pending"
+    },
+    {
+      "id": "alphabet",
+      "name": "Alphabet",
+      "ticker": "GOOGL",
+      "ownership": "Public",
+      "focus": "Diversified",
+      "layer": "cloud",
+      "description": "Combines Google Cloud and TPUs with Google DeepMind, Gemini, Search, and a large distribution network.",
+      "website": "https://abc.xyz/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Market capitalization",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Seed profile; verification pending"
+    },
+    {
+      "id": "oracle",
+      "name": "Oracle",
+      "ticker": "ORCL",
+      "ownership": "Public",
+      "focus": "Diversified",
+      "layer": "cloud",
+      "description": "Provides cloud computing infrastructure and enterprise database software for AI workloads.",
+      "website": "https://www.oracle.com/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Market capitalization",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Seed profile; verification pending"
+    },
+    {
+      "id": "coreweave",
+      "name": "CoreWeave",
+      "ticker": "CRWV",
+      "ownership": "Public",
+      "focus": "AI-focused",
+      "layer": "cloud",
+      "description": "Operates specialized GPU cloud infrastructure for model training and inference.",
+      "website": "https://www.coreweave.com/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Market capitalization",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Seed profile; verification pending"
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "ticker": null,
+      "ownership": "Private",
+      "focus": "AI-focused",
+      "layer": "models",
+      "description": "Develops general-purpose AI models and products including ChatGPT and an API for developers.",
+      "website": "https://openai.com/",
+      "valuation": {
+        "usdBillions": 300,
+        "asOf": "2025-03-31",
+        "basis": "Reported funding valuation",
+        "status": "unverified historical reference",
+        "sourceUrl": "https://openai.com/index/march-funding-updates/"
+      },
+      "researchStatus": "Seed profile; verification pending"
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "ticker": null,
+      "ownership": "Private",
+      "focus": "AI-focused",
+      "layer": "models",
+      "description": "Develops the Claude family of models with a focus on capable, reliable AI systems.",
+      "website": "https://www.anthropic.com/",
+      "valuation": {
+        "usdBillions": 61.5,
+        "asOf": "2025-03-03",
+        "basis": "Reported funding valuation",
+        "status": "unverified historical reference",
+        "sourceUrl": "https://www.anthropic.com/news/anthropic-raises-series-e-at-usd61-5-billion-post-money-valuation"
+      },
+      "researchStatus": "Seed profile; verification pending"
+    },
+    {
+      "id": "meta",
+      "name": "Meta",
+      "ticker": "META",
+      "ownership": "Public",
+      "focus": "Diversified",
+      "layer": "models",
+      "description": "Develops Llama models and applies AI across advertising, recommendations, and consumer products.",
+      "website": "https://ai.meta.com/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Market capitalization",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Seed profile; verification pending"
+    },
+    {
+      "id": "xai",
+      "name": "xAI",
+      "ticker": null,
+      "ownership": "Private",
+      "focus": "AI-focused",
+      "layer": "models",
+      "description": "Develops Grok models and associated consumer and developer AI services.",
+      "website": "https://x.ai/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Funding valuation",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Seed profile; verification pending"
+    },
+    {
+      "id": "mistral",
+      "name": "Mistral AI",
+      "ticker": null,
+      "ownership": "Private",
+      "focus": "AI-focused",
+      "layer": "models",
+      "description": "Develops open-weight and commercial models, developer tools, and enterprise AI services.",
+      "website": "https://mistral.ai/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Funding valuation",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Seed profile; verification pending"
+    },
+    {
+      "id": "cohere",
+      "name": "Cohere",
+      "ticker": null,
+      "ownership": "Private",
+      "focus": "AI-focused",
+      "layer": "models",
+      "description": "Builds enterprise language models, retrieval, and multilingual AI capabilities.",
+      "website": "https://cohere.com/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Funding valuation",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Seed profile; verification pending"
+    },
+    {
+      "id": "databricks",
+      "name": "Databricks",
+      "ticker": null,
+      "ownership": "Private",
+      "focus": "Diversified",
+      "layer": "data",
+      "description": "Provides a data and AI platform for analytics, data engineering, and model development.",
+      "website": "https://www.databricks.com/",
+      "valuation": {
+        "usdBillions": 62,
+        "asOf": "2024-12-17",
+        "basis": "Reported funding valuation",
+        "status": "unverified historical reference",
+        "sourceUrl": "https://www.databricks.com/company/newsroom/press-releases/databricks-raising-10b-series-j-investment-62b-valuation"
+      },
+      "researchStatus": "Seed profile; verification pending"
+    },
+    {
+      "id": "snowflake",
+      "name": "Snowflake",
+      "ticker": "SNOW",
+      "ownership": "Public",
+      "focus": "Diversified",
+      "layer": "data",
+      "description": "Provides a cloud data platform with analytics and AI capabilities close to enterprise data.",
+      "website": "https://www.snowflake.com/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Market capitalization",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Seed profile; verification pending"
+    },
+    {
+      "id": "scale",
+      "name": "Scale AI",
+      "ticker": null,
+      "ownership": "Private",
+      "focus": "AI-focused",
+      "layer": "data",
+      "description": "Provides data labeling, evaluation, and data infrastructure for AI development.",
+      "website": "https://scale.com/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Funding valuation",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Seed profile; verification pending"
+    },
+    {
+      "id": "huggingface",
+      "name": "Hugging Face",
+      "ticker": null,
+      "ownership": "Private",
+      "focus": "AI-focused",
+      "layer": "data",
+      "description": "Hosts models and datasets and builds open-source tools for the machine-learning community.",
+      "website": "https://huggingface.co/",
+      "valuation": {
+        "usdBillions": 4.5,
+        "asOf": "2023-08-24",
+        "basis": "Reported funding valuation",
+        "status": "unverified historical reference",
+        "sourceUrl": "https://huggingface.co/blog/series-d"
+      },
+      "researchStatus": "Seed profile; verification pending"
+    },
+    {
+      "id": "palantir",
+      "name": "Palantir",
+      "ticker": "PLTR",
+      "ownership": "Public",
+      "focus": "Diversified",
+      "layer": "apps",
+      "description": "Connects enterprise and government data to operational workflows, including AI applications.",
+      "website": "https://www.palantir.com/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Market capitalization",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Seed profile; verification pending"
+    },
+    {
+      "id": "salesforce",
+      "name": "Salesforce",
+      "ticker": "CRM",
+      "ownership": "Public",
+      "focus": "Diversified",
+      "layer": "apps",
+      "description": "Builds customer-management software and AI agents grounded in business data and workflows.",
+      "website": "https://www.salesforce.com/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Market capitalization",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Seed profile; verification pending"
+    },
+    {
+      "id": "adobe",
+      "name": "Adobe",
+      "ticker": "ADBE",
+      "ownership": "Public",
+      "focus": "Diversified",
+      "layer": "apps",
+      "description": "Builds creative software and Firefly generative AI tools for content creation.",
+      "website": "https://www.adobe.com/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Market capitalization",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Seed profile; verification pending"
+    },
+    {
+      "id": "servicenow",
+      "name": "ServiceNow",
+      "ticker": "NOW",
+      "ownership": "Public",
+      "focus": "Diversified",
+      "layer": "apps",
+      "description": "Provides enterprise workflow software with AI assistants and automation capabilities.",
+      "website": "https://www.servicenow.com/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Market capitalization",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Seed profile; verification pending"
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "ticker": null,
+      "ownership": "Private",
+      "focus": "AI-focused",
+      "layer": "apps",
+      "description": "Builds an AI answer and search product that synthesizes information with citations.",
+      "website": "https://www.perplexity.ai/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Funding valuation",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Seed profile; verification pending"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r0",
+      "source": "asml",
+      "target": "tsmc",
+      "type": "equipment",
+      "description": "Lithography equipment enables advanced semiconductor manufacturing.",
+      "sourceUrl": "https://www.asml.com/en/products",
+      "asOf": null,
+      "status": "unverified research lead"
+    },
+    {
+      "id": "r1",
+      "source": "tsmc",
+      "target": "nvidia",
+      "type": "manufactures",
+      "description": "TSMC manufactures NVIDIA-designed chips.",
+      "sourceUrl": "https://investor.nvidia.com/financial-info/annual-reports-and-proxies/default.aspx",
+      "asOf": null,
+      "status": "unverified research lead"
+    },
+    {
+      "id": "r2",
+      "source": "tsmc",
+      "target": "amd",
+      "type": "manufactures",
+      "description": "AMD relies on third-party foundries including TSMC.",
+      "sourceUrl": "https://ir.amd.com/financial-information/annual-reports",
+      "asOf": null,
+      "status": "unverified research lead"
+    },
+    {
+      "id": "r3",
+      "source": "nvidia",
+      "target": "microsoft",
+      "type": "supplies compute",
+      "description": "Azure offers NVIDIA GPU infrastructure.",
+      "sourceUrl": "https://azure.microsoft.com/en-us/solutions/high-performance-computing/ai",
+      "asOf": null,
+      "status": "unverified research lead"
+    },
+    {
+      "id": "r4",
+      "source": "nvidia",
+      "target": "amazon",
+      "type": "supplies compute",
+      "description": "AWS offers NVIDIA GPU-powered instances.",
+      "sourceUrl": "https://aws.amazon.com/nvidia/",
+      "asOf": null,
+      "status": "unverified research lead"
+    },
+    {
+      "id": "r5",
+      "source": "nvidia",
+      "target": "coreweave",
+      "type": "supplies compute",
+      "description": "CoreWeave provides NVIDIA GPU cloud capacity.",
+      "sourceUrl": "https://www.coreweave.com/",
+      "asOf": null,
+      "status": "unverified research lead"
+    },
+    {
+      "id": "r6",
+      "source": "nvidia",
+      "target": "oracle",
+      "type": "supplies compute",
+      "description": "OCI offers NVIDIA accelerated computing.",
+      "sourceUrl": "https://www.oracle.com/cloud/nvidia/",
+      "asOf": null,
+      "status": "unverified research lead"
+    },
+    {
+      "id": "r7",
+      "source": "microsoft",
+      "target": "openai",
+      "type": "invests / cloud",
+      "description": "Microsoft has invested in OpenAI and provides Azure infrastructure.",
+      "sourceUrl": "https://blogs.microsoft.com/blog/2023/01/23/microsoftandopenaiextendpartnership/",
+      "asOf": null,
+      "status": "unverified research lead"
+    },
+    {
+      "id": "r8",
+      "source": "amazon",
+      "target": "anthropic",
+      "type": "invests / cloud",
+      "description": "Amazon invests in Anthropic; AWS is a training and cloud partner.",
+      "sourceUrl": "https://www.anthropic.com/news/anthropic-amazon-trainium",
+      "asOf": null,
+      "status": "unverified research lead"
+    },
+    {
+      "id": "r9",
+      "source": "alphabet",
+      "target": "anthropic",
+      "type": "invests / cloud",
+      "description": "Google invests in Anthropic and supplies cloud infrastructure.",
+      "sourceUrl": "https://www.anthropic.com/news/expanding-our-use-of-google-cloud",
+      "asOf": null,
+      "status": "unverified research lead"
+    },
+    {
+      "id": "r10",
+      "source": "microsoft",
+      "target": "mistral",
+      "type": "distribution",
+      "description": "Azure distributes Mistral models.",
+      "sourceUrl": "https://mistral.ai/news/mistral-large",
+      "asOf": null,
+      "status": "unverified research lead"
+    },
+    {
+      "id": "r11",
+      "source": "amazon",
+      "target": "cohere",
+      "type": "distribution",
+      "description": "Amazon Bedrock offers Cohere models.",
+      "sourceUrl": "https://aws.amazon.com/bedrock/cohere/",
+      "asOf": null,
+      "status": "unverified research lead"
+    },
+    {
+      "id": "r12",
+      "source": "amazon",
+      "target": "meta",
+      "type": "distribution",
+      "description": "Amazon Bedrock offers Meta Llama models.",
+      "sourceUrl": "https://aws.amazon.com/bedrock/llama/",
+      "asOf": null,
+      "status": "unverified research lead"
+    },
+    {
+      "id": "r13",
+      "source": "amazon",
+      "target": "snowflake",
+      "type": "cloud platform",
+      "description": "Snowflake runs on AWS as one of its supported cloud platforms.",
+      "sourceUrl": "https://www.snowflake.com/en/product/platform/",
+      "asOf": null,
+      "status": "unverified research lead"
+    },
+    {
+      "id": "r14",
+      "source": "amazon",
+      "target": "databricks",
+      "type": "cloud platform",
+      "description": "Databricks operates on AWS as one of its cloud platforms.",
+      "sourceUrl": "https://www.databricks.com/product/aws",
+      "asOf": null,
+      "status": "unverified research lead"
+    },
+    {
+      "id": "r15",
+      "source": "microsoft",
+      "target": "huggingface",
+      "type": "distribution",
+      "description": "Azure supports deployment of models from Hugging Face.",
+      "sourceUrl": "https://huggingface.co/docs/azure/index",
+      "asOf": null,
+      "status": "unverified research lead"
+    },
+    {
+      "id": "r16",
+      "source": "openai",
+      "target": "perplexity",
+      "type": "model access",
+      "description": "Perplexity has offered OpenAI models through its product; availability changes.",
+      "sourceUrl": "https://www.perplexity.ai/",
+      "asOf": null,
+      "status": "unverified research lead"
+    },
+    {
+      "id": "r17",
+      "source": "anthropic",
+      "target": "perplexity",
+      "type": "model access",
+      "description": "Perplexity has offered Claude models; availability changes.",
+      "sourceUrl": "https://www.perplexity.ai/",
+      "asOf": null,
+      "status": "unverified research lead"
+    },
+    {
+      "id": "r18",
+      "source": "amazon",
+      "target": "salesforce",
+      "type": "partnership",
+      "description": "AWS and Salesforce collaborate on data, AI, and product integrations.",
+      "sourceUrl": "https://www.salesforce.com/partners/aws/",
+      "asOf": null,
+      "status": "unverified research lead"
+    },
+    {
+      "id": "r19",
+      "source": "nvidia",
+      "target": "adobe",
+      "type": "partnership",
+      "description": "Adobe and NVIDIA collaborate on generative AI technology.",
+      "sourceUrl": "https://nvidianews.nvidia.com/news/adobe-and-nvidia-announce-partnership-to-unlock-the-power-of-generative-ai",
+      "asOf": null,
+      "status": "unverified research lead"
+    },
+    {
+      "id": "r20",
+      "source": "nvidia",
+      "target": "servicenow",
+      "type": "partnership",
+      "description": "ServiceNow and NVIDIA collaborate on enterprise generative AI.",
+      "sourceUrl": "https://nvidianews.nvidia.com/news/servicenow-and-nvidia-announce-partnership-to-build-generative-ai-across-enterprise-it",
+      "asOf": null,
+      "status": "unverified research lead"
+    },
+    {
+      "id": "r21",
+      "source": "meta",
+      "target": "scale",
+      "type": "data services",
+      "description": "Scale provides AI data services; the relationship requires current verification.",
+      "sourceUrl": "https://scale.com/",
+      "asOf": null,
+      "status": "unverified research lead"
+    },
+    {
+      "id": "r22",
+      "source": "microsoft",
+      "target": "palantir",
+      "type": "partnership",
+      "description": "Palantir and Microsoft collaborate on cloud and AI offerings.",
+      "sourceUrl": "https://www.palantir.com/partnerships/microsoft/",
+      "asOf": null,
+      "status": "unverified research lead"
+    }
+  ]
+}
