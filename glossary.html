@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Glossary — AI PM notes</title><link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./nav.css"></head>
+<body>
+<nav class="sitenav"><a href="./">Focus now</a><a href="./industry.html">Industry scan</a><a href="./sources.html">Sources</a><a href="./topics.html">Topics</a><a href="./interview.html">Interview</a><a href="./journal.html">Journal</a><a href="./glossary.html" class="active">Glossary</a></nav>
+<header><a class="brand" href="./">✳ <span>AI ATLAS</span></a><span class="edition">GLOSSARY</span><a href="./">← Focus now</a></header>
+<main>
+<section class="intro"><div><p class="eyebrow">WORDS YOU NOW OWN</p><h1>The vocabulary for<br><em>work you already do.</em></h1><p class="lede">Don't memorise. When you catch yourself doing one of these, say the word once — recognition in context is what makes it stick.</p></div></section>
+
+<section class="gloss">
+<div><h3>Context engineering</h3><p>Deciding everything the model sees for the next step — instructions, documents, history, user data — not just the prompt.</p></div>
+<div><h3>Context window</h3><p>The model's working memory for one session. Finite, which is why selection matters.</p></div>
+<div><h3>Retrieval (RAG)</h3><p>Fetching relevant documents into the window at the moment they're needed, instead of pasting everything.</p></div>
+<div><h3>Grounding</h3><p>Anchoring output in real source material so the model doesn't improvise. "Answer from the repo, not from memory."</p></div>
+<div><h3>Harness</h3><p>Everything that isn't the model: instructions, context, skills, memory, permissions, tools, checks, and the loop.</p></div>
+<div><h3>Agent loop</h3><p>Plan → act → look at the result → decide what's next. The same loop, at org scale, is the "companies as loops" idea.</p></div>
+<div><h3>MCP</h3><p>Model Context Protocol: the standard plug connecting tools and data sources to a model.</p></div>
+<div><h3>Guardrails</h3><p>The safety and policy limits wrapped around behaviour — what outputs or actions are disallowed, and what happens when the model tries.</p></div>
+<div><h3>Human-in-the-loop (HITL)</h3><p>A designed checkpoint where a person reviews, approves, or corrects before the agent proceeds.</p></div>
+<div><h3>Eval</h3><p>A structured measurement of behaviour against a standard. Measurement only — it doesn't change the model.</p></div>
+<div><h3>Golden dataset</h3><p>A fixed set of test cases with known-good answers, run repeatedly so results are comparable.</p></div>
+<div><h3>Gold labels</h3><p>The human-verified correct answers inside an eval set. The Shopee labelling operation produced these at scale.</p></div>
+<div><h3>Failure mode / taxonomy</h3><p>A recurring, nameable way the system gets it wrong — and the organised list of them, so fixes target categories, not anecdotes.</p></div>
+<div><h3>LLM-as-judge / autorater</h3><p>Using a model to score another model's outputs against a rubric, at a scale humans can't. The PRD-scoring agent is one.</p></div>
+<div><h3>Rubric</h3><p>The scoring guide the judge applies: criteria, scale, what good looks like.</p></div>
+<div><h3>Human–model agreement</h3><p>How often the model's scores match human scores on the same outputs. The trust check on any judge.</p></div>
+<div><h3>Regression</h3><p>A previously-passing case that starts failing after a change. "The new prompt broke the thing that worked."</p></div>
+<div><h3>Traces</h3><p>The step-by-step record of one agent run: each tool call, decision, and output, in order.</p></div>
+<div><h3>Drift</h3><p>Behaviour quietly changing over time, so yesterday's good scores no longer hold.</p></div>
+<div><h3>Hallucination</h3><p>Fluent output that is factually wrong or invented — a failure mode you detect via traces, then convert into eval cases.</p></div>
+<div><h3>SFT / RLHF</h3><p>Post-training shaping: learning from demonstrations (SFT), and learning from ranked human preferences (RLHF).</p></div>
+<div><h3>Inference</h3><p>The model actually running and producing answers, as opposed to training. Its cost and speed are PM concerns.</p></div>
+<div><h3>Capability vs reliability</h3><p>What a model can do at all, vs whether it does it consistently. Products fail on reliability more than capability.</p></div>
+<div><h3>Applied AI PM vs model PM</h3><p>Model PMs build the model with researchers; applied AI PMs build products on top of models. Your target roles are the second, with fluency in the first's vocabulary.</p></div>
+</section>
+</main>
+<footer>AI ATLAS <span>Built for curiosity. Designed to evolve.</span></footer>
+</body></html>

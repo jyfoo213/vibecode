@@ -1,17 +1,33 @@
 <!doctype html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>AI Atlas — connect the industry</title><link rel="stylesheet" href="./style.css"></head>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Focus now — AI PM notes</title><link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./nav.css"></head>
 <body>
-<header><a class="brand" href="./">✳ <span>AI ATLAS</span></a><span class="edition">FIELD NOTES / 001</span><a href="#methodology">About the data ↗</a></header>
+<nav class="sitenav"><a href="./" class="active">Focus now</a><a href="./industry.html">Industry scan</a><a href="./sources.html">Sources</a><a href="./topics.html">Topics</a><a href="./interview.html">Interview</a><a href="./journal.html">Journal</a><a href="./glossary.html">Glossary</a></nav>
+<header><a class="brand" href="./">✳ <span>AI ATLAS</span></a><span class="edition">LIVING NOTES</span><a href="./journal.html">Latest entry ↗</a></header>
 <main>
-<section class="intro"><div><p class="eyebrow">AN EXPLORER’S GUIDE TO ARTIFICIAL INTELLIGENCE</p><h1>AI Industry Scan</h1><p class="lede">From silicon to software, discover who builds AI—and who makes it possible.</p></div><div class="intro-note"><span class="big">25</span><p>companies · 5 layers<br>One connected ecosystem.</p><span class="pill">RESEARCH PREVIEW</span></div></section>
-<section class="notice">● Research in progress. This is a curated starting universe, not a verified top-25 ranking. Public market values are pending; private figures are historical and unverified. Connections are research leads, with dates and reference links.</section>
-<section class="workspace"><div class="toolbar"><div class="tabs"><button id="map-tab" class="active" aria-pressed="true">Ecosystem map</button><button id="list-tab" aria-pressed="false">Company directory</button></div><label class="search">⌕ <input id="search" type="search" placeholder="Find a company…" aria-label="Search companies"></label></div>
-<div class="filters" id="filters" aria-label="Supply chain layers"></div>
-<div id="map-view"><div class="map-heading"><span>THE AI SUPPLY CHAIN</span><span>Hover to preview · select to explore connections</span></div><div id="map-scroll"><div id="map"><svg id="edges" aria-hidden="true"></svg><div id="columns"></div></div></div><div class="map-footer"><span id="count"></span><button id="reset">Reset selection ↺</button></div></div>
-<div id="list-view" hidden><div class="directory-note">Sort by historical reported value where available. Missing valuations remain unranked. Values across dates and valuation types are not directly comparable.</div><div class="table-wrap"><table><thead><tr><th>Rank*</th><th>Company</th><th>Position</th><th><button id="sort">Historical value ↓</button></th><th>As of / status</th></tr></thead><tbody id="company-rows"></tbody></table></div></div>
+<section class="intro"><div><p class="eyebrow">A LIVING KNOWLEDGE BASE FOR THE AI PM PIVOT</p><h1>Start here.<br><em>No cold start.</em></h1><p class="lede">Everything learned on the way to an AI product role, kept in one visual place. Talk to Muse, and new knowledge lands here as journal entries.</p></div><div class="intro-note"><span class="big">4</span><p>sections · 1 focus<br>Updated as you learn.</p><span class="pill">LAST TOUCHED 31 OCT 2026</span></div></section>
+
+<section class="focus">
+<p class="eyebrow">FOCUS NOW</p>
+<h2>Prep the Shorts seat first</h2>
+<p><strong>Current focus:</strong> Google PM II, YouTube Shorts Agentic Video Editing (San Bruno) — prep set delivered 30 Oct, ahead of Google Drive, Next Billion Agents.</p>
+<p><strong>One small step:</strong> answer the Shorts eval-ownership question aloud — who owns the eval when a creator says an edit "feels off"? Then bring the answer back to Muse and it lands in the interview section.</p>
+<p><strong>Next up:</strong> Google Drive, Next Billion Agents. Priority trio behind that: OpenAI Integrity, OpenAI Financial Services, Anthropic Product Support Experience.</p>
+<p><span class="tag">FRESH BLOCKS ONLY — 9PM IS SETUP, NOT STUDY</span></p>
 </section>
-<section class="learn"><p class="eyebrow">FOLLOW THE VALUE CHAIN</p><h2>AI is a stack. Nobody builds it alone.</h2><div class="lessons"><article><span>01 / COMPUTE</span><h3>Start with the physical world</h3><p>Chip equipment enables fabrication. Foundries manufacture chips. Designers turn those chips into accelerators for AI workloads.</p></article><article><span>02 / INTELLIGENCE</span><h3>Compute becomes capability</h3><p>Cloud providers operate compute infrastructure. Model labs use it to train and serve systems that generate text, images, and code.</p></article><article><span>03 / PRODUCTS</span><h3>Capability finds a customer</h3><p>Data platforms and applications connect models to useful work. Money, distribution, and feedback flow back through the stack.</p></article></div></section>
-<section id="methodology"><h2>A map, with its working notes attached.</h2><p>Company values refer to the whole company, not its AI business. Market capitalization is the stock-market value of public equity; a private funding valuation is a negotiated snapshot. Neither measures revenue or AI leadership.</p><p>Public valuations are intentionally empty until a dated market-data source can be verified. Private figures are seed research from historical funding announcements, not current values. All relationships need source verification; arrows show the stated direction, not exclusivity or the complete industry. Companies may operate in several layers; the map shows one primary position.</p><p>The editable dataset lives in <code>data/landscape.json</code>. Each company has a valuation record, categories, and references. Each connection has a type, direction, description, date, and reference URL. No live market feed is connected.</p></section>
-</main><footer>AI ATLAS <span>Built for curiosity. Designed to evolve.</span></footer>
-<aside id="detail" hidden aria-label="Company details"><button id="close" aria-label="Close company details">×</button><div id="detail-body"></div></aside><div id="tooltip" role="tooltip" hidden></div>
-<script type="module" src="./app.js"></script></body></html>
+
+<section>
+<p class="eyebrow">THE MAP</p>
+<div class="cards">
+<a href="./industry.html"><span>01 / INDUSTRY SCAN</span><h3>See the industry</h3><p>25 companies, 5 layers. Who builds AI, who makes it possible, and what role each player plays in the ecosystem.</p></a>
+<a href="./sources.html"><span>02 / SOURCES</span><h3>Read at your own pace</h3><p>The news outlets, blogs, and podcasts worth returning to — daily skim and weekly deep, kept separate.</p></a>
+<a href="./topics.html"><span>03 / TOPICS</span><h3>What to learn, in order</h3><p>Concepts and practices ranked by interview payoff, not alphabetically. Evals first, then context, harness, and observability.</p></a>
+<a href="./interview.html"><span>04 / INTERVIEW</span><h3>Questions, answered with your stories</h3><p>Role-by-role questions paired with the story bank: Visa stablecoin, the PRD-scoring agent, Shopee labelling, OKX trust and safety.</p></a>
+<a href="./journal.html"><span>05 / JOURNAL</span><h3>What you learned, dated</h3><p>Every new idea lands here with a date, so a recap is a scroll, not a search.</p></a>
+<a href="./glossary.html"><span>06 / GLOSSARY</span><h3>Words you now own</h3><p>The vocabulary for work you already do — one plain line per term, no memorisation required.</p></a>
+</div>
+</section>
+
+<section class="notice">● How this site grows: as you talk to Muse and uncover something worth keeping, say so and it gets added here — a journal entry, a topic, a question, or a new player on the map. Nothing here is finished; it is a working record.</section>
+</main>
+<footer>AI ATLAS <span>Built for curiosity. Designed to evolve.</span></footer>
+</body></html>
