@@ -19,6 +19,12 @@ Continue building thin or missing sections autonomously within the requested sco
 
 Be proactive about learning gaps: propose useful follow-up questions and draft answers, explicitly labeled **AI suggested · AI answered**. Keep them separate from the owner's actual questions and original excerpts. Let the owner rate **interest/relevance** separately from **answer correctness**; neither is an automatic endorsement. Store generated question provenance, evidence, stable IDs and revisions in the question dataset. Do not auto-pass your own work or fabricate user questions. Build requested new lessons from relevant captured questions; local inbox exports must be explicitly supplied to an agent before it can use those notes.
 
+## Current UX priority — owner feedback, November 1, 2026
+
+The owner is in the **knowledge-gathering phase**. Their P1 is returning to **their own recent questions and the answers**, not grading answers or completing exercises. They currently trust the draft quality enough to focus on learning. Keep source caveats and optional eval tools, but do not make correctness scoring, portfolio projects or interview practice the default journey.
+
+Near-term outcomes are practical AI PM judgment for current work and understanding the AI industry/landscape. Put recent owner questions/answers first on the homepage and a direct “Your questions” link in global navigation. Keep AI suggestions clearly separate; sort owner questions using explicit conversation order rather than invented timestamps. The map should explain players, products, buyers, commercial lenses and strategic implications, with company groups/product brands and editorial analysis clearly disclosed. Source relationships independently; do not draw unverified leads as established facts.
+
 ## Start with the current state
 
 - Inspect `git status`, branch, recent commits, and the files relevant to the task. Preserve uncommitted work from other agents. Do not reset, clean, or overwrite someone else's changes.
@@ -29,12 +35,13 @@ Be proactive about learning gaps: propose useful follow-up questions and draft a
 
 - Buildless HTML/CSS and browser ES modules; Node.js 22+ for tooling. No framework, backend, runtime dependencies, API keys, or database needed.
 - `npm ci --ignore-scripts`; `npm start` (port 3000); `npm test`; `npm run build`.
+- `scripts/build-home.js` / `npm run home:generate` render recent owner Q&A from `data/questions.json` before other homepage content. `recent-questions.js` owns owner-only ordering; `home.js` shows optional browser-local review status. Keep short and full answers in the same question record.
 - `index.html`, `hub.css`, `hub.js`, `cost.js`: learning hub and calculator. `data/learning.json`: lessons, presets, sources.
 - Shared navigation: edit `scripts/navigation.js`, run `npm run nav`, and commit generated HTML for all pages. `site-nav.css` / `site-nav.js` own the common header. Keep global links consistent and use breadcrumbs for page context.
 - `scripts/build-guides.js` and `data/curriculum.json`, `data/glossary.json`, `data/practice.json` generate Topics, Skills, Sources, Glossary, Interview and Inbox pages. Edit data/templates, run `npm run content:generate`, then `npm run nav`; do not lose generated-page edits. `guides.*` / `learning-tools.js` implement the demos and browser-local work. Historical notes live in `data/legacy-notes.json` and remain clearly archival.
 - `coding-agents.html`: sourced Claude Code/Codex architecture comparison and prompt-to-implementation walkthrough.
 - `coding-models.*`: local vs cloud development topic. `questions.*`, `question-state.js`, `data/questions.json`: question bank and manual answer evaluation.
-- Existing notes and `industry.html` / `app.js` / `data/landscape.json` remain supported. Preserve their research-preview disclosures.
+- `industry.html`, `industry.css`, `app.js`, `landscape-utils.js`, `data/landscape.json`: curated player map, product-focused directory, detailed profiles and two-player comparison. Checked product references do not establish financial values, legal independence or performance rankings. Preserve historical record disclosures and the separate relationship-evidence toggle.
 - `scripts/build.js` defines public assets and writes `dist/`; `server.js` previews the same allowlist. Restart the server after adding public files.
 - Relative links must work under the `/vibecode/` GitHub Pages subpath. Keep secrets, scratch work, tests, and agent instructions out of `dist/`.
 

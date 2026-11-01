@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 1,
-  "researchStatus": "Unverified seed research; not a current market ranking",
+  "schemaVersion": 2,
+  "researchStatus": "45 curated player profiles; dated primary product references, editorial PM analysis, and separately disclosed historical research leads. Not a market ranking.",
   "layers": [
     {
       "id": "silicon",
@@ -36,7 +36,7 @@
       "ownership": "Public",
       "focus": "Diversified",
       "layer": "silicon",
-      "description": "Builds lithography equipment used by semiconductor manufacturers to pattern advanced chips.",
+      "description": "Builds lithography systems used in semiconductor manufacturing.",
       "website": "https://www.asml.com/",
       "valuation": {
         "usdBillions": null,
@@ -45,7 +45,34 @@
         "status": "research pending",
         "sourceUrl": null
       },
-      "researchStatus": "Seed profile; verification pending"
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Lithography equipment",
+      "profile": {
+        "offerings": [
+          "Lithography systems",
+          "metrology and inspection"
+        ],
+        "buyer": "Semiconductor manufacturers",
+        "commercialLens": "Equipment and service contracts",
+        "whyItMatters": "Chip supply depends on difficult-to-replicate manufacturing steps, not only model design.",
+        "tradeoffs": "Capacity, export controls and customer concentration can constrain supply.",
+        "pmQuestion": "How could a manufacturing bottleneck affect our compute roadmap?",
+        "compareWith": [
+          "tsmc",
+          "nvidia"
+        ],
+        "example": "Use as a candidate when investigating lithography equipment. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.asml.com/en/products",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
     },
     {
       "id": "tsmc",
@@ -54,7 +81,7 @@
       "ownership": "Public",
       "focus": "Diversified",
       "layer": "silicon",
-      "description": "Manufactures advanced chips designed by companies such as NVIDIA and AMD.",
+      "description": "Provides semiconductor foundry manufacturing and related technology services.",
       "website": "https://www.tsmc.com/",
       "valuation": {
         "usdBillions": null,
@@ -63,7 +90,34 @@
         "status": "research pending",
         "sourceUrl": null
       },
-      "researchStatus": "Seed profile; verification pending"
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Semiconductor manufacturing",
+      "profile": {
+        "offerings": [
+          "Foundry manufacturing",
+          "advanced packaging"
+        ],
+        "buyer": "Chip designers and systems companies",
+        "commercialLens": "Manufacturing and packaging services",
+        "whyItMatters": "AI hardware economics begin before a cloud API call.",
+        "tradeoffs": "Process availability, packaging and capacity planning affect deployment timelines.",
+        "pmQuestion": "Which supply assumptions are hidden in a hardware-dependent roadmap?",
+        "compareWith": [
+          "asml",
+          "nvidia"
+        ],
+        "example": "Use as a candidate when investigating semiconductor manufacturing. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.tsmc.com/english",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
     },
     {
       "id": "nvidia",
@@ -72,7 +126,7 @@
       "ownership": "Public",
       "focus": "Diversified",
       "layer": "silicon",
-      "description": "Designs GPUs, networking, and CUDA software used to train and run AI models.",
+      "description": "Offers accelerated hardware and software for AI workloads.",
       "website": "https://www.nvidia.com/",
       "valuation": {
         "usdBillions": null,
@@ -81,7 +135,36 @@
         "status": "research pending",
         "sourceUrl": null
       },
-      "researchStatus": "Seed profile; verification pending"
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Accelerated compute platform",
+      "profile": {
+        "offerings": [
+          "AI GPUs",
+          "networking",
+          "AI software and deployment tools"
+        ],
+        "buyer": "Cloud operators, enterprises and AI developers",
+        "commercialLens": "Hardware, systems and software/services",
+        "whyItMatters": "Its platform spans the hardware/software boundary that shapes deployment choices.",
+        "tradeoffs": "Compare actual workload performance, software portability and total system cost.",
+        "pmQuestion": "Are we choosing a chip, a software ecosystem, or an entire operating model?",
+        "compareWith": [
+          "amd",
+          "cerebras",
+          "groq"
+        ],
+        "example": "Use as a candidate when investigating accelerated compute platform. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.nvidia.com/en-us/ai/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
     },
     {
       "id": "amd",
@@ -90,7 +173,7 @@
       "ownership": "Public",
       "focus": "Diversified",
       "layer": "silicon",
-      "description": "Designs CPUs and Instinct GPU accelerators for data centers and AI workloads.",
+      "description": "Offers AI compute products and a supporting software ecosystem.",
       "website": "https://www.amd.com/",
       "valuation": {
         "usdBillions": null,
@@ -99,7 +182,35 @@
         "status": "research pending",
         "sourceUrl": null
       },
-      "researchStatus": "Seed profile; verification pending"
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Alternative accelerated compute",
+      "profile": {
+        "offerings": [
+          "Instinct accelerators",
+          "CPUs",
+          "ROCm software"
+        ],
+        "buyer": "Cloud operators and enterprise infrastructure teams",
+        "commercialLens": "Hardware and platform ecosystem",
+        "whyItMatters": "A meaningful alternative makes hardware and software compatibility a product decision.",
+        "tradeoffs": "Benchmark model support, tooling maturity and engineering effort rather than peak specifications.",
+        "pmQuestion": "What workload evidence would justify switching infrastructure?",
+        "compareWith": [
+          "nvidia",
+          "cerebras"
+        ],
+        "example": "Use as a candidate when investigating alternative accelerated compute. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.amd.com/en/solutions/ai.html",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
     },
     {
       "id": "broadcom",
@@ -108,7 +219,7 @@
       "ownership": "Public",
       "focus": "Diversified",
       "layer": "silicon",
-      "description": "Supplies networking silicon and custom accelerator technology for data centers.",
+      "description": "Offers AI networking, connectivity and custom accelerator technologies.",
       "website": "https://www.broadcom.com/",
       "valuation": {
         "usdBillions": null,
@@ -117,16 +228,44 @@
         "status": "research pending",
         "sourceUrl": null
       },
-      "researchStatus": "Seed profile; verification pending"
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "AI networking and custom silicon",
+      "profile": {
+        "offerings": [
+          "Ethernet networking",
+          "connectivity",
+          "custom accelerators"
+        ],
+        "buyer": "Large infrastructure operators and hardware builders",
+        "commercialLens": "Semiconductor products and custom programs",
+        "whyItMatters": "Connecting accelerators and moving data can be as consequential as computation.",
+        "tradeoffs": "Custom designs trade potential efficiency for engineering commitment and deployment time.",
+        "pmQuestion": "Where is our bottleneck: compute, networking, memory or data movement?",
+        "compareWith": [
+          "nvidia",
+          "amd"
+        ],
+        "example": "Use as a candidate when investigating ai networking and custom silicon. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.broadcom.com/solutions/ai-solutions",
+            "checked": "2026-11-01",
+            "supports": "Primary-source search excerpts describe AI networking and custom accelerator offerings; full product page was not readable."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
     },
     {
       "id": "microsoft",
-      "name": "Microsoft",
+      "name": "Microsoft / Azure",
       "ticker": "MSFT",
       "ownership": "Public",
       "focus": "Diversified",
       "layer": "cloud",
-      "description": "Operates Azure, develops Copilot products, and invests in model development and distribution.",
+      "description": "Azure offers services for building and operating AI applications and agents.",
       "website": "https://www.microsoft.com/",
       "valuation": {
         "usdBillions": null,
@@ -135,16 +274,45 @@
         "status": "research pending",
         "sourceUrl": null
       },
-      "researchStatus": "Seed profile; verification pending"
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Enterprise AI distribution and infrastructure",
+      "profile": {
+        "offerings": [
+          "Azure AI services",
+          "model access",
+          "enterprise cloud tools"
+        ],
+        "buyer": "Enterprise developers, IT teams and business buyers",
+        "commercialLens": "Cloud usage, platform services and enterprise agreements",
+        "whyItMatters": "An existing enterprise platform can reduce integration and procurement friction.",
+        "tradeoffs": "Examine portability, data controls, regional support and platform coupling.",
+        "pmQuestion": "Does our existing cloud relationship simplify delivery or constrain our options?",
+        "compareWith": [
+          "amazon",
+          "alphabet",
+          "oracle"
+        ],
+        "example": "Use as a candidate when investigating enterprise ai distribution and infrastructure. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://azure.microsoft.com/en-us/solutions/ai",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
     },
     {
       "id": "amazon",
-      "name": "Amazon",
+      "name": "Amazon / AWS",
       "ticker": "AMZN",
       "ownership": "Public",
       "focus": "Diversified",
       "layer": "cloud",
-      "description": "Operates AWS, offers Bedrock model access, and designs Trainium and Inferentia chips.",
+      "description": "AWS offers AI infrastructure and managed services for model-powered applications.",
       "website": "https://aws.amazon.com/",
       "valuation": {
         "usdBillions": null,
@@ -153,16 +321,45 @@
         "status": "research pending",
         "sourceUrl": null
       },
-      "researchStatus": "Seed profile; verification pending"
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Cloud and managed model access",
+      "profile": {
+        "offerings": [
+          "Amazon Bedrock",
+          "compute",
+          "AI development services"
+        ],
+        "buyer": "Developers, enterprises and platform teams",
+        "commercialLens": "Cloud and managed-service usage",
+        "whyItMatters": "Model choice can be purchased through a cloud control plane rather than only a model lab.",
+        "tradeoffs": "Check provider-specific availability, pricing, latency and operational policies.",
+        "pmQuestion": "What do we gain or lose by buying the model through our cloud provider?",
+        "compareWith": [
+          "microsoft",
+          "alphabet",
+          "oracle"
+        ],
+        "example": "Use as a candidate when investigating cloud and managed model access. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://aws.amazon.com/ai/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
     },
     {
       "id": "alphabet",
-      "name": "Alphabet",
+      "name": "Google / Alphabet",
       "ticker": "GOOGL",
       "ownership": "Public",
       "focus": "Diversified",
       "layer": "cloud",
-      "description": "Combines Google Cloud and TPUs with Google DeepMind, Gemini, Search, and a large distribution network.",
+      "description": "Google Cloud offers AI models, development tools and infrastructure services.",
       "website": "https://abc.xyz/",
       "valuation": {
         "usdBillions": null,
@@ -171,7 +368,36 @@
         "status": "research pending",
         "sourceUrl": null
       },
-      "researchStatus": "Seed profile; verification pending"
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Models plus AI cloud",
+      "profile": {
+        "offerings": [
+          "Gemini access",
+          "Vertex AI",
+          "cloud infrastructure"
+        ],
+        "buyer": "Developers, enterprise teams and cloud buyers",
+        "commercialLens": "Cloud usage and AI platform services",
+        "whyItMatters": "A company can span models, compute, tools and consumer distribution.",
+        "tradeoffs": "Separate the particular product, interface and data policy from the parent company.",
+        "pmQuestion": "Which Google surface solves our job, and what does it couple us to?",
+        "compareWith": [
+          "microsoft",
+          "amazon",
+          "alibaba"
+        ],
+        "example": "Use as a candidate when investigating models plus ai cloud. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://cloud.google.com/products/ai",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
     },
     {
       "id": "oracle",
@@ -180,7 +406,7 @@
       "ownership": "Public",
       "focus": "Diversified",
       "layer": "cloud",
-      "description": "Provides cloud computing infrastructure and enterprise database software for AI workloads.",
+      "description": "Offers AI capabilities alongside cloud infrastructure and enterprise applications.",
       "website": "https://www.oracle.com/",
       "valuation": {
         "usdBillions": null,
@@ -189,7 +415,35 @@
         "status": "research pending",
         "sourceUrl": null
       },
-      "researchStatus": "Seed profile; verification pending"
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "AI within enterprise cloud and data",
+      "profile": {
+        "offerings": [
+          "OCI AI infrastructure",
+          "database and application AI"
+        ],
+        "buyer": "Enterprise IT, data and application teams",
+        "commercialLens": "Infrastructure usage and enterprise software",
+        "whyItMatters": "Installed enterprise data and workflows can shape AI adoption.",
+        "tradeoffs": "Inspect data movement, integration requirements and the actual operating cost.",
+        "pmQuestion": "Does placing AI near our existing data improve the user outcome?",
+        "compareWith": [
+          "microsoft",
+          "amazon",
+          "alphabet"
+        ],
+        "example": "Use as a candidate when investigating ai within enterprise cloud and data. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.oracle.com/artificial-intelligence/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
     },
     {
       "id": "coreweave",
@@ -198,7 +452,7 @@
       "ownership": "Public",
       "focus": "AI-focused",
       "layer": "cloud",
-      "description": "Operates specialized GPU cloud infrastructure for model training and inference.",
+      "description": "Offers cloud infrastructure designed for AI workloads, including NVIDIA-based systems.",
       "website": "https://www.coreweave.com/",
       "valuation": {
         "usdBillions": null,
@@ -207,7 +461,35 @@
         "status": "research pending",
         "sourceUrl": null
       },
-      "researchStatus": "Seed profile; verification pending"
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Specialised AI cloud",
+      "profile": {
+        "offerings": [
+          "AI compute",
+          "training and inference infrastructure"
+        ],
+        "buyer": "AI labs and compute-intensive enterprise teams",
+        "commercialLens": "Compute capacity and cloud services",
+        "whyItMatters": "Specialised infrastructure competes on delivering usable capacity, not a chatbot interface.",
+        "tradeoffs": "Compare availability, contracts, orchestration and total workload economics.",
+        "pmQuestion": "Which infrastructure constraints matter more than a headline GPU price?",
+        "compareWith": [
+          "together",
+          "cerebras",
+          "nvidia"
+        ],
+        "example": "Use as a candidate when investigating specialised ai cloud. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.coreweave.com/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
     },
     {
       "id": "openai",
@@ -216,7 +498,7 @@
       "ownership": "Private",
       "focus": "AI-focused",
       "layer": "models",
-      "description": "Develops general-purpose AI models and products including ChatGPT and an API for developers.",
+      "description": "Develops AI models and products including ChatGPT, Codex and API services.",
       "website": "https://openai.com/",
       "valuation": {
         "usdBillions": 300,
@@ -225,7 +507,36 @@
         "status": "unverified historical reference",
         "sourceUrl": "https://openai.com/index/march-funding-updates/"
       },
-      "researchStatus": "Seed profile; verification pending"
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Models, APIs and work products",
+      "profile": {
+        "offerings": [
+          "ChatGPT",
+          "Codex",
+          "model APIs"
+        ],
+        "buyer": "Consumers, developers and enterprise buyers",
+        "commercialLens": "Subscriptions, API usage and enterprise products",
+        "whyItMatters": "The same provider can supply both model capability and the end-user workflow.",
+        "tradeoffs": "Separate product limits and data controls from API model specifications.",
+        "pmQuestion": "Should we build a workflow on an API or use a finished product?",
+        "compareWith": [
+          "anthropic",
+          "alphabet",
+          "mistral"
+        ],
+        "example": "Use as a candidate when investigating models, apis and work products. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://openai.com/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
     },
     {
       "id": "anthropic",
@@ -234,7 +545,7 @@
       "ownership": "Private",
       "focus": "AI-focused",
       "layer": "models",
-      "description": "Develops the Claude family of models with a focus on capable, reliable AI systems.",
+      "description": "Develops Claude models and products for assistant, coding and API use.",
       "website": "https://www.anthropic.com/",
       "valuation": {
         "usdBillions": 61.5,
@@ -243,16 +554,45 @@
         "status": "unverified historical reference",
         "sourceUrl": "https://www.anthropic.com/news/anthropic-raises-series-e-at-usd61-5-billion-post-money-valuation"
       },
-      "researchStatus": "Seed profile; verification pending"
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Claude models and work tools",
+      "profile": {
+        "offerings": [
+          "Claude",
+          "Claude Code",
+          "model API"
+        ],
+        "buyer": "Knowledge workers, developers and enterprises",
+        "commercialLens": "Subscriptions, API usage and enterprise services",
+        "whyItMatters": "Coding and knowledge-work value depends on the tools and context around the model.",
+        "tradeoffs": "Compare full workflow reliability, permissions, latency and cost.",
+        "pmQuestion": "Is the limiting factor model capability, context or orchestration?",
+        "compareWith": [
+          "openai",
+          "mistral",
+          "cohere"
+        ],
+        "example": "Use as a candidate when investigating claude models and work tools. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.anthropic.com/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
     },
     {
       "id": "meta",
-      "name": "Meta",
+      "name": "Meta / Llama",
       "ticker": "META",
       "ownership": "Public",
       "focus": "Diversified",
       "layer": "models",
-      "description": "Develops Llama models and applies AI across advertising, recommendations, and consumer products.",
+      "description": "Meta\u2019s Llama models are available through Amazon Bedrock.",
       "website": "https://ai.meta.com/",
       "valuation": {
         "usdBillions": null,
@@ -261,16 +601,44 @@
         "status": "research pending",
         "sourceUrl": null
       },
-      "researchStatus": "Seed profile; verification pending"
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Model ecosystem and distribution",
+      "profile": {
+        "offerings": [
+          "Llama model family",
+          "model ecosystem"
+        ],
+        "buyer": "Developers and organisations selecting model deployments",
+        "commercialLens": "Evaluate distribution and deployment economics separately",
+        "whyItMatters": "Model access can be separated from the company that operates inference.",
+        "tradeoffs": "Check each release\u2019s license, hosting support and operational burden.",
+        "pmQuestion": "What changes when model selection and hosting selection are separate?",
+        "compareWith": [
+          "alibaba",
+          "deepseek",
+          "mistral"
+        ],
+        "example": "Use as a candidate when investigating model ecosystem and distribution. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "AWS provider reference for Meta Llama",
+            "url": "https://aws.amazon.com/bedrock/meta/",
+            "checked": "2026-11-01",
+            "supports": "Llama availability through Bedrock; current license and release terms require the model publisher documentation."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
     },
     {
       "id": "xai",
-      "name": "xAI",
+      "name": "Grok / xAI (SpaceXSI)",
       "ticker": null,
       "ownership": "Private",
       "focus": "AI-focused",
       "layer": "models",
-      "description": "Develops Grok models and associated consumer and developer AI services.",
+      "description": "The x.ai product site presents Grok applications and developer APIs under SpaceXSI branding.",
       "website": "https://x.ai/",
       "valuation": {
         "usdBillions": null,
@@ -279,7 +647,37 @@
         "status": "research pending",
         "sourceUrl": null
       },
-      "researchStatus": "Seed profile; verification pending"
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Grok models and applications",
+      "profile": {
+        "offerings": [
+          "Grok chat",
+          "coding/agent products",
+          "API"
+        ],
+        "buyer": "Consumers, developers and business teams",
+        "commercialLens": "App subscriptions, API usage and enterprise offers",
+        "whyItMatters": "Brand, company scope and product family can change while the API remains a separate decision.",
+        "tradeoffs": "Re-check current terms, data access, model availability and corporate scope.",
+        "pmQuestion": "What product evidence matters beyond a highly visible consumer brand?",
+        "compareWith": [
+          "openai",
+          "anthropic",
+          "perplexity"
+        ],
+        "example": "Use as a candidate when investigating grok models and applications. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://x.ai/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes.",
+        "scopeNote": "Product-family profile. The current x.ai site uses SpaceXSI branding; historical valuation below predates this reference and is not a current standalone-company valuation."
+      }
     },
     {
       "id": "mistral",
@@ -288,7 +686,7 @@
       "ownership": "Private",
       "focus": "AI-focused",
       "layer": "models",
-      "description": "Develops open-weight and commercial models, developer tools, and enterprise AI services.",
+      "description": "Offers AI models and products with an emphasis on deployment choice and control.",
       "website": "https://mistral.ai/",
       "valuation": {
         "usdBillions": null,
@@ -297,7 +695,36 @@
         "status": "research pending",
         "sourceUrl": null
       },
-      "researchStatus": "Seed profile; verification pending"
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Models and deployment choice",
+      "profile": {
+        "offerings": [
+          "Model services",
+          "enterprise AI tools",
+          "open-model offerings"
+        ],
+        "buyer": "Developers and enterprises with deployment constraints",
+        "commercialLens": "Model access, deployment and enterprise services",
+        "whyItMatters": "Portability and control can be part of the buying decision alongside model quality.",
+        "tradeoffs": "Read release-specific licenses and test the supported deployment path.",
+        "pmQuestion": "What control do we need, and what operational work are we willing to own?",
+        "compareWith": [
+          "cohere",
+          "alibaba",
+          "openai"
+        ],
+        "example": "Use as a candidate when investigating models and deployment choice. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://mistral.ai/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
     },
     {
       "id": "cohere",
@@ -306,7 +733,7 @@
       "ownership": "Private",
       "focus": "AI-focused",
       "layer": "models",
-      "description": "Builds enterprise language models, retrieval, and multilingual AI capabilities.",
+      "description": "Offers enterprise AI products and models for workplace use.",
       "website": "https://cohere.com/",
       "valuation": {
         "usdBillions": null,
@@ -315,7 +742,36 @@
         "status": "research pending",
         "sourceUrl": null
       },
-      "researchStatus": "Seed profile; verification pending"
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Enterprise AI and retrieval",
+      "profile": {
+        "offerings": [
+          "Enterprise models",
+          "retrieval/reranking",
+          "workplace AI"
+        ],
+        "buyer": "Enterprise data and application teams",
+        "commercialLens": "API and enterprise deployment agreements",
+        "whyItMatters": "Enterprise usefulness includes information access and integration, not only chat quality.",
+        "tradeoffs": "Test relevance, permissions, language coverage and deployment requirements.",
+        "pmQuestion": "Does a specialised enterprise stack reduce the work between model and user value?",
+        "compareWith": [
+          "mistral",
+          "ibm",
+          "glean"
+        ],
+        "example": "Use as a candidate when investigating enterprise ai and retrieval. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://cohere.com/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
     },
     {
       "id": "databricks",
@@ -324,7 +780,7 @@
       "ownership": "Private",
       "focus": "Diversified",
       "layer": "data",
-      "description": "Provides a data and AI platform for analytics, data engineering, and model development.",
+      "description": "Offers a platform for data, analytics and AI development.",
       "website": "https://www.databricks.com/",
       "valuation": {
         "usdBillions": 62,
@@ -333,7 +789,34 @@
         "status": "unverified historical reference",
         "sourceUrl": "https://www.databricks.com/company/newsroom/press-releases/databricks-raising-10b-series-j-investment-62b-valuation"
       },
-      "researchStatus": "Seed profile; verification pending"
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Data and AI platform",
+      "profile": {
+        "offerings": [
+          "Data platform",
+          "model development and AI tooling"
+        ],
+        "buyer": "Data engineering, analytics and ML teams",
+        "commercialLens": "Platform and compute consumption",
+        "whyItMatters": "Existing data workflows can influence where an AI application gets built.",
+        "tradeoffs": "Inspect governance, integration effort and cost ownership across teams.",
+        "pmQuestion": "Should our AI workflow live where data is already governed?",
+        "compareWith": [
+          "snowflake",
+          "ibm"
+        ],
+        "example": "Use as a candidate when investigating data and ai platform. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.databricks.com/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
     },
     {
       "id": "snowflake",
@@ -342,7 +825,7 @@
       "ownership": "Public",
       "focus": "Diversified",
       "layer": "data",
-      "description": "Provides a cloud data platform with analytics and AI capabilities close to enterprise data.",
+      "description": "Offers a data platform with AI and application capabilities.",
       "website": "https://www.snowflake.com/",
       "valuation": {
         "usdBillions": null,
@@ -351,7 +834,35 @@
         "status": "research pending",
         "sourceUrl": null
       },
-      "researchStatus": "Seed profile; verification pending"
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "AI around governed enterprise data",
+      "profile": {
+        "offerings": [
+          "Data cloud",
+          "Cortex AI services",
+          "application tooling"
+        ],
+        "buyer": "Enterprise data and analytics teams",
+        "commercialLens": "Consumption-based platform services",
+        "whyItMatters": "Data locality and governance can be part of the product advantage.",
+        "tradeoffs": "Compare query/AI costs, supported data types and integration constraints.",
+        "pmQuestion": "Can the user\u2019s job be solved closer to governed data?",
+        "compareWith": [
+          "databricks",
+          "oracle"
+        ],
+        "example": "Use as a candidate when investigating ai around governed enterprise data. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.snowflake.com/en/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
     },
     {
       "id": "scale",
@@ -360,7 +871,7 @@
       "ownership": "Private",
       "focus": "AI-focused",
       "layer": "data",
-      "description": "Provides data labeling, evaluation, and data infrastructure for AI development.",
+      "description": "Offers data and AI systems capabilities for building and evaluating applications.",
       "website": "https://scale.com/",
       "valuation": {
         "usdBillions": null,
@@ -369,7 +880,36 @@
         "status": "research pending",
         "sourceUrl": null
       },
-      "researchStatus": "Seed profile; verification pending"
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Data and evaluation services",
+      "profile": {
+        "offerings": [
+          "Data services",
+          "evaluations",
+          "enterprise AI systems"
+        ],
+        "buyer": "AI developers, enterprise and institutional buyers",
+        "commercialLens": "Data/service programs and enterprise platforms",
+        "whyItMatters": "Model quality can depend on the feedback and evaluation pipeline behind it.",
+        "tradeoffs": "Assess label quality, data rights, independence and how outcomes are measured.",
+        "pmQuestion": "Which quality bottleneck is a data problem rather than a model problem?",
+        "compareWith": [
+          "wandb",
+          "arize",
+          "databricks"
+        ],
+        "example": "Use as a candidate when investigating data and evaluation services. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://scale.com/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
     },
     {
       "id": "huggingface",
@@ -378,7 +918,7 @@
       "ownership": "Private",
       "focus": "AI-focused",
       "layer": "data",
-      "description": "Hosts models and datasets and builds open-source tools for the machine-learning community.",
+      "description": "Hosts a collaboration platform for models, datasets and AI applications.",
       "website": "https://huggingface.co/",
       "valuation": {
         "usdBillions": 4.5,
@@ -387,7 +927,36 @@
         "status": "unverified historical reference",
         "sourceUrl": "https://huggingface.co/blog/series-d"
       },
-      "researchStatus": "Seed profile; verification pending"
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Model and dataset ecosystem",
+      "profile": {
+        "offerings": [
+          "Model and dataset hub",
+          "libraries",
+          "deployment services"
+        ],
+        "buyer": "Developers, researchers and enterprise teams",
+        "commercialLens": "Open ecosystem with paid infrastructure/services",
+        "whyItMatters": "A shared ecosystem helps discover and test alternatives to closed product stacks.",
+        "tradeoffs": "Check model cards, licenses, maintenance and serving cost per artifact.",
+        "pmQuestion": "What do we need to validate before adopting a community model?",
+        "compareWith": [
+          "together",
+          "alibaba",
+          "meta"
+        ],
+        "example": "Use as a candidate when investigating model and dataset ecosystem. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://huggingface.co/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
     },
     {
       "id": "palantir",
@@ -396,7 +965,7 @@
       "ownership": "Public",
       "focus": "Diversified",
       "layer": "apps",
-      "description": "Connects enterprise and government data to operational workflows, including AI applications.",
+      "description": "AIP documentation describes connecting AI capabilities to operational data and workflows.",
       "website": "https://www.palantir.com/",
       "valuation": {
         "usdBillions": null,
@@ -405,7 +974,34 @@
         "status": "research pending",
         "sourceUrl": null
       },
-      "researchStatus": "Seed profile; verification pending"
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Operational AI workflows",
+      "profile": {
+        "offerings": [
+          "AIP",
+          "operational data and application tooling"
+        ],
+        "buyer": "Enterprise and institutional operations teams",
+        "commercialLens": "Enterprise platform agreements",
+        "whyItMatters": "The product question is how AI participates in an operational decision, not only how it answers.",
+        "tradeoffs": "Inspect implementation effort, data models, authorisation and review paths.",
+        "pmQuestion": "Where should an AI recommendation stop and an authorised action begin?",
+        "compareWith": [
+          "servicenow",
+          "salesforce"
+        ],
+        "example": "Use as a candidate when investigating operational ai workflows. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.palantir.com/docs/foundry/aip/overview/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
     },
     {
       "id": "salesforce",
@@ -414,7 +1010,7 @@
       "ownership": "Public",
       "focus": "Diversified",
       "layer": "apps",
-      "description": "Builds customer-management software and AI agents grounded in business data and workflows.",
+      "description": "Agentforce provides AI-agent capabilities for customer and employee workflows.",
       "website": "https://www.salesforce.com/",
       "valuation": {
         "usdBillions": null,
@@ -423,7 +1019,34 @@
         "status": "research pending",
         "sourceUrl": null
       },
-      "researchStatus": "Seed profile; verification pending"
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "AI in customer workflows",
+      "profile": {
+        "offerings": [
+          "Agentforce",
+          "CRM-integrated workflows"
+        ],
+        "buyer": "Sales, service and enterprise platform buyers",
+        "commercialLens": "CRM/platform licensing and usage-based offers",
+        "whyItMatters": "Owning the customer workflow can improve distribution for AI features.",
+        "tradeoffs": "Validate workflow outcomes, escalation, permission handling and total pricing.",
+        "pmQuestion": "Does AI reduce resolution work or simply add another interaction layer?",
+        "compareWith": [
+          "servicenow",
+          "glean"
+        ],
+        "example": "Use as a candidate when investigating ai in customer workflows. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.salesforce.com/agentforce/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
     },
     {
       "id": "adobe",
@@ -432,7 +1055,7 @@
       "ownership": "Public",
       "focus": "Diversified",
       "layer": "apps",
-      "description": "Builds creative software and Firefly generative AI tools for content creation.",
+      "description": "Firefly offers generative creative tools, including image and video capabilities.",
       "website": "https://www.adobe.com/",
       "valuation": {
         "usdBillions": null,
@@ -441,7 +1064,34 @@
         "status": "research pending",
         "sourceUrl": null
       },
-      "researchStatus": "Seed profile; verification pending"
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Creative AI inside production tools",
+      "profile": {
+        "offerings": [
+          "Firefly",
+          "creative workflow integrations"
+        ],
+        "buyer": "Creators, marketing and production teams",
+        "commercialLens": "Creative software subscriptions and usage offers",
+        "whyItMatters": "Creative value includes control, editability and fit with production work.",
+        "tradeoffs": "Assess rights, consistency, revision effort and integration\u2014not just a striking first image.",
+        "pmQuestion": "How many usable assets emerge after review and editing?",
+        "compareWith": [
+          "runway",
+          "elevenlabs"
+        ],
+        "example": "Use as a candidate when investigating creative ai inside production tools. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.adobe.com/products/firefly.html",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
     },
     {
       "id": "servicenow",
@@ -450,7 +1100,7 @@
       "ownership": "Public",
       "focus": "Diversified",
       "layer": "apps",
-      "description": "Provides enterprise workflow software with AI assistants and automation capabilities.",
+      "description": "The ServiceNow AI Platform connects AI capabilities with enterprise workflows.",
       "website": "https://www.servicenow.com/",
       "valuation": {
         "usdBillions": null,
@@ -459,7 +1109,36 @@
         "status": "research pending",
         "sourceUrl": null
       },
-      "researchStatus": "Seed profile; verification pending"
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Enterprise service workflow AI",
+      "profile": {
+        "offerings": [
+          "AI platform",
+          "service workflows",
+          "Now Assist family"
+        ],
+        "buyer": "IT, employee-service and customer-service teams",
+        "commercialLens": "Enterprise platform and AI agreements",
+        "whyItMatters": "Existing process ownership creates a path for bounded automation.",
+        "tradeoffs": "Test cross-system authorisation, exception handling and real cycle-time savings.",
+        "pmQuestion": "Which step can be automated without losing accountability?",
+        "compareWith": [
+          "salesforce",
+          "palantir",
+          "glean"
+        ],
+        "example": "Use as a candidate when investigating enterprise service workflow ai. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.servicenow.com/platform.html",
+            "checked": "2026-11-01",
+            "supports": "Primary-source search excerpts describe enterprise AI workflow products; no quantitative performance claims verified."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
     },
     {
       "id": "perplexity",
@@ -468,7 +1147,7 @@
       "ownership": "Private",
       "focus": "AI-focused",
       "layer": "apps",
-      "description": "Builds an AI answer and search product that synthesizes information with citations.",
+      "description": "Provides developer interfaces for search and answer-oriented AI capabilities.",
       "website": "https://www.perplexity.ai/",
       "valuation": {
         "usdBillions": null,
@@ -477,7 +1156,957 @@
         "status": "research pending",
         "sourceUrl": null
       },
-      "researchStatus": "Seed profile; verification pending"
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Research and search experience",
+      "profile": {
+        "offerings": [
+          "Search/research applications",
+          "developer APIs"
+        ],
+        "buyer": "Knowledge workers and developers",
+        "commercialLens": "App subscriptions and API services",
+        "whyItMatters": "Search, evidence selection and answer presentation form one user experience.",
+        "tradeoffs": "Inspect supporting passages, source diversity, freshness and retrieval cost.",
+        "pmQuestion": "Does the answer reduce verification effort or just look well-cited?",
+        "compareWith": [
+          "openai",
+          "glean"
+        ],
+        "example": "Use as a candidate when investigating research and search experience. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://docs.perplexity.ai/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "ticker": null,
+      "ownership": "Not assessed",
+      "focus": "AI-focused",
+      "layer": "models",
+      "description": "Offers model research, chat and developer API access.",
+      "website": "https://www.deepseek.com/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Not assessed; not a valuation ranking",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Model and developer ecosystem",
+      "profile": {
+        "offerings": [
+          "DeepSeek models",
+          "chat",
+          "APIs",
+          "coding tools"
+        ],
+        "buyer": "Developers and model/platform teams",
+        "commercialLens": "API and model-ecosystem deployment economics",
+        "whyItMatters": "A broader model universe makes quality-per-cost and deployment strategy worth testing.",
+        "tradeoffs": "Check the particular license, hosting path, availability and data terms.",
+        "pmQuestion": "What evidence would make this model a useful candidate for our task?",
+        "compareWith": [
+          "alibaba",
+          "meta",
+          "mistral"
+        ],
+        "example": "Use as a candidate when investigating model and developer ecosystem. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.deepseek.com/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
+    },
+    {
+      "id": "alibaba",
+      "name": "Alibaba Cloud / Qwen",
+      "ticker": null,
+      "ownership": "Not assessed",
+      "focus": "AI-focused",
+      "layer": "models",
+      "description": "Alibaba Cloud provides Qwen language and multimodal model offerings.",
+      "website": "https://www.alibabacloud.com/en/solutions/generative-ai/qwen",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Not assessed; not a valuation ranking",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Model family plus cloud distribution",
+      "profile": {
+        "offerings": [
+          "Qwen family",
+          "model development ecosystem"
+        ],
+        "buyer": "Developers and enterprise AI teams",
+        "commercialLens": "Cloud/API services and model deployment options",
+        "whyItMatters": "One player can distribute model capability through both cloud and model ecosystems.",
+        "tradeoffs": "Validate model-specific licenses, language performance and hosting requirements.",
+        "pmQuestion": "How does our deployment geography and language mix affect model choice?",
+        "compareWith": [
+          "deepseek",
+          "meta",
+          "alphabet"
+        ],
+        "example": "Use as a candidate when investigating model family plus cloud distribution. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.alibabacloud.com/en/solutions/generative-ai/qwen",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
+    },
+    {
+      "id": "ibm",
+      "name": "IBM",
+      "ticker": null,
+      "ownership": "Not assessed",
+      "focus": "AI-focused",
+      "layer": "models",
+      "description": "watsonx.ai combines AI development with model, framework and infrastructure choices.",
+      "website": "https://www.ibm.com/products/watsonx-ai",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Not assessed; not a valuation ranking",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Hybrid enterprise AI platform",
+      "profile": {
+        "offerings": [
+          "watsonx.ai",
+          "enterprise AI development"
+        ],
+        "buyer": "Enterprise IT, data and application teams",
+        "commercialLens": "Enterprise platform and deployment agreements",
+        "whyItMatters": "Governance and hybrid infrastructure can shape adoption in complex organisations.",
+        "tradeoffs": "Examine integration, evaluation support and actual deployment constraints.",
+        "pmQuestion": "Which enterprise requirement changes the best technical choice?",
+        "compareWith": [
+          "cohere",
+          "databricks",
+          "microsoft"
+        ],
+        "example": "Use as a candidate when investigating hybrid enterprise ai platform. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.ibm.com/products/watsonx-ai",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
+    },
+    {
+      "id": "cerebras",
+      "name": "Cerebras",
+      "ticker": null,
+      "ownership": "Not assessed",
+      "focus": "AI-focused",
+      "layer": "cloud",
+      "description": "Offers AI compute systems and cloud inference access.",
+      "website": "https://www.cerebras.ai/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Not assessed; not a valuation ranking",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Specialised AI compute and inference",
+      "profile": {
+        "offerings": [
+          "AI systems",
+          "cloud inference"
+        ],
+        "buyer": "AI developers and compute buyers",
+        "commercialLens": "Systems and inference services",
+        "whyItMatters": "Alternative compute designs make workload-specific benchmarking important.",
+        "tradeoffs": "Check supported models, concurrency, availability and end-to-end latency.",
+        "pmQuestion": "Does faster generation improve our actual user workflow?",
+        "compareWith": [
+          "groq",
+          "nvidia",
+          "together"
+        ],
+        "example": "Use as a candidate when investigating specialised ai compute and inference. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.cerebras.ai/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
+    },
+    {
+      "id": "groq",
+      "name": "Groq",
+      "ticker": null,
+      "ownership": "Not assessed",
+      "focus": "AI-focused",
+      "layer": "cloud",
+      "description": "Provides inference infrastructure and developer access, with LPU-based technology.",
+      "website": "https://groq.com/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Not assessed; not a valuation ranking",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Inference-focused infrastructure",
+      "profile": {
+        "offerings": [
+          "Inference platform",
+          "developer console"
+        ],
+        "buyer": "Developers and AI-serving teams",
+        "commercialLens": "Inference/platform usage agreements",
+        "whyItMatters": "Serving performance is a distinct layer from training or choosing a model.",
+        "tradeoffs": "Compare model coverage, queueing, latency and capacity under realistic traffic.",
+        "pmQuestion": "Are we constrained by model reasoning time or the serving system?",
+        "compareWith": [
+          "cerebras",
+          "fireworks",
+          "together"
+        ],
+        "example": "Use as a candidate when investigating inference-focused infrastructure. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://groq.com/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
+    },
+    {
+      "id": "together",
+      "name": "Together AI",
+      "ticker": null,
+      "ownership": "Not assessed",
+      "focus": "AI-focused",
+      "layer": "cloud",
+      "description": "Offers AI inference, compute and model-development services.",
+      "website": "https://www.together.ai/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Not assessed; not a valuation ranking",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Model serving and AI compute",
+      "profile": {
+        "offerings": [
+          "Inference",
+          "GPU compute",
+          "model-shaping services"
+        ],
+        "buyer": "Developers and AI platform teams",
+        "commercialLens": "Compute and managed model-service usage",
+        "whyItMatters": "A serving platform can let teams change model choices without operating all infrastructure.",
+        "tradeoffs": "Validate the model catalog, reliability, throughput and total deployment effort.",
+        "pmQuestion": "Which serving responsibilities do we want to outsource?",
+        "compareWith": [
+          "fireworks",
+          "groq",
+          "huggingface"
+        ],
+        "example": "Use as a candidate when investigating model serving and ai compute. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.together.ai/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
+    },
+    {
+      "id": "fireworks",
+      "name": "Fireworks AI",
+      "ticker": null,
+      "ownership": "Not assessed",
+      "focus": "AI-focused",
+      "layer": "cloud",
+      "description": "Offers a platform to run and train open models.",
+      "website": "https://fireworks.ai/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Not assessed; not a valuation ranking",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Model serving and specialisation",
+      "profile": {
+        "offerings": [
+          "Inference",
+          "model training/specialisation"
+        ],
+        "buyer": "Developers and enterprise AI teams",
+        "commercialLens": "Managed inference and training services",
+        "whyItMatters": "Serving and adapting models can be bought as one workflow.",
+        "tradeoffs": "Assess tuning data requirements, supported models and cost at intended scale.",
+        "pmQuestion": "Is specialisation worth the new evaluation and maintenance burden?",
+        "compareWith": [
+          "together",
+          "cerebras",
+          "databricks"
+        ],
+        "example": "Use as a candidate when investigating model serving and specialisation. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://fireworks.ai/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
+    },
+    {
+      "id": "langchain",
+      "name": "LangChain",
+      "ticker": null,
+      "ownership": "Not assessed",
+      "focus": "AI-focused",
+      "layer": "data",
+      "description": "Provides agent-development and observability products, including LangSmith.",
+      "website": "https://www.langchain.com/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Not assessed; not a valuation ranking",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Agent orchestration and observability",
+      "profile": {
+        "offerings": [
+          "Agent tooling",
+          "LangSmith platform"
+        ],
+        "buyer": "Application engineers and AI product teams",
+        "commercialLens": "Open tooling with paid platform services",
+        "whyItMatters": "The harness and feedback loop can become a product in their own right.",
+        "tradeoffs": "Check complexity, tracing quality and whether a simpler implementation meets the job.",
+        "pmQuestion": "Which orchestration failures need a platform, and which need a smaller workflow?",
+        "compareWith": [
+          "llamaindex",
+          "arize",
+          "wandb"
+        ],
+        "example": "Use as a candidate when investigating agent orchestration and observability. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.langchain.com/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
+    },
+    {
+      "id": "llamaindex",
+      "name": "LlamaIndex",
+      "ticker": null,
+      "ownership": "Not assessed",
+      "focus": "AI-focused",
+      "layer": "data",
+      "description": "Offers document parsing, extraction and indexing tools for AI workflows.",
+      "website": "https://www.llamaindex.ai/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Not assessed; not a valuation ranking",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Document ingestion and AI workflows",
+      "profile": {
+        "offerings": [
+          "LlamaParse",
+          "document extraction and indexing"
+        ],
+        "buyer": "Developers building document-heavy applications",
+        "commercialLens": "Open tooling and managed document services",
+        "whyItMatters": "Input quality can dominate the usefulness of a knowledge assistant.",
+        "tradeoffs": "Test layout, tables, extraction errors and permission-aware retrieval.",
+        "pmQuestion": "Did the model fail, or did we feed it a badly parsed document?",
+        "compareWith": [
+          "langchain",
+          "pinecone"
+        ],
+        "example": "Use as a candidate when investigating document ingestion and ai workflows. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.llamaindex.ai/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
+    },
+    {
+      "id": "pinecone",
+      "name": "Pinecone",
+      "ticker": null,
+      "ownership": "Not assessed",
+      "focus": "AI-focused",
+      "layer": "data",
+      "description": "Offers search, indexing and reranking capabilities for AI knowledge applications.",
+      "website": "https://www.pinecone.io/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Not assessed; not a valuation ranking",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Retrieval infrastructure",
+      "profile": {
+        "offerings": [
+          "Vector/search infrastructure",
+          "retrieval APIs"
+        ],
+        "buyer": "Application developers and data teams",
+        "commercialLens": "Managed search and infrastructure usage",
+        "whyItMatters": "Retrieval quality is an independent part of AI product quality.",
+        "tradeoffs": "Benchmark relevance, freshness, access boundaries and operational costs.",
+        "pmQuestion": "Which retrieved passage actually supports the answer?",
+        "compareWith": [
+          "llamaindex",
+          "snowflake"
+        ],
+        "example": "Use as a candidate when investigating retrieval infrastructure. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.pinecone.io/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
+    },
+    {
+      "id": "wandb",
+      "name": "Weights & Biases / CoreWeave Forge",
+      "ticker": null,
+      "ownership": "Not assessed",
+      "focus": "AI-focused",
+      "layer": "data",
+      "description": "Provides AI-development tools including traces and evaluations; its site identifies it with CoreWeave Forge.",
+      "website": "https://wandb.ai/site/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Not assessed; not a valuation ranking",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "AI development and evaluation tools",
+      "profile": {
+        "offerings": [
+          "Weave traces/evaluations",
+          "development tools"
+        ],
+        "buyer": "ML teams and AI application engineers",
+        "commercialLens": "Developer platform and enterprise services",
+        "whyItMatters": "Development telemetry and evaluation help turn isolated failures into repeatable improvements.",
+        "tradeoffs": "Inspect data exposure, reviewer workflows and fit with existing tools.",
+        "pmQuestion": "Can our team explain a quality regression from the available traces?",
+        "compareWith": [
+          "arize",
+          "langchain",
+          "scale"
+        ],
+        "example": "Use as a candidate when investigating ai development and evaluation tools. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://wandb.ai/site/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes.",
+        "scopeNote": "Product/platform profile within the CoreWeave Forge ecosystem, not an independently ranked company."
+      }
+    },
+    {
+      "id": "arize",
+      "name": "Arize AI",
+      "ticker": null,
+      "ownership": "Not assessed",
+      "focus": "AI-focused",
+      "layer": "data",
+      "description": "Offers observability, evaluation and improvement tools for AI applications.",
+      "website": "https://arize.com/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Not assessed; not a valuation ranking",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "AI observability and evaluation",
+      "profile": {
+        "offerings": [
+          "Arize platform",
+          "Phoenix ecosystem"
+        ],
+        "buyer": "AI engineers, evaluators and product teams",
+        "commercialLens": "Open tooling and enterprise platform services",
+        "whyItMatters": "Good observability helps connect user failures to the stage that caused them.",
+        "tradeoffs": "Check rubric quality, trace coverage, data controls and evaluation cost.",
+        "pmQuestion": "Which failure would remain invisible in our current monitoring?",
+        "compareWith": [
+          "wandb",
+          "langchain",
+          "scale"
+        ],
+        "example": "Use as a candidate when investigating ai observability and evaluation. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://arize.com/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
+    },
+    {
+      "id": "cursor",
+      "name": "Cursor / Anysphere",
+      "ticker": null,
+      "ownership": "Not assessed",
+      "focus": "AI-focused",
+      "layer": "apps",
+      "description": "Offers AI coding tools centred on software development workflows.",
+      "website": "https://www.cursor.com/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Not assessed; not a valuation ranking",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Developer-workflow AI",
+      "profile": {
+        "offerings": [
+          "Coding environment",
+          "coding agents"
+        ],
+        "buyer": "Developers and engineering organisations",
+        "commercialLens": "Developer subscriptions and enterprise offers",
+        "whyItMatters": "Editor placement and repo context can shape adoption and switching costs.",
+        "tradeoffs": "Compare accepted work, review effort and code/data controls under the same task.",
+        "pmQuestion": "Does this help ship maintained code, not just generate more code?",
+        "compareWith": [
+          "github",
+          "replit",
+          "openai",
+          "anthropic"
+        ],
+        "example": "Use as a candidate when investigating developer-workflow ai. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.cursor.com/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
+    },
+    {
+      "id": "github",
+      "name": "GitHub / Copilot",
+      "ticker": null,
+      "ownership": "Not assessed",
+      "focus": "AI-focused",
+      "layer": "apps",
+      "description": "Copilot offers AI coding-agent capabilities within GitHub\u2019s developer ecosystem.",
+      "website": "https://github.com/features/copilot",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Not assessed; not a valuation ranking",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "AI in the software collaboration workflow",
+      "profile": {
+        "offerings": [
+          "Copilot",
+          "developer and repository workflows"
+        ],
+        "buyer": "Developers and engineering managers",
+        "commercialLens": "User/enterprise subscriptions and usage offers",
+        "whyItMatters": "Repository and review context can be a distribution advantage.",
+        "tradeoffs": "Compare task completion, review quality, permissions and incremental spend.",
+        "pmQuestion": "Where does coding assistance meet our existing review process?",
+        "compareWith": [
+          "cursor",
+          "replit",
+          "openai"
+        ],
+        "example": "Use as a candidate when investigating ai in the software collaboration workflow. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://github.com/features/copilot",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes.",
+        "scopeNote": "Developer-product profile; the map mixes corporate groups, platforms and product brands rather than asserting 45 independent companies."
+      }
+    },
+    {
+      "id": "replit",
+      "name": "Replit",
+      "ticker": null,
+      "ownership": "Not assessed",
+      "focus": "AI-focused",
+      "layer": "apps",
+      "description": "Offers AI-assisted app and website building in a hosted development experience.",
+      "website": "https://replit.com/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Not assessed; not a valuation ranking",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "App building and hosted development",
+      "profile": {
+        "offerings": [
+          "App builder",
+          "coding agents",
+          "hosted workflows"
+        ],
+        "buyer": "Builders, developers and small product teams",
+        "commercialLens": "Workspace/app subscriptions and usage offers",
+        "whyItMatters": "Reducing setup and deployment work can widen who builds software.",
+        "tradeoffs": "Inspect exportability, production operations, usage budgets and generated-code quality.",
+        "pmQuestion": "What happens after the demo becomes a product people rely on?",
+        "compareWith": [
+          "cursor",
+          "github"
+        ],
+        "example": "Use as a candidate when investigating app building and hosted development. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://replit.com/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
+    },
+    {
+      "id": "notion",
+      "name": "Notion",
+      "ticker": null,
+      "ownership": "Not assessed",
+      "focus": "AI-focused",
+      "layer": "apps",
+      "description": "Offers AI assistance and agent-oriented capabilities within its workspace product.",
+      "website": "https://www.notion.com/product/ai",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Not assessed; not a valuation ranking",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "AI inside a work knowledge space",
+      "profile": {
+        "offerings": [
+          "Notion AI",
+          "workspace knowledge and workflows"
+        ],
+        "buyer": "Knowledge workers and business teams",
+        "commercialLens": "Workspace subscriptions and AI usage offers",
+        "whyItMatters": "AI can meet users where their notes, documents and collaboration already happen.",
+        "tradeoffs": "Evaluate source permissions, freshness and cross-tool handoffs.",
+        "pmQuestion": "Is the best answer already in the workspace, and can the user trust its source?",
+        "compareWith": [
+          "glean",
+          "microsoft"
+        ],
+        "example": "Use as a candidate when investigating ai inside a work knowledge space. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.notion.com/product/ai",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
+    },
+    {
+      "id": "glean",
+      "name": "Glean",
+      "ticker": null,
+      "ownership": "Not assessed",
+      "focus": "AI-focused",
+      "layer": "apps",
+      "description": "Offers enterprise search, assistant and agent capabilities across workplace information.",
+      "website": "https://www.glean.com/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Not assessed; not a valuation ranking",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Enterprise search and AI assistance",
+      "profile": {
+        "offerings": [
+          "Enterprise search",
+          "assistant",
+          "agents"
+        ],
+        "buyer": "Enterprise IT, knowledge and operations teams",
+        "commercialLens": "Enterprise software agreements",
+        "whyItMatters": "Connecting fragmented workplace knowledge is a distinct user job.",
+        "tradeoffs": "Test connector coverage, identity/permissions and evidence relevance.",
+        "pmQuestion": "Which knowledge is missing because a connector or permission failed?",
+        "compareWith": [
+          "notion",
+          "cohere",
+          "salesforce"
+        ],
+        "example": "Use as a candidate when investigating enterprise search and ai assistance. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.glean.com/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
+    },
+    {
+      "id": "elevenlabs",
+      "name": "ElevenLabs",
+      "ticker": null,
+      "ownership": "Not assessed",
+      "focus": "AI-focused",
+      "layer": "apps",
+      "description": "Offers voice generation and conversational voice-agent tools.",
+      "website": "https://elevenlabs.io/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Not assessed; not a valuation ranking",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Voice generation and voice agents",
+      "profile": {
+        "offerings": [
+          "Speech generation",
+          "voice agents",
+          "audio tooling"
+        ],
+        "buyer": "Developers, creators and service teams",
+        "commercialLens": "Subscriptions, usage and enterprise services",
+        "whyItMatters": "Voice introduces latency, turn-taking and consent concerns beyond text generation.",
+        "tradeoffs": "Evaluate interruption handling, speech errors, rights and end-to-end cost.",
+        "pmQuestion": "Can the user interrupt, correct or reach a person at the right time?",
+        "compareWith": [
+          "adobe",
+          "runway"
+        ],
+        "example": "Use as a candidate when investigating voice generation and voice agents. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://elevenlabs.io/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
+    },
+    {
+      "id": "runway",
+      "name": "Runway",
+      "ticker": null,
+      "ownership": "Not assessed",
+      "focus": "AI-focused",
+      "layer": "apps",
+      "description": "Offers AI tools for creating and editing visual media.",
+      "website": "https://runwayml.com/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Not assessed; not a valuation ranking",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Generative media production",
+      "profile": {
+        "offerings": [
+          "Generative video",
+          "visual creative tools"
+        ],
+        "buyer": "Creators, studios and marketing teams",
+        "commercialLens": "Creative subscriptions, usage and enterprise services",
+        "whyItMatters": "Value depends on production control and usable output, not only a short demo.",
+        "tradeoffs": "Compare consistency, editability, rights and the effort to reach a usable asset.",
+        "pmQuestion": "Does the workflow reduce total production time after revisions?",
+        "compareWith": [
+          "adobe",
+          "elevenlabs"
+        ],
+        "example": "Use as a candidate when investigating generative media production. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://runwayml.com/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
+    },
+    {
+      "id": "harvey",
+      "name": "Harvey",
+      "ticker": null,
+      "ownership": "Not assessed",
+      "focus": "AI-focused",
+      "layer": "apps",
+      "description": "Offers AI tools for legal and professional-services work.",
+      "website": "https://www.harvey.ai/",
+      "valuation": {
+        "usdBillions": null,
+        "asOf": null,
+        "basis": "Not assessed; not a valuation ranking",
+        "status": "research pending",
+        "sourceUrl": null
+      },
+      "researchStatus": "Primary product reference reviewed; no performance ranking",
+      "role": "Professional legal AI workflows",
+      "profile": {
+        "offerings": [
+          "Legal assistant",
+          "document and workflow tools"
+        ],
+        "buyer": "Law firms and legal departments",
+        "commercialLens": "Enterprise software agreements",
+        "whyItMatters": "Domain workflow and review requirements can matter more than a general chat interface.",
+        "tradeoffs": "Assess source support, confidentiality, review responsibility and integration effort.",
+        "pmQuestion": "Which professional judgment must remain with the accountable lawyer?",
+        "compareWith": [
+          "cohere",
+          "palantir",
+          "glean"
+        ],
+        "example": "Use as a candidate when investigating professional legal ai workflows. Validate fit on your own task and constraints.",
+        "checked": "2026-11-01",
+        "evidence": [
+          {
+            "title": "Primary product reference",
+            "url": "https://www.harvey.ai/",
+            "checked": "2026-11-01",
+            "supports": "Product role and named offering categories; does not independently validate vendor performance or commercial terms."
+          }
+        ],
+        "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis\u2014not verified market outcomes."
+      }
     }
   ],
   "relationships": [
@@ -535,11 +2164,11 @@
       "id": "r5",
       "source": "nvidia",
       "target": "coreweave",
-      "type": "supplies compute",
-      "description": "CoreWeave provides NVIDIA GPU cloud capacity.",
+      "type": "infrastructure use",
+      "description": "CoreWeave\u2019s product site describes NVIDIA-based AI infrastructure.",
       "sourceUrl": "https://www.coreweave.com/",
-      "asOf": null,
-      "status": "unverified research lead"
+      "asOf": "2026-11-01",
+      "status": "primary source reviewed"
     },
     {
       "id": "r6",
@@ -605,11 +2234,11 @@
       "id": "r12",
       "source": "amazon",
       "target": "meta",
-      "type": "distribution",
-      "description": "Amazon Bedrock offers Meta Llama models.",
-      "sourceUrl": "https://aws.amazon.com/bedrock/llama/",
-      "asOf": null,
-      "status": "unverified research lead"
+      "type": "model distribution",
+      "description": "AWS lists Meta Llama models in Amazon Bedrock.",
+      "sourceUrl": "https://aws.amazon.com/bedrock/meta/",
+      "asOf": "2026-11-01",
+      "status": "primary source reviewed"
     },
     {
       "id": "r13",
@@ -710,6 +2339,38 @@
       "sourceUrl": "https://www.palantir.com/partnerships/microsoft/",
       "asOf": null,
       "status": "unverified research lead"
+    },
+    {
+      "id": "verified-bedrock-claude",
+      "source": "amazon",
+      "target": "anthropic",
+      "type": "model distribution",
+      "description": "AWS lists Claude models in Amazon Bedrock; availability varies by model and region.",
+      "sourceUrl": "https://aws.amazon.com/bedrock/anthropic/",
+      "asOf": "2026-11-01",
+      "status": "primary source reviewed"
+    },
+    {
+      "id": "verified-bedrock-mistral",
+      "source": "amazon",
+      "target": "mistral",
+      "type": "model distribution",
+      "description": "AWS lists Mistral AI models in Amazon Bedrock.",
+      "sourceUrl": "https://aws.amazon.com/bedrock/mistral/",
+      "asOf": "2026-11-01",
+      "status": "primary source reviewed"
+    },
+    {
+      "id": "verified-forge",
+      "source": "coreweave",
+      "target": "wandb",
+      "type": "platform scope",
+      "description": "The Weights & Biases site identifies its products with CoreWeave Forge.",
+      "sourceUrl": "https://wandb.ai/site/",
+      "asOf": "2026-11-01",
+      "status": "primary source reviewed"
     }
-  ]
+  ],
+  "checked": "2026-11-01",
+  "identityStatusScope": "Ownership and ticker fields inherited from the original seed were not re-assessed. Product references do not verify legal-entity independence or financial status."
 }

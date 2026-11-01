@@ -1,0 +1,3 @@
+export function filterPlayers(companies,{layer='all',query=''}={}){const q=query.trim().toLowerCase();return companies.filter(c=>(layer==='all'||c.layer===layer)&&[c.name,c.description,c.role,c.profile?.buyer,c.profile?.commercialLens,...(c.profile?.offerings||[])].join(' ').toLowerCase().includes(q));}
+export function visibleRelationships(relationships,includeResearch=false){return relationships.filter(r=>r.status==='primary source reviewed'||includeResearch);}
+export function peerPlayers(player,companies){const byId=new Map(companies.map(c=>[c.id,c]));return (player.profile?.compareWith||[]).map(id=>byId.get(id)).filter(Boolean);}
