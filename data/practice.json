@@ -1,0 +1,80 @@
+[
+  {
+    "id": "support",
+    "title": "Design a support copilot",
+    "question": "A support team wants to cut handling time. Would you build an autonomous reply agent?",
+    "angle": "Start with the workflow and error cost.",
+    "answer": "Clarify user segments, ticket types, baseline time and error severity. Pilot draft assistance with source passages and human send approval. Evaluate policy support and completeness before measuring handling time and resolution. Expand automation only where evidence and risk permit.",
+    "rubric": [
+      "Defines buyer, user and workflow baseline.",
+      "Chooses draft vs autonomous behavior based on risk.",
+      "Separates offline quality from live time and resolution metrics.",
+      "Defines escalation, permissions and rollback."
+    ]
+  },
+  {
+    "id": "quality",
+    "title": "Own the evaluation",
+    "question": "The demo looks excellent, but reviewers disagree about response quality. Who owns the eval?",
+    "angle": "Translate disagreements into a calibrated rubric.",
+    "answer": "The PM owns the product success definition with domain and engineering partners. Inspect disagreements, segment failure types, and calibrate reviewers on concrete examples. Keep ambiguous cases visible, reserve held-out examples, and track costly failures separately from average scores.",
+    "rubric": [
+      "Names accountable and contributing roles.",
+      "Uses examples rather than a vague quality score.",
+      "Calibrates subjective criteria and captures uncertainty.",
+      "Connects the release gate to user impact."
+    ]
+  },
+  {
+    "id": "tradeoff",
+    "title": "Choose a model on evidence",
+    "question": "A frontier model scores higher on coding benchmarks. Should your research assistant switch?",
+    "angle": "Treat benchmarks as shortlist evidence.",
+    "answer": "Test the candidate against the current system on representative research tasks under equal tools and budgets. Measure evidence support, completeness, latency and cost per success. Include migration and reliability constraints, and keep the current version as a rollback option.",
+    "rubric": [
+      "Explains why coding scores do not establish research quality.",
+      "Controls model, harness and budget differences.",
+      "Measures relevant task segments and costs.",
+      "Defines release and rollback criteria."
+    ]
+  },
+  {
+    "id": "cost",
+    "title": "Reduce cost without hiding failures",
+    "question": "Your AI feature costs twice the forecast. What do you investigate first?",
+    "angle": "Trace the workload before changing prices.",
+    "answer": "Inspect call counts, growing context, output/reasoning tokens, retries, cache misses and tool fees. Find the largest contributor. Test fewer sequential calls or shorter useful output against a quality floor; compare total cost per successful task, not token price alone.",
+    "rubric": [
+      "Uses usage traces rather than guessing.",
+      "Includes retries and non-model costs.",
+      "Changes a measurable bottleneck.",
+      "Protects a stated quality floor."
+    ]
+  },
+  {
+    "id": "retrieval",
+    "title": "Debug a grounded answer",
+    "question": "The assistant cites a policy page but gives the wrong refund rule. Is this a model problem?",
+    "angle": "Decompose the evidence path.",
+    "answer": "Check document freshness and permissions, retrieval recall, ranking, selected passage and whether the claim is supported. Label the failing stage and add an eval. Retrieval changes may solve the problem without a new model or weight training.",
+    "rubric": [
+      "Does not equate a citation with support.",
+      "Separates retrieval and generation errors.",
+      "Tests freshness and unanswerable queries.",
+      "Proposes a narrow experiment and regression case."
+    ]
+  },
+  {
+    "id": "portfolio",
+    "title": "Tell a credible transition story",
+    "question": "You have PM experience but no model-training job. How do you demonstrate AI PM readiness?",
+    "angle": "Show the decisions and evidence, not invented credentials.",
+    "answer": "Choose a real workflow you understand, document the baseline and users, and build a bounded prototype. Include an eval set, failure analysis, cost model, permissions and a pilot plan. Describe exactly what you did and what remains untested. Transfer domain judgment without claiming unsupported production impact.",
+    "rubric": [
+      "Connects prior PM strengths to an AI product decision.",
+      "Includes inspectable artifacts.",
+      "Distinguishes prototype evidence from production results.",
+      "Explains a trade-off and a lesson from failure."
+    ]
+  }
+]

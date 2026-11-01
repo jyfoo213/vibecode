@@ -1,0 +1,247 @@
+[
+  {
+    "term": "Token",
+    "category": "Mechanics",
+    "definition": "A tokenizer-specific unit of model input or output; it may be a word fragment, punctuation or other encoded content.",
+    "pm": "Do not price a workload from word count alone.",
+    "topic": "tokens"
+  },
+  {
+    "term": "Embedding",
+    "category": "Mechanics",
+    "definition": "A numeric representation used to encode properties of an item such as text. Similarity depends on the model and task.",
+    "pm": "Useful for retrieval; similarity is not proof of truth.",
+    "topic": "rag"
+  },
+  {
+    "term": "Attention",
+    "category": "Mechanics",
+    "definition": "A mechanism that combines information from positions in the available context.",
+    "pm": "A larger context does not guarantee every detail is used well.",
+    "topic": "model-mechanics"
+  },
+  {
+    "term": "Transformer",
+    "category": "Mechanics",
+    "definition": "A neural-network architecture built around attention and other processing layers; implementations vary.",
+    "pm": "Know its capabilities and constraints, rather than memorizing diagrams.",
+    "topic": "model-mechanics"
+  },
+  {
+    "term": "Weights / parameters",
+    "category": "Mechanics",
+    "definition": "Learned numeric values that determine how a model transforms its inputs.",
+    "pm": "Supplying new documents in a prompt is different from training weights.",
+    "topic": "improvement"
+  },
+  {
+    "term": "Pretraining",
+    "category": "Mechanics",
+    "definition": "Initial training on a broad data mixture to learn general representations and behavior.",
+    "pm": "Not the same job or cost as calling an existing model.",
+    "topic": "model-mechanics"
+  },
+  {
+    "term": "Inference",
+    "category": "Mechanics",
+    "definition": "Running a trained model on current input to produce predictions or outputs.",
+    "pm": "This is where serving latency and per-request usage arise.",
+    "topic": "model-mechanics"
+  },
+  {
+    "term": "Context window",
+    "category": "Mechanics",
+    "definition": "A model-specific capacity for the information processed in a request, subject to input/output and product limits.",
+    "pm": "Capacity is not a guarantee of recall or a free budget.",
+    "topic": "tokens"
+  },
+  {
+    "term": "Temperature",
+    "category": "Mechanics",
+    "definition": "A sampling control that changes the relative probabilities used to select outputs, where supported.",
+    "pm": "Lower variation is not a factual-correctness guarantee.",
+    "topic": "model-mechanics"
+  },
+  {
+    "term": "Prompt engineering",
+    "category": "Improvement",
+    "definition": "Designing task instructions, examples and requested output to improve behavior at inference time.",
+    "pm": "Start with failure examples and a measurable baseline.",
+    "topic": "improvement"
+  },
+  {
+    "term": "Context engineering",
+    "category": "Improvement",
+    "definition": "Selecting and arranging instructions, history, retrieved evidence and tool results that the model sees.",
+    "pm": "More context can add noise, cost and contradictory instructions.",
+    "topic": "harness"
+  },
+  {
+    "term": "RAG",
+    "category": "Improvement",
+    "definition": "Retrieval-augmented generation: provide retrieved evidence as context for generation.",
+    "pm": "Test evidence retrieval and answer support separately.",
+    "topic": "rag"
+  },
+  {
+    "term": "Fine-tuning / SFT",
+    "category": "Improvement",
+    "definition": "Additional training on examples to adapt a model; supervised fine-tuning learns from supplied demonstrations.",
+    "pm": "Needs data quality, held-out evaluation and supported tooling.",
+    "topic": "improvement"
+  },
+  {
+    "term": "Preference training",
+    "category": "Improvement",
+    "definition": "Training that uses preferences or reward signals to shape model behavior. RLHF is one family of methods.",
+    "pm": "Human preference is not identical to factual truth.",
+    "topic": "improvement"
+  },
+  {
+    "term": "Distillation",
+    "category": "Improvement",
+    "definition": "Training a model to learn from another system\u2019s outputs or signals.",
+    "pm": "Compare quality loss, data rights and serving savings.",
+    "topic": "optimization"
+  },
+  {
+    "term": "Quantization",
+    "category": "Improvement",
+    "definition": "Representing model values with lower numeric precision to reduce resource requirements.",
+    "pm": "Benchmark quality and hardware support for the actual workload.",
+    "topic": "optimization"
+  },
+  {
+    "term": "Eval",
+    "category": "Evaluation",
+    "definition": "A procedure for judging outputs or behavior against defined criteria on selected cases.",
+    "pm": "An eval measures; an intervention changes the product.",
+    "topic": "evaluation"
+  },
+  {
+    "term": "Held-out set",
+    "category": "Evaluation",
+    "definition": "Cases reserved from the data used to tune prompts or train the candidate.",
+    "pm": "Protect it from repeated optimization leakage.",
+    "topic": "evaluation"
+  },
+  {
+    "term": "Rubric",
+    "category": "Evaluation",
+    "definition": "Observable criteria and scoring guidance that define what good looks like.",
+    "pm": "Calibrate on concrete examples and disagreements.",
+    "topic": "evaluation"
+  },
+  {
+    "term": "LLM-as-judge",
+    "category": "Evaluation",
+    "definition": "A model used to assess an output according to a judging task.",
+    "pm": "Validate against human review and inspect bias.",
+    "topic": "evaluation"
+  },
+  {
+    "term": "Hallucination",
+    "category": "Evaluation",
+    "definition": "Unsupported or fabricated generated content, often presented fluently.",
+    "pm": "Create cases that test evidence support and abstention.",
+    "topic": "evaluation"
+  },
+  {
+    "term": "Regression",
+    "category": "Evaluation",
+    "definition": "Previously acceptable behavior worsens after a change.",
+    "pm": "Keep known failures in the regression suite.",
+    "topic": "evaluation"
+  },
+  {
+    "term": "Precision / recall",
+    "category": "Evaluation",
+    "definition": "Precision concerns the share of selected items that are relevant; recall concerns how many relevant items were found.",
+    "pm": "Choose the error trade-off based on the user task.",
+    "topic": "rag"
+  },
+  {
+    "term": "Harness",
+    "category": "Agents",
+    "definition": "The software around a model that manages context, tools and execution flow.",
+    "pm": "Reliability depends on the whole system.",
+    "topic": "harness"
+  },
+  {
+    "term": "Agent loop",
+    "category": "Agents",
+    "definition": "A repeated model \u2192 action \u2192 observation cycle with stopping conditions.",
+    "pm": "Define budget, recovery and escalation boundaries.",
+    "topic": "harness"
+  },
+  {
+    "term": "Tool calling",
+    "category": "Agents",
+    "definition": "A model requests a structured tool action that the surrounding system handles.",
+    "pm": "A valid request still needs authorization and error handling.",
+    "topic": "harness"
+  },
+  {
+    "term": "MCP",
+    "category": "Agents",
+    "definition": "Model Context Protocol: a standard for connecting compatible applications to tools and data sources.",
+    "pm": "A connection is not blanket permission or guaranteed relevance.",
+    "topic": "harness"
+  },
+  {
+    "term": "Idempotency",
+    "category": "Agents",
+    "definition": "A property that lets repeated processing of the same operation avoid additional effects.",
+    "pm": "Important when retries could duplicate consequential writes.",
+    "topic": "harness"
+  },
+  {
+    "term": "Trace",
+    "category": "Agents",
+    "definition": "A recorded sequence of inputs, actions, outputs and timing for a run, with appropriate data controls.",
+    "pm": "Use it to locate the stage that failed or dominated cost.",
+    "topic": "optimization"
+  },
+  {
+    "term": "Prompt cache",
+    "category": "Economics",
+    "definition": "Reuse of eligible prior prompt processing under a provider\u2019s matching and retention rules.",
+    "pm": "Check reads, writes, misses and storage before claiming savings.",
+    "topic": "optimization"
+  },
+  {
+    "term": "Time to first token",
+    "category": "Economics",
+    "definition": "Time until generation begins returning output; different from total completion latency.",
+    "pm": "Streaming can change perceived waiting without shortening all work.",
+    "topic": "optimization"
+  },
+  {
+    "term": "p95 latency",
+    "category": "Economics",
+    "definition": "The duration at or below which 95% of measured requests complete.",
+    "pm": "Tail delays can hurt a workflow despite a good average.",
+    "topic": "optimization"
+  },
+  {
+    "term": "Cost per successful task",
+    "category": "Economics",
+    "definition": "Total spend divided by the number of tasks that meet the success definition.",
+    "pm": "Includes failed attempts, retries and relevant non-model costs.",
+    "topic": "tokens"
+  },
+  {
+    "term": "Open weights",
+    "category": "Industry",
+    "definition": "Model parameter files are available under stated terms; permissions and openness vary.",
+    "pm": "Check the license, serving cost and maintenance burden.",
+    "topic": "industry"
+  },
+  {
+    "term": "Applied AI PM / model PM",
+    "category": "Industry",
+    "definition": "Applied roles build workflows using models; model-focused roles shape model capability, data, training or platform priorities.",
+    "pm": "Choose a portfolio project that demonstrates the target role\u2019s decisions.",
+    "topic": "industry"
+  }
+]

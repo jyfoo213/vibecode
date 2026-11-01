@@ -1,0 +1,364 @@
+{
+  "checked": "2026-11-01",
+  "topics": [
+    {
+      "id": "model-mechanics",
+      "title": "What happens inside a language model when I send a prompt?",
+      "job": "Explain model behavior without needing to train one.",
+      "takeaway": "A common decoder language model turns token context into a distribution for the next token, repeatedly.",
+      "flow": [
+        "Text \u2192 token IDs",
+        "Embeddings + position",
+        "Attention + feed-forward layers",
+        "Next-token scores",
+        "Select token \u2192 repeat"
+      ],
+      "explanation": "Pretraining adjusts weights using many examples. Inference uses the learned weights to process the current context; an ordinary chat does not itself retrain the weights. Attention lets positions combine information from available context. Architectures differ, and reasoning/tool-use systems add surrounding steps. Fluent generation can still be unsupported by evidence.",
+      "example": "In \u201cPlease summarize this policy,\u201d the policy and instructions are input context. The model generates a summary one token at a time. A longer context window permits more input, but does not guarantee the model uses every detail correctly.",
+      "exercise": "Draw the path from a policy document to a summary. Mark where source retrieval, model inference, and human review happen.",
+      "criteria": [
+        "Distinguish training from inference.",
+        "Explain tokens and context without calling them exact words.",
+        "Explain why plausibility is not factual verification."
+      ],
+      "resources": [
+        "hf",
+        "transformer",
+        "visual"
+      ],
+      "provenance": "ai-suggested"
+    },
+    {
+      "id": "tokens",
+      "title": "Why do tokens, context and output length affect product cost?",
+      "job": "Estimate workload and identify the expensive stage.",
+      "takeaway": "Count every call, its input and billed output, then measure the cost per successful outcome.",
+      "flow": [
+        "User + instructions + history",
+        "Retrieved text + tool results",
+        "Input tokens",
+        "Output / reasoning tokens",
+        "Usage record \u2192 bill"
+      ],
+      "explanation": "Token boundaries depend on the model\u2019s tokenizer. Repeated history and tool outputs can be billed as later input. A context limit is capacity, not a budget or correctness guarantee. Subscription allowances, API billing and hosting costs are separate concepts. Reasoning accounting and cache pricing vary by provider.",
+      "example": "Hypothetical rates of $2 input and $10 output per million make a 2,000-in / 500-out call cost $0.009. Three equal calls cost $0.027 per task before tools or infrastructure. If the task fails, the spend still happened.",
+      "exercise": "Use the cost lab for one assistant task. Include retries and the success rate, then explain which assumption drives uncertainty.",
+      "criteria": [
+        "Show units and all model calls.",
+        "Separate model cost from total cost.",
+        "Use logs rather than a word-count rule for real bills."
+      ],
+      "resources": [
+        "tokenizer",
+        "pricing",
+        "latency"
+      ],
+      "provenance": "ai-suggested"
+    },
+    {
+      "id": "improvement",
+      "title": "Should I improve the prompt, add retrieval, or fine-tune?",
+      "job": "Choose an intervention from observed failure modes.",
+      "takeaway": "Diagnose the gap before changing the model. Product improvement and weight training are different levers.",
+      "flow": [
+        "Collect failures",
+        "Label knowledge / behavior / workflow gap",
+        "Try smallest intervention",
+        "Compare held-out evals",
+        "Monitor regressions"
+      ],
+      "explanation": "Prompting changes the instructions and examples supplied at inference. Retrieval supplies relevant external information; it does not update model weights. Fine-tuning adjusts weights with training data to shape behavior on a task. None guarantees correctness. Training needs supported tooling, rights to data, good examples, and a comparison against a simpler baseline.",
+      "example": "A support assistant missing yesterday\u2019s policy needs fresh evidence, not memorization of a new fact through training. A stable extraction task with many consistent labeled examples may justify a fine-tuning experiment after prompt baselines.",
+      "exercise": "Take five failed responses and classify their causes. Write the cheapest experiment that could disprove your diagnosis.",
+      "criteria": [
+        "Separate missing knowledge, inconsistent behavior and broken tooling.",
+        "Keep a held-out test set.",
+        "Measure new regressions as well as average improvement."
+      ],
+      "resources": [
+        "optimization",
+        "retrieval",
+        "eval"
+      ],
+      "provenance": "ai-suggested"
+    },
+    {
+      "id": "rag",
+      "title": "How do I know whether retrieval is helping or hurting?",
+      "job": "Debug a knowledge assistant stage by stage.",
+      "takeaway": "Evaluate evidence retrieval separately from whether the final answer uses that evidence correctly.",
+      "flow": [
+        "Permission-filtered documents",
+        "Chunks + index",
+        "Retrieve candidates",
+        "Rank + fit context",
+        "Answer + supporting passage"
+      ],
+      "explanation": "Semantic search can find related passages without matching exact keywords. Relevance alone does not prove freshness, authority, completeness or user permission. Chunking and ranking shape what reaches generation. A citation can exist without supporting the claim; inspect the passage, not just the link.",
+      "example": "If a refund answer is wrong, check whether the current refund policy was indexed, retrieved, ranked high enough, and actually supported the answer. These are different failure locations.",
+      "exercise": "Create three questions with known supporting passages. Include one with no answer in the corpus, and require an explicit \u201cnot found.\u201d",
+      "criteria": [
+        "Test retrieval and grounded answering separately.",
+        "Include stale and unanswerable cases.",
+        "Apply permissions before exposing passages."
+      ],
+      "resources": [
+        "retrieval",
+        "eval"
+      ],
+      "provenance": "ai-suggested"
+    },
+    {
+      "id": "evaluation",
+      "title": "How do I decide that an AI feature is good enough to ship?",
+      "job": "Turn quality into a defensible release decision.",
+      "takeaway": "Define success for a user job, test representative segments, and set a release rule before reading the scores.",
+      "flow": [
+        "User job + risk",
+        "Cases + rubric",
+        "Human calibration",
+        "Run candidate + baseline",
+        "Segment results \u2192 release / revise"
+      ],
+      "explanation": "Offline evals help compare versions; live outcomes test whether people benefit. Keep training examples separate from held-out evaluation. Use deterministic checks where possible and calibrate model judges against humans. A benchmark can help shortlist models but cannot replace your task set. Watch false positives, abstentions and costly rare failures.",
+      "example": "A support draft can be fluent while quoting the wrong policy. Score source support, accuracy, completeness and unsafe actions separately. A small perfect test set is weak evidence if it contains only easy cases.",
+      "exercise": "Draft a ten-case eval with routine, ambiguous, unanswerable and adversarial inputs. Write a rollback condition and name the accountable owner.",
+      "criteria": [
+        "Use observable criteria and representative cases.",
+        "Calibrate grading with human examples.",
+        "Separate offline scores from user outcomes."
+      ],
+      "resources": [
+        "eval",
+        "swe"
+      ],
+      "provenance": "ai-suggested"
+    },
+    {
+      "id": "harness",
+      "title": "What belongs in an agent harness rather than the model?",
+      "job": "Design a bounded workflow that can recover from failure.",
+      "takeaway": "The model proposes actions; the surrounding system manages context, tools, permissions and the work loop.",
+      "flow": [
+        "Task + state",
+        "Model proposes action",
+        "Check permission + execute tool",
+        "Observe result",
+        "Stop / retry / escalate"
+      ],
+      "explanation": "A fixed workflow follows predefined steps; a more autonomous agent chooses more of the sequence. More autonomy adds failure paths. Tool schemas, state, stopping conditions, retries and traces affect reliability. Give consequential writes a clear authorization path. A retry must not accidentally duplicate a payment or message.",
+      "example": "A purchasing assistant can search vendors freely while a purchase requires a specific authorized budget and destination. An ambiguous tool timeout should trigger reconciliation before another charge attempt.",
+      "exercise": "Sketch an agent that prepares a purchase order. Mark read actions, write actions, retry limits and human checkpoints.",
+      "criteria": [
+        "Distinguish model and orchestration responsibilities.",
+        "Define stop and escalation conditions.",
+        "Handle retries without duplicating side effects."
+      ],
+      "resources": [
+        "agents",
+        "loop"
+      ],
+      "provenance": "ai-suggested"
+    },
+    {
+      "id": "optimization",
+      "title": "How do I reduce cost and latency without quietly lowering quality?",
+      "job": "Optimize a measured bottleneck under a quality floor.",
+      "takeaway": "Compare cost per successful task and end-to-end latency, not just the cheapest token rate.",
+      "flow": [
+        "Trace baseline",
+        "Locate bottleneck",
+        "Change one lever",
+        "Re-run quality eval",
+        "Compare cost / success + p95 latency"
+      ],
+      "explanation": "Shorter outputs and fewer sequential calls can reduce waiting. Caching needs eligible reusable content and real hits; include write/storage fees when applicable. Routing and smaller models can save spend but need escalation quality checks. Batch work when delay is acceptable. Distillation and quantization are advanced options with quality and operational trade-offs, not automatic wins.",
+      "example": "A cheaper model at 50% success can cost more per successful task than a stronger one at 95%. A streamed response may feel faster even when total completion time is unchanged.",
+      "exercise": "Choose one lever for a research assistant: less context, shorter output, routing or fewer calls. Define a quality floor and a latency measurement.",
+      "criteria": [
+        "Use full workload cost and a stable quality threshold.",
+        "Distinguish perceived, first-token and total latency.",
+        "Include cache misses and retries."
+      ],
+      "resources": [
+        "latency",
+        "cache",
+        "pricing"
+      ],
+      "provenance": "ai-suggested"
+    },
+    {
+      "id": "industry",
+      "title": "Where does value accumulate in the AI industry?",
+      "job": "Explain the market through customer jobs and constraints.",
+      "takeaway": "Map compute, model access, data/tool infrastructure and applications; then ask who owns a valuable workflow.",
+      "flow": [
+        "Compute + cloud",
+        "Model capability",
+        "Data + tools + observability",
+        "Application workflow",
+        "Customer outcome + feedback"
+      ],
+      "explanation": "One company can span several layers. API access, open weights, distribution, proprietary data and integration depth create different trade-offs. Open weights do not imply zero operating cost or unrestricted licensing. Public market capitalization and private funding valuation are different measures; neither alone predicts product quality.",
+      "example": "For a support copilot, the buyer may be the support leader, daily users are agents, and administrators control data access. The relevant moat hypothesis might be workflow integration and feedback quality rather than access to one model.",
+      "exercise": "Compare two products on buyer, user job, distribution, switching cost and outcome evidence. Use dated primary sources, and label strategic interpretation.",
+      "criteria": [
+        "Separate facts from moat hypotheses.",
+        "Distinguish buyer, user and administrator.",
+        "Avoid rankings from incomparable valuations."
+      ],
+      "resources": [
+        "nvidia",
+        "podcast",
+        "pricing"
+      ],
+      "provenance": "ai-suggested"
+    }
+  ],
+  "resources": [
+    {
+      "id": "hf",
+      "title": "Hugging Face LLM course",
+      "url": "https://huggingface.co/learn/llm-course/chapter1/1",
+      "format": "Course",
+      "topic": "Mechanics",
+      "why": "Work through model basics, then try the exercises. A technical course; skim code until you need it.",
+      "checked": "2026-11-01"
+    },
+    {
+      "id": "transformer",
+      "title": "The Illustrated Transformer \u00b7 Jay Alammar",
+      "url": "https://jalammar.github.io/illustrated-transformer/",
+      "format": "Blog",
+      "topic": "Mechanics",
+      "why": "Use the diagrams to explain attention and representations. The original architecture is a teaching foundation, not a map of every current model.",
+      "checked": "2026-11-01"
+    },
+    {
+      "id": "video",
+      "title": "Transformers, the tech behind LLMs \u00b7 3Blue1Brown",
+      "url": "https://www.youtube.com/watch?v=wjZofJX0v4M",
+      "format": "Video",
+      "topic": "Mechanics",
+      "why": "Watch for the visual intuition, then explain the input-to-output flow in your own words.",
+      "checked": "2026-11-01"
+    },
+    {
+      "id": "visual",
+      "title": "3Blue1Brown visual transformer lesson",
+      "url": "https://www.3blue1brown.com/lessons/gpt/",
+      "format": "Visual lesson",
+      "topic": "Mechanics",
+      "why": "Text and visuals accompanying the video. Good when you want to pause and inspect the diagrams.",
+      "checked": "2026-11-01"
+    },
+    {
+      "id": "tokenizer",
+      "title": "Hugging Face: tokenizers",
+      "url": "https://huggingface.co/learn/llm-course/chapter6/1",
+      "format": "Course",
+      "topic": "Economics",
+      "why": "Learn why tokens depend on the tokenizer. Do not treat words or characters as exact billing units.",
+      "checked": "2026-11-01"
+    },
+    {
+      "id": "optimization",
+      "title": "OpenAI: model optimization",
+      "url": "https://developers.openai.com/api/docs/guides/model-optimization",
+      "format": "Documentation",
+      "topic": "Improvement",
+      "why": "Conceptual eval \u2192 prompt \u2192 training loop. The page flags platform eval/fine-tuning surfaces moving to legacy docs; verify current API availability before implementation.",
+      "checked": "2026-11-01"
+    },
+    {
+      "id": "retrieval",
+      "title": "OpenAI: retrieval",
+      "url": "https://developers.openai.com/api/docs/guides/retrieval",
+      "format": "Documentation",
+      "topic": "Improvement",
+      "why": "Inspect semantic retrieval and source chunks. Ask whether retrieval found the right evidence before blaming generation.",
+      "checked": "2026-11-01"
+    },
+    {
+      "id": "eval",
+      "title": "OpenAI: evaluation best practices",
+      "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
+      "format": "Documentation",
+      "topic": "Evaluation",
+      "why": "Use representative cases and explicit scoring. Turn one recurring failure into a regression case.",
+      "checked": "2026-11-01"
+    },
+    {
+      "id": "latency",
+      "title": "OpenAI: latency optimization",
+      "url": "https://developers.openai.com/api/docs/guides/latency-optimization",
+      "format": "Documentation",
+      "topic": "Economics",
+      "why": "Identify the slow stage first. Fewer requests and shorter outputs may matter more than a new model.",
+      "checked": "2026-11-01"
+    },
+    {
+      "id": "cache",
+      "title": "OpenAI: prompt caching",
+      "url": "https://developers.openai.com/api/docs/guides/prompt-caching",
+      "format": "Documentation",
+      "topic": "Economics",
+      "why": "Check eligible prefix matching, writes and reads for your model. Similar-looking prompts do not guarantee a cache hit.",
+      "checked": "2026-11-01"
+    },
+    {
+      "id": "agents",
+      "title": "Anthropic: building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents",
+      "format": "Blog",
+      "topic": "Agents",
+      "why": "A pattern guide: start with the simplest workflow that solves the job. Tooling has evolved since its 2024 publication.",
+      "checked": "2026-11-01"
+    },
+    {
+      "id": "loop",
+      "title": "OpenAI: unrolling the Codex agent loop",
+      "url": "https://openai.com/index/unrolling-the-codex-agent-loop/",
+      "format": "Blog",
+      "topic": "Agents",
+      "why": "See how model requests, tools and observations form a loop; connect it to the coding-agent guide.",
+      "checked": "2026-11-01"
+    },
+    {
+      "id": "podcast",
+      "title": "Practical AI",
+      "url": "https://practicalai.show/",
+      "format": "Podcast",
+      "topic": "Industry",
+      "why": "Choose an implementation episode. After listening, write the user problem, evaluation method and deployment constraint. Episode index, not a specific endorsed episode.",
+      "checked": "2026-11-01"
+    },
+    {
+      "id": "nvidia",
+      "title": "NVIDIA AI platform overview",
+      "url": "https://www.nvidia.com/en-us/ai/",
+      "format": "Vendor overview",
+      "topic": "Industry",
+      "why": "Map compute and deployment offerings to a customer job. Treat positioning as a vendor claim, not independent proof.",
+      "checked": "2026-11-01"
+    },
+    {
+      "id": "pricing",
+      "title": "OpenAI API pricing",
+      "url": "https://developers.openai.com/api/docs/pricing",
+      "format": "Documentation",
+      "topic": "Economics",
+      "why": "Check the exact model, speed tier, context tier, units and effective date before using a price.",
+      "checked": "2026-11-01"
+    },
+    {
+      "id": "swe",
+      "title": "SWE-bench official leaderboard",
+      "url": "https://www.swebench.com/",
+      "format": "Benchmark",
+      "topic": "Evaluation",
+      "why": "Read the benchmark definition and harness before comparing reported scores.",
+      "checked": "2026-11-01"
+    }
+  ]
+}
