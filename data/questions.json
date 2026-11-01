@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "recorded": "2026-11-01",
+  "description": "Questions extracted from this AI Atlas conversation; wording is labeled per case. Evidence references were checked in the preceding topic research, November 1, 2026. Candidate answers require human review.",
+  "cases": [
+    {
+      "id": "workflow",
+      "revision": 1,
+      "question": "How does my local coding workflow compare with this browser/cloud workflow?",
+      "wording": "Paraphrase of your request",
+      "originalExcerpt": "im used to the workflow of vibe coding on local host with claude code them publishing it to github and making a pull request to merge, then publishing to github pages",
+      "origin": "Local/cloud topic request in this conversation",
+      "proposedAnswer": "The development workbench moves from your computer to a remote workspace. Both can edit, test, preview, push a feature branch, review a pull request, merge, and deploy through GitHub Actions to Pages. A remote AI model can assist either workbench.",
+      "criteria": [
+        "Shows where files, terminal, tests, and preview run in each workflow.",
+        "Shows the shared branch \u2192 PR \u2192 merge \u2192 Actions \u2192 Pages path.",
+        "Distinguishes assistant model location from workspace location."
+      ],
+      "evidence": [
+        {
+          "label": "GitHub Pages architecture",
+          "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages"
+        }
+      ],
+      "answerLocation": "./coding-models.html#main"
+    },
+    {
+      "id": "setup",
+      "revision": 1,
+      "question": "Does cloud coding need setup again on every edit, making local iterations faster?",
+      "wording": "Paraphrase of your request",
+      "originalExcerpt": "right now you have to set everything up again but if its local vibe coding its much faster per iteration due to no need to setup cost",
+      "origin": "Local/cloud topic request in this conversation",
+      "proposedAnswer": "A configured local project often reaches the first edit faster than a fresh cloud workspace. A warm cloud workspace can reuse tools and dependencies too. Startup, model waiting, build time, compute and network latency should be measured separately; one cold start does not establish every-edit performance.",
+      "criteria": [
+        "Separates startup time from edit-to-preview time.",
+        "Explains reuse in a warm cloud workspace.",
+        "Avoids claiming local is always faster or cloud always rebuilds.",
+        "Acknowledges that new local environments also need setup."
+      ],
+      "evidence": [
+        {
+          "label": "Codespaces prebuilds (provider example)",
+          "url": "https://docs.github.com/en/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds"
+        }
+      ],
+      "answerLocation": "./coding-models.html#main"
+    },
+    {
+      "id": "sleep",
+      "revision": 1,
+      "question": "What happens when the cloud workspace sleeps, and does the live website stop?",
+      "wording": "Paraphrase of your request",
+      "originalExcerpt": "everything on cloud (and earlier today the cloud was sleeping)",
+      "origin": "Local/cloud topic request in this conversation",
+      "proposedAnswer": "Sleep or stopping may preserve files while processes need restarting; deletion or replacement can require reconstruction. The exact retention rules depend on the service. GitHub Pages serves the deployed website independently of the development workspace.",
+      "criteria": [
+        "Separates sleep/resume from deletion/rebuild.",
+        "Does not assume Codespaces policies apply to Codex.",
+        "Explains why the published site can remain available while development sleeps."
+      ],
+      "evidence": [
+        {
+          "label": "Codespaces lifecycle (provider example)",
+          "url": "https://docs.github.com/en/codespaces/about-codespaces/understanding-the-codespace-lifecycle"
+        },
+        {
+          "label": "Pages hosting",
+          "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages"
+        }
+      ],
+      "answerLocation": "./coding-models.html#main"
+    },
+    {
+      "id": "tradeoffs",
+      "revision": 1,
+      "question": "What are the practical pros and cons of local and cloud coding?",
+      "wording": "Paraphrase of your request",
+      "originalExcerpt": "so i can see the differences and the pros and cons",
+      "origin": "Local/cloud topic request in this conversation",
+      "proposedAnswer": "Local offers a familiar, reusable setup and no remote-terminal round trip, with hardware and maintenance constraints. Cloud can offer access from multiple devices, isolation, consistent images and remote compute, with startup, network, cost and retention trade-offs. Neither location by itself guarantees speed or reproducibility.",
+      "criteria": [
+        "Compares startup, iteration, continuity, access, cost and data flow.",
+        "Includes drawbacks and useful scenarios for both.",
+        "Explains that hosted AI calls may transmit context even from a local workbench."
+      ],
+      "evidence": [
+        {
+          "label": "Cloud lifecycle example",
+          "url": "https://docs.github.com/en/codespaces/about-codespaces/understanding-the-codespace-lifecycle"
+        },
+        {
+          "label": "Prebuild trade-offs",
+          "url": "https://docs.github.com/en/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds"
+        }
+      ],
+      "answerLocation": "./coding-models.html#main"
+    },
+    {
+      "id": "mental-model",
+      "revision": 1,
+      "question": "What mental model helps me understand AI cloud deployment?",
+      "wording": "Paraphrase of your request",
+      "originalExcerpt": "if there's a better mental model to think through this help me format as well",
+      "origin": "Local/cloud topic request in this conversation",
+      "proposedAnswer": "Start with workbench \u2192 repository \u2192 live site. Then ask three independent questions: where do I build, where does the app run, and where does inference run? A locally developed app can be cloud-hosted. An AI app using a secret API key generally needs a backend to protect it; static Pages hosting alone does not supply that backend.",
+      "criteria": [
+        "Separates development, repository review, production hosting and inference.",
+        "Explains that local development can publish to cloud hosting.",
+        "Identifies that today\u2019s Atlas is static and makes no runtime model calls."
+      ],
+      "evidence": [
+        {
+          "label": "Pages static hosting",
+          "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages"
+        }
+      ],
+      "answerLocation": "./coding-models.html#main"
+    },
+    {
+      "id": "agent-instructions",
+      "revision": 1,
+      "question": "Can agents read shared repository instructions before starting work?",
+      "wording": "Paraphrase of your request",
+      "originalExcerpt": "create an md file in the repo because im using multiple agents to vibe code and they can read the instructions before they start work on the repo",
+      "origin": "Agent instructions and eval question-bank request in this conversation",
+      "proposedAnswer": "The root AGENTS.md documents architecture, commands, source verification, collaboration, question-bank rules and the PR/deployment workflow. Compatible coding agents can discover it; other tools may need to be explicitly pointed to it. Reading a file is a convention, not an enforcement mechanism.",
+      "criteria": [
+        "Root AGENTS.md exists and is linked from README.",
+        "Instructions describe actual commands and files.",
+        "Protects concurrent work and defines a handoff.",
+        "Does not claim every agent automatically reads or obeys it."
+      ],
+      "evidence": [
+        {
+          "label": "Repository instructions",
+          "url": "https://github.com/jyfoo213/vibecode/blob/main/AGENTS.md"
+        }
+      ],
+      "answerLocation": "https://github.com/jyfoo213/vibecode/blob/main/AGENTS.md"
+    },
+    {
+      "id": "eval-bank",
+      "revision": 1,
+      "question": "Can I review my questions and judge whether the answers are correct as an eval?",
+      "wording": "Paraphrase of your request",
+      "originalExcerpt": "a question bank of my questions in a separate page so i can verify if my questions were answered correctly as part of 'evals'",
+      "origin": "Agent instructions and eval question-bank request in this conversation",
+      "proposedAnswer": "Each case preserves a user-question excerpt alongside a clearly labeled paraphrase, a proposed answer, acceptance criteria, evidence, and an answer link. You decide Pass or Needs work and record why. Reviews are saved in this browser and can be exported; they are not automatic factual verification or shared agent state.",
+      "criteria": [
+        "Includes traceable user questions, not invented prompts.",
+        "Shows expected criteria and evidence separately from the candidate answer.",
+        "Defaults to Not reviewed and requires a human verdict.",
+        "Persists verdicts and notes, supports export, and flags older case revisions."
+      ],
+      "evidence": [
+        {
+          "label": "Versioned eval cases",
+          "url": "https://github.com/jyfoo213/vibecode/blob/main/data/questions.json"
+        }
+      ],
+      "answerLocation": "./questions.html"
+    }
+  ]
+}
