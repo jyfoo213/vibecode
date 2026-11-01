@@ -27,3 +27,9 @@ Read [AGENTS.md](./AGENTS.md) before working in this repository. It documents ar
 `questions.html` is the human-reviewed question bank, linked from the hub and Topics. `data/questions.json` preserves stable IDs, revisions, labeled paraphrases, original user excerpts, proposed answers, acceptance criteria, evidence, and answer links. Update case revisions when substantive answers or criteria change. Reviews default to Not reviewed; agents must not mark their own answers correct.
 
 Verdicts and notes live in browser localStorage, with session-only fallback and JSON export. They do not sync to the repo or other devices. A changed case revision invalidates an old verdict while preserving its notes; exports include the earlier review. Only add conversation content intended for the public site. Root agent instructions are excluded from the static build.
+
+## Navigation
+
+All ten pages share a static header and breadcrumb generated from `scripts/navigation.js`. Four groups organize content by intent: Learn (lessons, topics, skills, local/cloud), Explore (industry map, cost lab), Practice (question bank, interviews, journal), Reference (sources, glossary). The logo returns to the overview.
+
+Edit the navigation configuration, run `npm run nav`, and commit the updated HTML. `site-nav.css` and `site-nav.js` provide responsive disclosure menus with keyboard, Escape, and outside-click support. The links are present in HTML even without JavaScript. Existing URLs stay valid. Tests detect pages that drift from the shared navigation.

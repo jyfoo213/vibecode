@@ -13,6 +13,7 @@ Read this file and README.md before changing the repository. User instructions t
 - Buildless HTML/CSS and browser ES modules; Node.js 22+ for tooling. No framework, backend, runtime dependencies, API keys, or database needed.
 - `npm ci --ignore-scripts`; `npm start` (port 3000); `npm test`; `npm run build`.
 - `index.html`, `hub.css`, `hub.js`, `cost.js`: learning hub and calculator. `data/learning.json`: lessons, presets, sources.
+- Shared navigation: edit `scripts/navigation.js`, run `npm run nav`, and commit generated HTML for all pages. `site-nav.css` / `site-nav.js` own the common header. Keep global links consistent and use breadcrumbs for page context.
 - `coding-models.*`: local vs cloud development topic. `questions.*`, `question-state.js`, `data/questions.json`: question bank and manual answer evaluation.
 - Existing notes and `industry.html` / `app.js` / `data/landscape.json` remain supported. Preserve their research-preview disclosures.
 - `scripts/build.js` defines public assets and writes `dist/`; `server.js` previews the same allowlist. Restart the server after adding public files.

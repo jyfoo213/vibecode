@@ -1,0 +1,8 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {pages,groups,navigation} from '../scripts/navigation.js';
+import {publicFiles} from '../scripts/build.js';
+test('every public page uses the same generated navigation and accessible location trail',async()=>{const files=await publicFiles();assert.deepEqual(files.filter(f=>f.endsWith('.html')).sort(),Object.keys(pages).sort());for(const file of Object.keys(pages)){const html=await readFile(new URL('../'+file,import.meta.url),'utf8');assert.ok(html.includes(navigation(file)),`${file} needs npm run nav`);assert.equal((html.match(/class="atlas-header"/g)||[]).length,1);assert.ok(html.includes('href="./site-nav.css"')&&html.includes('src="./site-nav.js"'));assert.ok(!html.includes('class="sitenav"'));assert.ok(html.includes('id="main"'));}});
+test('all navigation routes exist, including homepage section anchors',async()=>{const files=await publicFiles();for(const g of groups)for(const [,url] of g.items){const [path,hash]=url.slice(2).split('#');const file=path||'index.html';assert.ok(files.includes(file),url);if(hash){const html=await readFile(new URL('../'+file,import.meta.url),'utf8');assert.ok(html.includes(`id="${hash}"`),url);}}});
+test('subpages identify the current page once in primary navigation',()=>{for(const file of Object.keys(pages).filter(f=>f!=='index.html')){const primary=navigation(file).split('<nav class="atlas-primary"')[1].split('</nav>')[0];assert.equal((primary.match(/aria-current="page"/g)||[]).length,1);assert.ok(primary.includes(`href="./${file}" aria-current="page"`));}});

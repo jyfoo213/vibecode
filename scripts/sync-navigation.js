@@ -1,0 +1,5 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {pages,navigation} from './navigation.js';
+const root=new URL('../',import.meta.url);
+for(const file of Object.keys(pages)){const path=new URL(file,root);let html=await readFile(path,'utf8');html=html.replace(/<!-- Shared navigation:[\s\S]*?<\/header>\s*<nav class="atlas-location"[\s\S]*?<\/nav>/,'__ATLAS_NAV__');if(!html.includes('__ATLAS_NAV__')){html=html.replace(/<nav class="sitenav">[\s\S]*?<\/nav>\s*/,'');html=html.replace(/<header>[\s\S]*?<\/header>/,'__ATLAS_NAV__');}html=html.replace('__ATLAS_NAV__',navigation(file));if(!html.includes('href="./site-nav.css"'))html=html.replace('</head>','<link rel="stylesheet" href="./site-nav.css"><script type="module" src="./site-nav.js"></script></head>');if(!html.includes('id="main"'))html=html.replace('<main>','<main id="main">');if(!html.includes('class="skip"'))html=html.replace('<body>','<body><a class="skip" href="#main">Skip to content</a>');await writeFile(path,html);}
+console.log('Shared navigation synchronized across '+Object.keys(pages).length+' pages.');
