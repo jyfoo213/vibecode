@@ -37,3 +37,13 @@ Edit the navigation configuration, run `npm run nav`, and commit the updated HTM
 Design guidance in AGENTS.md adapts the GOV.UK Government Design Principles to this learning hub, with progressive disclosure and a WCAG 2.2 AA target. It defines how agents should place new content, reuse patterns, and validate findability as the site grows.
 
 `coding-agents.html` compares Claude Code and Codex through public architecture references, a six-step workflow, expandable explanations, and a task-based comparison rubric. The question bank also records model-fit and plan-budget questions; budget remains unresolved until actual plan/usage data is available.
+
+## Product purpose and curriculum
+
+AI Atlas is a question-led workspace for a product manager transitioning into AI PM. The core jobs are capture, understand, choose, evaluate, price/operate, map the industry and demonstrate readiness. AGENTS.md contains the high-level brief, proactive-question provenance rules and design guidance.
+
+`data/curriculum.json` contains eight topic guides and sixteen checked external resources (including blogs, video, podcast and documentation). `data/glossary.json` contains PM-focused definitions; `data/practice.json` contains illustrative interview scenarios. `npm run content:generate` renders six pages from these sources and `scripts/build-guides.js`; then run `npm run nav`. Keep generated HTML committed so content is readable without JavaScript. Interactive enhancements are in `guides.js` and pure helpers in `learning-tools.js`.
+
+The browser-local learning inbox supports capture, edit, delete/undo and JSON export; it does not call an AI model or publish notes. Skills mark artifacts drafted, not mastery. Interview responses are personal drafts, not automatically scored. All these browser stores can be unavailable; exports offer a backup. Historical journal, story prompts and infographic notes remain archived with disclosures.
+
+Proactive questions use `provenance: "ai-suggested"` and `answerAuthor: "ai"`. The bank supports origin and relevance filters, interest ratings, correctness verdicts, notes and export. Relevance and correctness are independent; no AI suggestion begins approved. More questions can be added when the owner supplies inbox exports or asks them in a chat.

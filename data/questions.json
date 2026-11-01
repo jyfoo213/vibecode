@@ -212,18 +212,19 @@
     },
     {
       "id": "plan-budget",
-      "revision": 1,
+      "revision": 2,
       "question": "Will this usage trajectory exhaust my current plan or stay within budget?",
       "wording": "Original question excerpt",
       "originalExcerpt": "whether based on my current trajectory of usage whether i'll burn out my current plan or will be fine and within budget",
       "origin": "Plan and budget question in this conversation",
-      "proposedAnswer": "You reported a $20/month plan, assumed to be ChatGPT Plus rather than account-verified. Remaining headroom is still unknown without the usage meter, reset window and expected workload. Plus has included limits; API usage is billed separately. Eligible extra usage can consume purchased credits, and automatic credit reload can add spend if enabled. Check Settings \u2192 Usage for allowance, credits and reload settings. This static site makes no runtime model calls. Do not infer a safe daily session count from this conversation alone.",
+      "proposedAnswer": "You reported a $20/month plan (assumed Plus) and found a 5-hour usage window in your account. The subscription price is monthly; usage resets follow the window shown, not a fresh chat or the monthly invoice. Remaining headroom still needs the usage meter and expected workload. Separate weekly windows may also apply. Optional purchased credits and automatic reload can add spend if enabled; API billing is separate. The static website makes no runtime model calls.",
       "criteria": [
         "States that the budget conclusion is pending missing account data.",
         "Uses the reported $20 price as a Plus assumption and still requests usage, reset time and expected workload.",
         "Separates subscription limits, API spend and workspace compute.",
         "Does not invent remaining allowance, prices or a within-budget guarantee.",
-        "Explains optional credits and automatic reload without treating the subscription as an unlimited dollar budget."
+        "Explains optional credits and automatic reload without treating the subscription as an unlimited dollar budget.",
+        "Incorporates your reported 5-hour window without inventing a remaining allowance."
       ],
       "evidence": [
         {
@@ -233,9 +234,249 @@
         {
           "label": "OpenAI: usage credits and automatic reload",
           "url": "https://help.openai.com/en/articles/12642688-using-credits-for-flexible-usage-in-chatgpt-personal-plans"
+        },
+        {
+          "label": "OpenAI: Codex usage limits and reset windows",
+          "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan"
         }
       ],
       "answerLocation": "./questions.html"
+    },
+    {
+      "id": "suggested-model-mechanics",
+      "revision": 1,
+      "question": "What happens inside a language model when I send a prompt?",
+      "wording": "AI-generated follow-up; not a question attributed to you",
+      "originalExcerpt": "",
+      "origin": "Proactively generated from your PM-to-AI-PM learning goals",
+      "provenance": "ai-suggested",
+      "answerAuthor": "ai",
+      "proposedAnswer": "A common decoder language model turns token context into a distribution for the next token, repeatedly. Pretraining adjusts weights using many examples. Inference uses the learned weights to process the current context; an ordinary chat does not itself retrain the weights. Attention lets positions combine information from available context. Architectures differ, and reasoning/tool-use systems add surrounding steps. Fluent generation can still be unsupported by evidence.",
+      "criteria": [
+        "Distinguish training from inference.",
+        "Explain tokens and context without calling them exact words.",
+        "Explain why plausibility is not factual verification."
+      ],
+      "evidence": [
+        {
+          "label": "Hugging Face LLM course",
+          "url": "https://huggingface.co/learn/llm-course/chapter1/1"
+        },
+        {
+          "label": "The Illustrated Transformer \u00b7 Jay Alammar",
+          "url": "https://jalammar.github.io/illustrated-transformer/"
+        },
+        {
+          "label": "3Blue1Brown visual transformer lesson",
+          "url": "https://www.3blue1brown.com/lessons/gpt/"
+        }
+      ],
+      "answerLocation": "./topics.html#model-mechanics"
+    },
+    {
+      "id": "suggested-tokens",
+      "revision": 1,
+      "question": "Why do tokens, context and output length affect product cost?",
+      "wording": "AI-generated follow-up; not a question attributed to you",
+      "originalExcerpt": "",
+      "origin": "Proactively generated from your PM-to-AI-PM learning goals",
+      "provenance": "ai-suggested",
+      "answerAuthor": "ai",
+      "proposedAnswer": "Count every call, its input and billed output, then measure the cost per successful outcome. Token boundaries depend on the model\u2019s tokenizer. Repeated history and tool outputs can be billed as later input. A context limit is capacity, not a budget or correctness guarantee. Subscription allowances, API billing and hosting costs are separate concepts. Reasoning accounting and cache pricing vary by provider.",
+      "criteria": [
+        "Show units and all model calls.",
+        "Separate model cost from total cost.",
+        "Use logs rather than a word-count rule for real bills."
+      ],
+      "evidence": [
+        {
+          "label": "Hugging Face: tokenizers",
+          "url": "https://huggingface.co/learn/llm-course/chapter6/1"
+        },
+        {
+          "label": "OpenAI API pricing",
+          "url": "https://developers.openai.com/api/docs/pricing"
+        },
+        {
+          "label": "OpenAI: latency optimization",
+          "url": "https://developers.openai.com/api/docs/guides/latency-optimization"
+        }
+      ],
+      "answerLocation": "./topics.html#tokens"
+    },
+    {
+      "id": "suggested-improvement",
+      "revision": 1,
+      "question": "Should I improve the prompt, add retrieval, or fine-tune?",
+      "wording": "AI-generated follow-up; not a question attributed to you",
+      "originalExcerpt": "",
+      "origin": "Proactively generated from your PM-to-AI-PM learning goals",
+      "provenance": "ai-suggested",
+      "answerAuthor": "ai",
+      "proposedAnswer": "Diagnose the gap before changing the model. Product improvement and weight training are different levers. Prompting changes the instructions and examples supplied at inference. Retrieval supplies relevant external information; it does not update model weights. Fine-tuning adjusts weights with training data to shape behavior on a task. None guarantees correctness. Training needs supported tooling, rights to data, good examples, and a comparison against a simpler baseline.",
+      "criteria": [
+        "Separate missing knowledge, inconsistent behavior and broken tooling.",
+        "Keep a held-out test set.",
+        "Measure new regressions as well as average improvement."
+      ],
+      "evidence": [
+        {
+          "label": "OpenAI: model optimization",
+          "url": "https://developers.openai.com/api/docs/guides/model-optimization"
+        },
+        {
+          "label": "OpenAI: retrieval",
+          "url": "https://developers.openai.com/api/docs/guides/retrieval"
+        },
+        {
+          "label": "OpenAI: evaluation best practices",
+          "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices"
+        }
+      ],
+      "answerLocation": "./topics.html#improvement"
+    },
+    {
+      "id": "suggested-rag",
+      "revision": 1,
+      "question": "How do I know whether retrieval is helping or hurting?",
+      "wording": "AI-generated follow-up; not a question attributed to you",
+      "originalExcerpt": "",
+      "origin": "Proactively generated from your PM-to-AI-PM learning goals",
+      "provenance": "ai-suggested",
+      "answerAuthor": "ai",
+      "proposedAnswer": "Evaluate evidence retrieval separately from whether the final answer uses that evidence correctly. Semantic search can find related passages without matching exact keywords. Relevance alone does not prove freshness, authority, completeness or user permission. Chunking and ranking shape what reaches generation. A citation can exist without supporting the claim; inspect the passage, not just the link.",
+      "criteria": [
+        "Test retrieval and grounded answering separately.",
+        "Include stale and unanswerable cases.",
+        "Apply permissions before exposing passages."
+      ],
+      "evidence": [
+        {
+          "label": "OpenAI: retrieval",
+          "url": "https://developers.openai.com/api/docs/guides/retrieval"
+        },
+        {
+          "label": "OpenAI: evaluation best practices",
+          "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices"
+        }
+      ],
+      "answerLocation": "./topics.html#rag"
+    },
+    {
+      "id": "suggested-evaluation",
+      "revision": 1,
+      "question": "How do I decide that an AI feature is good enough to ship?",
+      "wording": "AI-generated follow-up; not a question attributed to you",
+      "originalExcerpt": "",
+      "origin": "Proactively generated from your PM-to-AI-PM learning goals",
+      "provenance": "ai-suggested",
+      "answerAuthor": "ai",
+      "proposedAnswer": "Define success for a user job, test representative segments, and set a release rule before reading the scores. Offline evals help compare versions; live outcomes test whether people benefit. Keep training examples separate from held-out evaluation. Use deterministic checks where possible and calibrate model judges against humans. A benchmark can help shortlist models but cannot replace your task set. Watch false positives, abstentions and costly rare failures.",
+      "criteria": [
+        "Use observable criteria and representative cases.",
+        "Calibrate grading with human examples.",
+        "Separate offline scores from user outcomes."
+      ],
+      "evidence": [
+        {
+          "label": "OpenAI: evaluation best practices",
+          "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices"
+        },
+        {
+          "label": "SWE-bench official leaderboard",
+          "url": "https://www.swebench.com/"
+        }
+      ],
+      "answerLocation": "./topics.html#evaluation"
+    },
+    {
+      "id": "suggested-harness",
+      "revision": 1,
+      "question": "What belongs in an agent harness rather than the model?",
+      "wording": "AI-generated follow-up; not a question attributed to you",
+      "originalExcerpt": "",
+      "origin": "Proactively generated from your PM-to-AI-PM learning goals",
+      "provenance": "ai-suggested",
+      "answerAuthor": "ai",
+      "proposedAnswer": "The model proposes actions; the surrounding system manages context, tools, permissions and the work loop. A fixed workflow follows predefined steps; a more autonomous agent chooses more of the sequence. More autonomy adds failure paths. Tool schemas, state, stopping conditions, retries and traces affect reliability. Give consequential writes a clear authorization path. A retry must not accidentally duplicate a payment or message.",
+      "criteria": [
+        "Distinguish model and orchestration responsibilities.",
+        "Define stop and escalation conditions.",
+        "Handle retries without duplicating side effects."
+      ],
+      "evidence": [
+        {
+          "label": "Anthropic: building effective agents",
+          "url": "https://www.anthropic.com/research/building-effective-agents"
+        },
+        {
+          "label": "OpenAI: unrolling the Codex agent loop",
+          "url": "https://openai.com/index/unrolling-the-codex-agent-loop/"
+        }
+      ],
+      "answerLocation": "./topics.html#harness"
+    },
+    {
+      "id": "suggested-optimization",
+      "revision": 1,
+      "question": "How do I reduce cost and latency without quietly lowering quality?",
+      "wording": "AI-generated follow-up; not a question attributed to you",
+      "originalExcerpt": "",
+      "origin": "Proactively generated from your PM-to-AI-PM learning goals",
+      "provenance": "ai-suggested",
+      "answerAuthor": "ai",
+      "proposedAnswer": "Compare cost per successful task and end-to-end latency, not just the cheapest token rate. Shorter outputs and fewer sequential calls can reduce waiting. Caching needs eligible reusable content and real hits; include write/storage fees when applicable. Routing and smaller models can save spend but need escalation quality checks. Batch work when delay is acceptable. Distillation and quantization are advanced options with quality and operational trade-offs, not automatic wins.",
+      "criteria": [
+        "Use full workload cost and a stable quality threshold.",
+        "Distinguish perceived, first-token and total latency.",
+        "Include cache misses and retries."
+      ],
+      "evidence": [
+        {
+          "label": "OpenAI: latency optimization",
+          "url": "https://developers.openai.com/api/docs/guides/latency-optimization"
+        },
+        {
+          "label": "OpenAI: prompt caching",
+          "url": "https://developers.openai.com/api/docs/guides/prompt-caching"
+        },
+        {
+          "label": "OpenAI API pricing",
+          "url": "https://developers.openai.com/api/docs/pricing"
+        }
+      ],
+      "answerLocation": "./topics.html#optimization"
+    },
+    {
+      "id": "suggested-industry",
+      "revision": 1,
+      "question": "Where does value accumulate in the AI industry?",
+      "wording": "AI-generated follow-up; not a question attributed to you",
+      "originalExcerpt": "",
+      "origin": "Proactively generated from your PM-to-AI-PM learning goals",
+      "provenance": "ai-suggested",
+      "answerAuthor": "ai",
+      "proposedAnswer": "Map compute, model access, data/tool infrastructure and applications; then ask who owns a valuable workflow. One company can span several layers. API access, open weights, distribution, proprietary data and integration depth create different trade-offs. Open weights do not imply zero operating cost or unrestricted licensing. Public market capitalization and private funding valuation are different measures; neither alone predicts product quality.",
+      "criteria": [
+        "Separate facts from moat hypotheses.",
+        "Distinguish buyer, user and administrator.",
+        "Avoid rankings from incomparable valuations."
+      ],
+      "evidence": [
+        {
+          "label": "NVIDIA AI platform overview",
+          "url": "https://www.nvidia.com/en-us/ai/"
+        },
+        {
+          "label": "Practical AI",
+          "url": "https://practicalai.show/"
+        },
+        {
+          "label": "OpenAI API pricing",
+          "url": "https://developers.openai.com/api/docs/pricing"
+        }
+      ],
+      "answerLocation": "./topics.html#industry"
     }
   ]
 }
