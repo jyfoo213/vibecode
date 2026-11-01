@@ -1,0 +1,191 @@
+{
+  "checked": "2026-11-01",
+  "sources": [
+    {
+      "id": "openai",
+      "title": "OpenAI API pricing",
+      "url": "https://developers.openai.com/api/docs/pricing",
+      "note": "Standard text token rates; short-context base tier. Regional and speed tiers differ."
+    },
+    {
+      "id": "claude",
+      "title": "Claude pricing",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "note": "Base input/output rates; caching writes and reads are separate."
+    },
+    {
+      "id": "gemini",
+      "title": "Gemini API pricing",
+      "url": "https://ai.google.dev/gemini-api/docs/pricing",
+      "note": "Argon promotional rates end November 30, 2026. Thinking tokens are billable."
+    },
+    {
+      "id": "swe",
+      "title": "SWE-bench official leaderboard",
+      "url": "https://www.swebench.com/",
+      "note": "Verified is a 500-instance human-filtered subset. Compare harnesses and budgets."
+    },
+    {
+      "id": "models",
+      "title": "Claude model overview",
+      "url": "https://platform.claude.com/docs/en/models/overview",
+      "note": "Current family positioning and capabilities; vendor descriptions are not independent evaluations."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "frontier",
+      "category": "Models",
+      "title": "The frontier is a portfolio",
+      "summary": "Choose a model for a job, then prove the fit.",
+      "detail": "The checked catalogs include GPT-6 Astra and GPT-6.1 Sol, Claude Fable 5.1 / Opus 5.5 / Sonnet 5.5, and Gemini 4 Argon. These are candidates, not a universal ranking. Test quality, latency, cost, tool reliability, and availability on your own task distribution.",
+      "exercise": "Write a shortlist for document review. Name one quality gate and one latency gate.",
+      "source": "openai",
+      "minutes": 3
+    },
+    {
+      "id": "routing",
+      "category": "Models",
+      "title": "Route by task difficulty",
+      "summary": "Spend reasoning budget where errors are expensive.",
+      "detail": "A small model can classify requests; a stronger model can handle ambiguous exceptions. Routing adds latency and failure modes. Compare a routed system against one-model baselines using the same cases, tool access, and total budget.",
+      "exercise": "Define an escalation rule and measure how many difficult cases it misses.",
+      "source": "models",
+      "minutes": 3
+    },
+    {
+      "id": "benchmarks",
+      "category": "Benchmarks",
+      "title": "Read the harness, then the score",
+      "summary": "A benchmark measures a particular system under particular conditions.",
+      "detail": "SWE-bench reports the share of software issues resolved. Verified has 500 human-filtered instances. Its Bash Only view uses a shared mini-SWE-agent environment. Compare model version, scaffold, retries, tool access, and compute budget before reading a score as an improvement.",
+      "exercise": "Explain why a higher coding score may not predict better support answers.",
+      "source": "swe",
+      "minutes": 3
+    },
+    {
+      "id": "evals",
+      "category": "Benchmarks",
+      "title": "Build your product eval",
+      "summary": "Turn \u201cseems good\u201d into a release decision.",
+      "detail": "Start with representative user tasks and known failures. Label outcomes with a rubric, calibrate human reviewers, and keep a held-out set. Report results by segment; average quality can hide failures in rare but costly workflows. Benchmark success is evidence for a shortlist, not a release gate.",
+      "exercise": "Draft 10 cases: 6 routine, 2 ambiguous, 2 adversarial. Choose a pass threshold.",
+      "source": "swe",
+      "minutes": 3
+    },
+    {
+      "id": "tokens",
+      "category": "Economics",
+      "title": "Tokens are the unit of work",
+      "summary": "Every turn can carry history, retrieved text, and tool results.",
+      "detail": "Tokens are model-specific pieces of text, not words. Estimate with the calculator, then replace assumptions with usage logs. Count all calls in an agent loop. Output and reasoning can dominate cost; conversation history grows input even when the user types little.",
+      "exercise": "At $2 input / $10 output per million, 2,000 input + 500 output tokens cost $0.009 per call.",
+      "source": "openai",
+      "minutes": 3
+    },
+    {
+      "id": "unit",
+      "category": "Economics",
+      "title": "Price the successful outcome",
+      "summary": "Cheap calls can still make an expensive product.",
+      "detail": "Divide total model, retrieval, tool, and review spend by successful tasks. If 10,000 calls cost $90 and 80% yield successful outcomes, model cost is $0.01125 per success. Add infrastructure and support before setting margins. Cache savings require actual cache hits and may incur write or storage fees.",
+      "exercise": "Compare a cheap model with retries against a stronger model that succeeds first time.",
+      "source": "claude",
+      "minutes": 3
+    },
+    {
+      "id": "openai-company",
+      "category": "Companies",
+      "title": "OpenAI \u00b7 distribution meets API",
+      "summary": "Study the path from a personal assistant to a business workflow.",
+      "detail": "Verified anchor: OpenAI publishes separate API model and speed-tier prices. PM analysis: consumer adoption can create demand for team workflows, but API buyers still need reliable integrations and measurable outcomes. Competitive questions: where does workflow ownership sit, and what prevents switching?",
+      "exercise": "Map buyer, user, value metric, and switching cost for an internal research assistant.",
+      "source": "openai",
+      "minutes": 3
+    },
+    {
+      "id": "anthropic-company",
+      "category": "Companies",
+      "title": "Anthropic \u00b7 the work loop",
+      "summary": "Compare model capability with the system around it.",
+      "detail": "Verified anchor: Claude\u2019s catalog spans Fable, Opus, Sonnet, and Haiku, with different cost and latency positions. PM analysis: coding and knowledge-work adoption depend on context, tools, permissions, and review, alongside model quality. A useful moat hypothesis is repeatable completion of valuable workflows; validate it with retention and outcome data.",
+      "exercise": "Design a two-week coding-assistant pilot. Measure accepted work and review time.",
+      "source": "models",
+      "minutes": 3
+    },
+    {
+      "id": "google-company",
+      "category": "Companies",
+      "title": "Google \u00b7 multimodal economics",
+      "summary": "One model family can contain very different products.",
+      "detail": "Verified anchor: Google prices text, audio, grounding, caching, and specialized models separately. Argon has a dated introductory price. PM analysis: distribution and infrastructure may help adoption, but migration cost, trust, and workflow fit still decide a purchase. Compare full workflow costs, not only token rates.",
+      "exercise": "Estimate how search grounding changes the margin of a research product.",
+      "source": "gemini",
+      "minutes": 3
+    },
+    {
+      "id": "consumer",
+      "category": "Pain points",
+      "title": "Consumer \u00b7 \u201cCan I trust this?\u201d",
+      "summary": "A plausible answer can create more verification work.",
+      "detail": "Product hypothesis: people want useful answers without repeatedly checking every claim. Design citations that open the supporting passage, explicit uncertainty, and easy correction. Measure verified task completion and correction time, alongside return usage. Validate with observed tasks; this is not a quantified market claim.",
+      "exercise": "Interview five users about the last answer they had to verify. Ask what they did next.",
+      "source": "swe",
+      "minutes": 3
+    },
+    {
+      "id": "business",
+      "category": "Pain points",
+      "title": "Business \u00b7 \u201cWill it fit our process?\u201d",
+      "summary": "The user wants speed; the buyer needs control and evidence.",
+      "detail": "Product hypothesis: disconnected data, permissions, and review overhead block deployment. Start with a narrow, reversible workflow; preserve source permissions and keep consequential actions reviewable. Measure cycle time, error cost, escalation rate, and adoption by role. Test willingness to pay against saved work.",
+      "exercise": "Write a pilot scorecard for support triage with a baseline and a rollback rule.",
+      "source": "models",
+      "minutes": 3
+    },
+    {
+      "id": "agents",
+      "category": "Pain points",
+      "title": "Agents \u00b7 completion beats activity",
+      "summary": "More tool calls are useful only when the job gets done.",
+      "detail": "Product hypothesis: long-running tasks fail at handoffs, stale context, and unclear stop conditions. Make progress visible, allow interruption, and require evidence for completion. Track end-to-end success and intervention rate, with latency and spend ceilings.",
+      "exercise": "Define what \u201cdone\u201d means for a purchase-order assistant before choosing a model.",
+      "source": "claude",
+      "minutes": 3
+    }
+  ],
+  "models": [
+    {
+      "id": "sol",
+      "name": "GPT-6.1 Sol",
+      "input": 2,
+      "output": 10,
+      "source": "openai",
+      "note": "Standard base tier; confirm context and speed-tier pricing."
+    },
+    {
+      "id": "sonnet",
+      "name": "Claude Sonnet 5.5",
+      "input": 2,
+      "output": 10,
+      "source": "claude",
+      "note": "Base token rates; excludes prompt-cache charges."
+    },
+    {
+      "id": "argon",
+      "name": "Gemini 4 Argon",
+      "input": 2,
+      "output": 10,
+      "source": "gemini",
+      "note": "Promotion through Nov 30, 2026; $4 / $20 from Dec 1."
+    },
+    {
+      "id": "custom",
+      "name": "Custom rates",
+      "input": 1,
+      "output": 5,
+      "source": "openai",
+      "note": "Your assumptions; not a provider quote."
+    }
+  ]
+}

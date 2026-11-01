@@ -1,33 +1,17 @@
 # AI Atlas
 
-A first interactive AI industry landscape for learning how companies connect. Includes 25 seed profiles, five supply-chain layers, search, hover descriptions, selectable relationship details, and a sortable company directory.
+An interactive AI PM learning hub with 12 expandable lessons across models, benchmarks, economics, companies, and pain points. Includes text-token cost modeling, per-task agent-loop costs, search, track filters, browser-local progress, and the existing 25-company landscape and notes.
 
-## Develop
+## Develop and verify
 
-Requires Node.js 22 or newer. No runtime packages, accounts, API keys, or database service are needed.
+Node.js 22+: `npm ci --ignore-scripts`, `npm start` (port 3000), `npm test`, `npm run build`. The static public build is `dist/`. All relative asset paths support GitHub Pages project subpaths. No runtime dependencies, credentials, or backend needed.
 
-```sh
-cd /workspace/vibecode
-npm ci --ignore-scripts
-npm start
-```
+`data/learning.json` contains editorial lessons, source records and calculator presets. The source snapshot was checked November 1, 2026 against official OpenAI, Claude, Gemini and SWE-bench pages. Prices are USD per million tokens, standard base text tiers. Gemini 4 Argon promotional prices expire November 30, 2026; presets are an explicitly dated snapshot, not live quotes. Tool calls, grounding, cache writes/storage, regional premiums, tax and infrastructure are excluded. Replace usage assumptions with billing data before budgeting.
 
-The server uses port 3000 (override with `PORT`). Run `npm test` for dataset validation. Check the homepage and `/data/landscape.json` over HTTP after startup.
+Vendor facts, PM interpretation and pain-point hypotheses are distinguished in the lessons. There is no universal model ranking. The older `data/landscape.json` remains a research-preview dataset: relationships are unverified, public market caps are pending, and private valuations are dated seed references. Do not interpret it as a current comparable company ranking.
 
-## Research and data
+## Deployment
 
-`data/landscape.json` is the editable, version-controlled first database. Companies and directed relationships are separate records with stable IDs; these can migrate to SQLite or PostgreSQL when editing and persistence need a backend.
+Pushes to `main` run tests and build, then deploy only `dist/` through `.github/workflows/static.yml` to GitHub Pages. See HOSTING.md.
 
-**This is not a researched current top-25 ranking.** The company universe is curated, not exhaustive. Public market caps are null pending source access. Four private valuations are dated historical seed references, explicitly unverified; directory ranks apply only to these available figures. Company profiles and relationship links are research leads, not verified current claims. Source URLs have not been checked; some reference general product pages. Relationship dates are pending. No live feed is connected.
-
-Public market caps and private funding valuations measure different things and refer to whole companies. Historical numbers across different dates should not be interpreted as a current comparable ranking. Primary layers simplify companies that span several businesses. An absent edge means unresearched, not no relationship.
-
-Next research pass: verify sources and relationship dates; obtain a consistent dated public-market snapshot; update private round records; then rank a documented candidate universe. Investigate ownership changes before treating private companies as standalone peers. Add structured evidence records and review history before publishing research conclusions.
-
-## Interface
-
-Hover or keyboard-focus a company for its description. Select it for valuation records, reference links, and directed connections. Use search and layer filters to narrow the map, or switch to the directory. Escape closes company details. On small screens the map scrolls horizontally.
-
-## Environment
-
-Use the existing isolated checkout; no Git worktree is needed. Keep processes separate from installed files: restart `npm start` in new sessions. No deployment or GitHub push has been performed.
+Progress is stored only in this browser using localStorage; if unavailable, it lasts for the session. No account or analytics. External Google Fonts are optional; system and Georgia fallbacks work without them.

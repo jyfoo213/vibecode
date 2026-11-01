@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {estimate,filterLessons} from '../cost.js';
+import {publicFiles} from '../scripts/build.js';
+const data=JSON.parse(await readFile(new URL('../data/learning.json',import.meta.url)));
+test('costs include all calls, outputs, and zero usage',()=>{assert.deepEqual(estimate({inputTokens:2000,outputTokens:500,inputRate:2,outputRate:10,tasks:10000,calls:1}),{perCall:.009,perTask:.009,monthly:90});assert.ok(Math.abs(estimate({inputTokens:2000,outputTokens:500,inputRate:2,outputRate:10,tasks:10000,calls:3}).monthly-270)<1e-9);assert.equal(estimate({inputTokens:0,outputTokens:0,inputRate:2,outputRate:10,tasks:0,calls:1}).monthly,0);});
+test('invalid workload cannot silently yield a quote',()=>{for(const calls of [0,-1,NaN,Infinity])assert.throws(()=>estimate({inputTokens:1,outputTokens:1,inputRate:1,outputRate:1,tasks:1,calls}),RangeError);});
+test('all lessons have primary evidence, unique IDs, concise summaries, and exercises',()=>{assert.equal(data.lessons.length,12);assert.equal(new Set(data.lessons.map(l=>l.id)).size,12);for(const l of data.lessons){assert.ok(data.sources.some(s=>s.id===l.source));assert.ok(l.exercise&&l.detail);assert.ok(l.summary.length<120);}for(const s of data.sources)assert.equal(new URL(s.url).protocol,'https:');});
+test('search and track filter compose and handle empty results',()=>{assert.equal(filterLessons(data.lessons,'Companies','GOOGLE').length,1);assert.equal(filterLessons(data.lessons,'Models','google').length,0);assert.equal(filterLessons(data.lessons,'All tracks','   ').length,12);assert.equal(filterLessons(data.lessons,'All tracks','no-such-topic').length,0);});
+test('every local HTML reference ships in the public build',async()=>{const files=await publicFiles();for(const name of files.filter(n=>n.endsWith('.html'))){const html=await readFile(new URL('../'+name,import.meta.url),'utf8');for(const match of html.matchAll(/(?:href|src)="\.\/([^"#]+)(?:#[^"]*)?"/g))assert.ok(files.includes(match[1]),`${name} references missing ${match[1]}`);}for(const name of ['industry.html','topics.html','hub.js','cost.js','nav.css','data/learning.json'])assert.ok(files.includes(name));assert.ok(!files.includes('server.js'));});
