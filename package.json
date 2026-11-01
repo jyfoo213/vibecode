@@ -8,7 +8,8 @@
     "test": "node --test",
     "build": "node scripts/build.js",
     "nav": "node scripts/sync-navigation.js",
-    "content:generate": "node scripts/build-guides.js"
+    "content:generate": "node scripts/build-guides.js",
+    "home:generate": "node scripts/build-home.js"
   },
   "engines": {
     "node": ">=22"

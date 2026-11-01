@@ -22,7 +22,9 @@
           "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages"
         }
       ],
-      "answerLocation": "./coding-models.html#main"
+      "answerLocation": "./coding-models.html#main",
+      "askedSequence": 1,
+      "shortAnswer": "Both workflows can use the same PR and deployment path. The main difference is where the files, terminal and preview run."
     },
     {
       "id": "setup",
@@ -44,7 +46,9 @@
           "url": "https://docs.github.com/en/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds"
         }
       ],
-      "answerLocation": "./coding-models.html#main"
+      "answerLocation": "./coding-models.html#main",
+      "askedSequence": 2,
+      "shortAnswer": "A fresh workspace pays a startup cost. A warm cloud workspace can reuse its setup, just as a configured laptop does."
     },
     {
       "id": "sleep",
@@ -69,7 +73,9 @@
           "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages"
         }
       ],
-      "answerLocation": "./coding-models.html#main"
+      "answerLocation": "./coding-models.html#main",
+      "askedSequence": 3,
+      "shortAnswer": "A sleeping development workspace and the live website are separate. Published Pages files can stay available while development stops."
     },
     {
       "id": "tradeoffs",
@@ -94,7 +100,9 @@
           "url": "https://docs.github.com/en/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds"
         }
       ],
-      "answerLocation": "./coding-models.html#main"
+      "answerLocation": "./coding-models.html#main",
+      "askedSequence": 4,
+      "shortAnswer": "Local often wins on familiarity and startup. Cloud can help with access, isolation and compute; measure your actual workflow."
     },
     {
       "id": "mental-model",
@@ -115,7 +123,9 @@
           "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages"
         }
       ],
-      "answerLocation": "./coding-models.html#main"
+      "answerLocation": "./coding-models.html#main",
+      "askedSequence": 5,
+      "shortAnswer": "Separate your workbench, source repository and live site. Model inference is another independent location choice."
     },
     {
       "id": "agent-instructions",
@@ -137,7 +147,9 @@
           "url": "https://github.com/jyfoo213/vibecode/blob/main/AGENTS.md"
         }
       ],
-      "answerLocation": "https://github.com/jyfoo213/vibecode/blob/main/AGENTS.md"
+      "answerLocation": "https://github.com/jyfoo213/vibecode/blob/main/AGENTS.md",
+      "askedSequence": 6,
+      "shortAnswer": "AGENTS.md records shared project policy. Ask each client what it loaded; discovery differs by tool and configuration."
     },
     {
       "id": "eval-bank",
@@ -159,7 +171,9 @@
           "url": "https://github.com/jyfoo213/vibecode/blob/main/data/questions.json"
         }
       ],
-      "answerLocation": "./questions.html"
+      "answerLocation": "./questions.html",
+      "askedSequence": 7,
+      "shortAnswer": "Review the proposed answer against evidence and criteria. Your verdict is a human review, not an automatic truth score."
     },
     {
       "id": "coding-agents",
@@ -186,7 +200,9 @@
           "url": "https://openai.com/index/unrolling-the-codex-agent-loop/"
         }
       ],
-      "answerLocation": "./coding-agents.html"
+      "answerLocation": "./coding-agents.html",
+      "askedSequence": 8,
+      "shortAnswer": "Both use a model \u2192 tool \u2192 observation loop. Compare the model, harness, context, permissions and result\u2014not only the brand."
     },
     {
       "id": "model-fit",
@@ -208,7 +224,9 @@
           "url": "https://learn.chatgpt.com/docs/codex/cli"
         }
       ],
-      "answerLocation": "./questions.html"
+      "answerLocation": "./questions.html",
+      "askedSequence": 9,
+      "shortAnswer": "A light setting is a reasonable routine-work default, not proof of suitability for every task. Test harder work at higher effort."
     },
     {
       "id": "plan-budget",
@@ -240,7 +258,9 @@
           "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan"
         }
       ],
-      "answerLocation": "./questions.html"
+      "answerLocation": "./questions.html",
+      "askedSequence": 10,
+      "shortAnswer": "Your reported 5-hour window is separate from the monthly fee. Remaining allowance and the displayed reset time determine headroom."
     },
     {
       "id": "suggested-model-mechanics",
@@ -477,6 +497,30 @@
         }
       ],
       "answerLocation": "./topics.html#industry"
+    },
+    {
+      "id": "usage-window",
+      "revision": 1,
+      "question": "If I hit a usage limit today, can I continue tomorrow?",
+      "wording": "Original question excerpts",
+      "originalExcerpt": "is the 20/month limit imposed per day or per session or per month? / like if i run out of limits today can i continue tomorow",
+      "origin": "Usage-window follow-up in this conversation; you later reported a 5-hour meter",
+      "askedSequence": 11,
+      "shortAnswer": "Yes, when the exhausted window resets. Your meter shows a 5-hour window; a separate weekly limit may require a longer wait.",
+      "proposedAnswer": "The $20 is the monthly subscription price, not a daily or per-session budget. You reported a 5-hour usage window in Settings \u2192 Usage. If that allowance is exhausted, resume at its displayed reset time. If a separate weekly limit is exhausted, tomorrow may be too soon. Starting a new chat does not reset either window; the account meter is the authority for your remaining allowance and reset.",
+      "criteria": [
+        "Separates the monthly subscription fee from usage windows.",
+        "Uses your reported 5-hour meter without inventing remaining allowance.",
+        "Explains why a weekly limit can change the answer.",
+        "Does not suggest a new chat resets usage."
+      ],
+      "evidence": [
+        {
+          "label": "OpenAI: usage limits and reset windows",
+          "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan"
+        }
+      ],
+      "answerLocation": "./questions.html#case-usage-window"
     }
   ]
 }

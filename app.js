@@ -1,66 +1,33 @@
-const data = await fetch('./data/landscape.json').then(r => { if (!r.ok) throw new Error('Dataset unavailable'); return r.json(); });
-const $ = id => document.getElementById(id);
-let selected = null, layer = 'all', query = '', descending = true;
-const money = v => v === null ? 'Pending research' : '$' + v.toLocaleString() + 'B';
-const find = id => data.companies.find(c => c.id === id);
-const visible = () => data.companies.filter(c => (layer === 'all' || c.layer === layer) && `${c.name} ${c.description} ${c.focus}`.toLowerCase().includes(query));
-function node(tag, text, cls) { const el = document.createElement(tag); if (text !== undefined) el.textContent = text; if (cls) el.className = cls; return el; }
-function reference(url, label) { const a = node('a',label); a.href=url; a.target='_blank'; a.rel='noopener noreferrer'; return a; }
-function renderFilters() {
-  $('filters').replaceChildren();
-  for (const l of [{id:'all',name:'All layers'},...data.layers]) {
-    const b=node('button',l.name, layer===l.id?'selected':''); b.setAttribute('aria-pressed',String(layer===l.id)); b.onclick=()=>{layer=l.id;renderFilters();render();}; $('filters').append(b);
-  }
-}
-function showTip(c,el) {
-  const tip=$('tooltip'); tip.replaceChildren(node('strong',c.name),node('p',c.description),node('small',c.focus+' · '+c.ownership)); tip.hidden=false;
-  const r=el.getBoundingClientRect(); tip.style.left=Math.min(Math.max(12,r.left),window.innerWidth-300)+'px'; tip.style.top=Math.max(10,Math.min(r.bottom+8,window.innerHeight-170))+'px';
-}
-function render() {
-  const companies=visible(); $('columns').replaceChildren();
-  for(const l of data.layers) {
-    const col=node('section',undefined,'map-column'); col.append(node('p',l.name,'column-title'),node('small',l.subtitle,'column-subtitle'));
-    for(const c of companies.filter(c=>c.layer===l.id)) {
-      const connected = !selected || c.id===selected || data.relationships.some(r => (r.source===selected&&r.target===c.id)||(r.target===selected&&r.source===c.id));
-      const b=node('button',undefined,'company-node '+(selected===c.id?'chosen ':'')+(!connected?'muted':'')); b.dataset.id=c.id;
-      const initials=node('span',c.name.replace(' AI','').slice(0,2).toUpperCase(),'monogram');
-      const text=node('span'); text.append(node('strong',c.name),node('small',c.focus)); b.append(initials,text); b.onclick=()=>select(c.id);
-      b.onmouseenter=()=>showTip(c,b); b.onmouseleave=()=>{$('tooltip').hidden=true;}; b.onfocus=()=>showTip(c,b); b.onblur=()=>{$('tooltip').hidden=true;}; col.append(b);
-    }
-    $('columns').append(col);
-  }
-  $('count').textContent=`${companies.length} companies shown · arrows point from provider / investor to recipient`;
-  if(!companies.length) $('count').textContent='No companies match. Try another search or layer.';
-  renderTable(companies); requestAnimationFrame(drawEdges);
-}
-function drawEdges() {
-  const svg=$('edges'), bounds=$('map').getBoundingClientRect(); svg.replaceChildren(); svg.setAttribute('viewBox',`0 0 ${bounds.width} ${bounds.height}`);
-  svg.innerHTML='<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke"/></marker></defs>';
-  for(const r of data.relationships) {
-    const a=document.querySelector(`[data-id="${r.source}"]`), b=document.querySelector(`[data-id="${r.target}"]`); if(!a||!b)continue;
-    const x=a.getBoundingClientRect(),y=b.getBoundingClientRect(); const forward=x.left<y.left;
-    const x1=(forward?x.right:x.left)-bounds.left,y1=x.top+x.height/2-bounds.top,x2=(forward?y.left:y.right)-bounds.left,y2=y.top+y.height/2-bounds.top;
-    const p=document.createElementNS('http://www.w3.org/2000/svg','path'); const dx=Math.max(25,Math.abs(x2-x1)*.45)*(forward?1:-1);
-    p.setAttribute('d',`M${x1},${y1} C${x1+dx},${y1} ${x2-dx},${y2} ${x2},${y2}`); p.setAttribute('marker-end','url(#arrow)');
-    p.classList.add(selected&&(r.source===selected||r.target===selected)?'highlight':'connection'); if(selected&&r.source!==selected&&r.target!==selected)p.classList.add('faded'); svg.append(p);
-  }
-}
-function renderTable(companies) {
-  const sorted=[...companies].sort((a,b)=>{const av=a.valuation.usdBillions,bv=b.valuation.usdBillions; if(av===null&&bv===null)return a.name.localeCompare(b.name); if(av===null)return 1;if(bv===null)return -1;return descending?bv-av:av-bv;});
-  const ranked=data.companies.filter(c=>c.valuation.usdBillions!==null).sort((a,b)=>b.valuation.usdBillions-a.valuation.usdBillions);
-  $('company-rows').replaceChildren();
-  for(const c of sorted){ const tr=node('tr');tr.append(node('td',c.valuation.usdBillions===null?'—':String(ranked.indexOf(c)+1)+'*'));const name=node('td');const b=node('button',c.name,'company-link');b.onclick=()=>select(c.id);name.append(b,node('small',c.focus+' · '+c.ownership));tr.append(name,node('td',data.layers.find(l=>l.id===c.layer).name),node('td',money(c.valuation.usdBillions)),node('td',(c.valuation.asOf||'No verified figure')+' · '+c.valuation.status));$('company-rows').append(tr);}
-}
-function select(id) {selected=id;$('tooltip').hidden=true;const c=find(id),v=c.valuation,body=$('detail-body');body.replaceChildren(node('p',c.focus+' / '+c.ownership,'eyebrow'),node('h2',c.name),node('p',c.description),node('h3','Valuation record'),node('p',money(v.usdBillions),'value'),node('p',v.basis+(v.asOf?' · '+v.asOf:'')),node('p',v.status,'status'));if(v.sourceUrl)body.append(reference(v.sourceUrl,'Funding reference (unverified) ↗'));body.append(reference(c.website,'Company website ↗'),node('h3','Connections'));
-  const rels=data.relationships.filter(r=>r.source===id||r.target===id);
-  if(!rels.length)body.append(node('p','No connections researched yet. This does not mean the company operates alone.'));
-  for(const r of rels){const box=node('article',undefined,'relationship');box.append(node('small',r.type.toUpperCase()),node('p',find(r.source).name+' → '+find(r.target).name),node('p',r.description),node('small',r.status+' · date pending'));box.append(reference(r.sourceUrl,'Research reference ↗'));body.append(box);}
-  $('detail').hidden=false;render();$('close').focus();
-}
-function close(){selected=null;$('detail').hidden=true;render();}
-$('close').onclick=close;$('reset').onclick=()=>{query='';layer='all';$('search').value='';close();renderFilters();};
-$('search').oninput=e=>{query=e.target.value.toLowerCase();render();};
-$('sort').onclick=()=>{descending=!descending;$('sort').textContent='Historical value '+(descending?'↓':'↑');render();};
-for(const tab of ['map','list'])$(tab+'-tab').onclick=()=>{for(const t of ['map','list']){$(t+'-view').hidden=t!==tab;$(t+'-tab').classList.toggle('active',t===tab);$(t+'-tab').setAttribute('aria-pressed',String(t===tab));}requestAnimationFrame(drawEdges);};
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){close();$('tooltip').hidden=true;}});window.addEventListener('resize',()=>{$('tooltip').hidden=true;drawEdges();});
-renderFilters();render();
+import {filterPlayers,visibleRelationships,peerPlayers} from './landscape-utils.js';
+const $=id=>document.getElementById(id);
+const node=(tag,text,cls)=>{const el=document.createElement(tag);if(text!==undefined)el.textContent=text;if(cls)el.className=cls;return el;};
+const reference=(url,label)=>{const a=node('a',label);a.href=url;a.target='_blank';a.rel='noopener noreferrer';return a;};
+try{
+const response=await fetch('./data/landscape.json');if(!response.ok)throw Error('Dataset unavailable');const data=await response.json();
+let selected=null,layer='all',query='',ascending=true,tab='map',openerId=null;
+const find=id=>data.companies.find(c=>c.id===id);
+const relationships=()=>visibleRelationships(data.relationships,$('research-leads').checked);
+const visible=()=>filterPlayers(data.companies,{layer,query});
+const layerName=id=>data.layers.find(l=>l.id===id).name;
+function renderFilters(){$('filters').replaceChildren();for(const l of [{id:'all',name:'All layers'},...data.layers]){const b=node('button',l.name,layer===l.id?'selected':'');b.type='button';b.setAttribute('aria-pressed',String(layer===l.id));b.onclick=()=>{layer=l.id;renderFilters();render();};$('filters').append(b);}}
+function showTip(c,el){const tip=$('tooltip');tip.replaceChildren(node('strong',c.name),node('p',c.description),node('small',c.role));tip.hidden=false;const r=el.getBoundingClientRect();tip.style.left=Math.max(8,Math.min(r.left,window.innerWidth-290))+'px';tip.style.top=Math.max(8,Math.min(r.bottom+8,window.innerHeight-180))+'px';}
+function render(){const companies=visible(),rels=relationships(),connected=new Set(rels.filter(r=>r.source===selected||r.target===selected).flatMap(r=>[r.source,r.target]));$('columns').replaceChildren();const layers=layer==='all'?data.layers:data.layers.filter(l=>l.id===layer);$('columns').style.gridTemplateColumns=`repeat(${layers.length},minmax(175px,1fr))`;$('map').classList.toggle('single-layer',layer!=='all');
+for(const l of layers){const col=node('section',undefined,'map-column'),members=companies.filter(c=>c.layer===l.id);col.append(node('p',l.name+' · '+members.length,'column-title'),node('small',l.subtitle,'column-subtitle'));for(const c of members){const b=node('button',undefined,'company-node '+(selected===c.id?'chosen ':'')+(selected&&connected.size&&!connected.has(c.id)?'muted':''));b.type='button';b.dataset.id=c.id;b.setAttribute('aria-label',c.name+' — '+c.role);const text=node('span');text.append(node('strong',c.name),node('small',c.role));b.append(node('span',c.name.replace(' AI','').slice(0,2).toUpperCase(),'monogram'),text);b.onclick=()=>select(c.id);b.onmouseenter=()=>showTip(c,b);b.onmouseleave=()=>{$('tooltip').hidden=true;};b.onfocus=()=>showTip(c,b);b.onblur=()=>{$('tooltip').hidden=true;};col.append(b);}$('columns').append(col);}
+$('count').textContent=companies.length?`${companies.length} / ${data.companies.length} player profiles · ${rels.length} relationship records enabled`:'No players match. Try another search or layer.';renderTable(companies);requestAnimationFrame(drawEdges);}
+function drawEdges(){const svg=$('edges');if($('map-view').hidden)return;const bounds=$('map').getBoundingClientRect();svg.replaceChildren();svg.setAttribute('viewBox',`0 0 ${bounds.width} ${bounds.height}`);svg.innerHTML='<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke"/></marker></defs>';
+for(const r of relationships()){const a=document.querySelector(`#map [data-id="${r.source}"]`),b=document.querySelector(`#map [data-id="${r.target}"]`);if(!a||!b)continue;const x=a.getBoundingClientRect(),y=b.getBoundingClientRect(),forward=x.left<y.left,x1=(forward?x.right:x.left)-bounds.left,y1=x.top+x.height/2-bounds.top,x2=(forward?y.left:y.right)-bounds.left,y2=y.top+y.height/2-bounds.top;const dx=Math.max(30,Math.abs(x2-x1)*.45)*(forward?1:-1);const p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d',`M${x1},${y1} C${x1+dx},${y1} ${x2-dx},${y2} ${x2},${y2}`);p.setAttribute('marker-end','url(#arrow)');p.classList.add(selected&&(r.source===selected||r.target===selected)?'highlight':'connection');if(r.status!=='primary source reviewed')p.classList.add('research-lead');if(selected&&r.source!==selected&&r.target!==selected)p.classList.add('faded');svg.append(p);}}
+function renderTable(companies){$('company-rows').replaceChildren();for(const c of [...companies].sort((a,b)=>(ascending?1:-1)*a.name.localeCompare(b.name))){const tr=node('tr'),name=node('td');const b=node('button',c.name,'company-link');b.type='button';b.dataset.player=c.id;b.onclick=()=>select(c.id);name.append(b,node('small',c.role));const products=node('td',c.profile.offerings.join(' · '));tr.append(name,node('td',layerName(c.layer)),products,node('td',c.profile.buyer));const action=node('td');const add=node('button','Compare','compare-action');add.type='button';add.setAttribute('aria-label','Add '+c.name+' to comparison');add.onclick=()=>addComparison(c.id);action.append(add);tr.append(action);$('company-rows').append(tr);}}
+function select(id){const c=find(id);if(!c)return;if(!$('detail').open)openerId=document.activeElement?.dataset.id||document.activeElement?.dataset.player||null;selected=id;const p=c.profile,body=$('detail-body');$('tooltip').hidden=true;body.replaceChildren(node('p',layerName(c.layer),'eyebrow'),node('h2',c.name),node('p',c.role,'profile-role'),node('p',c.description));if(p.scopeNote)body.append(node('p',p.scopeNote,'profile-disclosure'));body.append(node('h3','What it offers'));const list=node('ul');for(const offer of p.offerings)list.append(node('li',offer));body.append(list,node('p','Product reference checked '+p.checked+' · Vendor positioning is not independent proof.','profile-disclosure'));
+const analysis=node('section',undefined,'profile-analysis');analysis.append(node('p','PM LENS / EDITORIAL ANALYSIS','eyebrow'));for(const [title,text] of [['Who might buy it?',p.buyer],['Commercial lens',p.commercialLens],['Why it matters',p.whyItMatters],['Trade-offs to investigate',p.tradeoffs],['A better PM question',p.pmQuestion]])analysis.append(node('h3',title),node('p',text));body.append(analysis);
+const compare=node('button','Compare this player','profile-compare');compare.type='button';compare.onclick=()=>{if(!addComparison(c.id)){compare.after(node('p',$('compare-status').textContent,'profile-disclosure'));return;}compare.textContent='Added to comparison';compare.disabled=true;if(!$('compare-b').value)compare.after(node('p','Choose a related player below, or close this profile to pick a second player.','profile-disclosure'));if($('compare-a').value&&$('compare-b').value){closeProfile();$('comparison').scrollIntoView({block:'start'});}};body.append(compare,node('h3','Related players to understand'));body.append(node('p','Editorial comparisons, not claims of a partnership or direct substitutability.','profile-disclosure'));const peers=node('div',undefined,'peer-links');for(const peer of peerPlayers(c,data.companies)){const b=node('button',peer.name);b.type='button';b.onclick=()=>select(peer.id);peers.append(b);}body.append(peers,node('h3','Evidence and scope'));for(const s of p.evidence){body.append(reference(s.url,s.title+' →'),node('p',s.supports+' Checked '+s.checked+'.','profile-disclosure'));}
+const rels=relationships().filter(r=>r.source===id||r.target===id);const relDetails=node('details',undefined,'profile-extra');relDetails.append(node('summary','Relationships · '+rels.length+' enabled'));if(!rels.length)relDetails.append(node('p','No enabled evidence records for this player. This means unresearched, not disconnected.'));for(const r of rels){const box=node('article',undefined,'relationship');box.append(node('small',r.type.toUpperCase()),node('p',find(r.source).name+' → '+find(r.target).name),node('p',r.description),node('small',r.status+(r.asOf?' · '+r.asOf:' · date pending')),reference(r.sourceUrl,'Source →'));relDetails.append(box);}body.append(relDetails);
+const historic=node('details',undefined,'profile-extra');historic.append(node('summary','Historical valuation / original seed record'));const v=c.valuation;historic.append(node('p',v.usdBillions===null?'No verified valuation is maintained for this profile.':`Historical seed figure: $${v.usdBillions}B · ${v.asOf} · ${v.status}. Not a current comparable valuation.`),node('p','The map mixes company groups and product brands. Ownership/status fields from the original seed are not a current legal-entity assessment.','profile-disclosure'));if(v.sourceUrl)historic.append(reference(v.sourceUrl,'Original unverified funding reference →'));body.append(historic);render();history.replaceState(null,'','#player-'+c.id);if(!$('detail').open){$('detail').hidden=false;$('detail').showModal();}$('close').focus();}
+function closeProfile(){selected=null;if($('detail').open)$('detail').close();$('detail').hidden=true;if(location.hash.startsWith('#player-'))history.replaceState(null,'',location.pathname+location.search);render();if(openerId){const target=tab==='map'?document.querySelector(`#map [data-id="${openerId}"]`):document.querySelector(`[data-player="${openerId}"]`);target?.focus();}}
+$('close').onclick=closeProfile;$('detail').addEventListener('cancel',e=>{e.preventDefault();closeProfile();});$('detail').addEventListener('click',e=>{if(e.target===$('detail')){const r=$('detail').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeProfile();}});
+function addComparison(id){if($('compare-a').value===id||$('compare-b').value===id){$('compare-status').textContent='This player is already selected.';return false;}if(!$('compare-a').value)$('compare-a').value=id;else if(!$('compare-b').value)$('compare-b').value=id;else{$('compare-status').textContent='Two players are selected. Choose a different player or clear the comparison first.';return false;}renderComparison();return true;}
+function renderComparison(){const a=find($('compare-a').value),b=find($('compare-b').value);$('comparison-body').replaceChildren();$('comparison-table').hidden=!(a&&b);if(a&&b&&a.id===b.id){$('comparison-table').hidden=true;$('compare-status').textContent='Choose two different players.';return;}$('compare-status').textContent=a&&b?'Compare product scope and editorial PM lenses; this is not a performance ranking.':'Choose two players to compare their roles and product implications.';if(!a||!b)return;$('compare-a-name').textContent=a.name;$('compare-b-name').textContent=b.name;for(const [title,get] of [['Role',c=>c.role],['Offerings',c=>c.profile.offerings.join(' · ')],['Likely buyer · analysis',c=>c.profile.buyer],['Commercial lens · analysis',c=>c.profile.commercialLens],['Why it matters · analysis',c=>c.profile.whyItMatters],['Trade-offs · analysis',c=>c.profile.tradeoffs],['PM question · analysis',c=>c.profile.pmQuestion]]){const row=node('tr');row.append(node('th',title),node('td',get(a)),node('td',get(b)));$('comparison-body').append(row);}const row=node('tr');row.append(node('th','Evidence'));for(const c of [a,b]){const cell=node('td');cell.append(reference(c.profile.evidence[0].url,'Primary reference →'),node('small','Checked '+c.profile.checked));row.append(cell);}$('comparison-body').append(row);}
+for(const id of ['compare-a','compare-b']){const select=$(id);for(const c of [...data.companies].sort((a,b)=>a.name.localeCompare(b.name))){const o=node('option',c.name);o.value=c.id;select.append(o);}select.onchange=renderComparison;}$('clear-comparison').onclick=()=>{$('compare-a').value='';$('compare-b').value='';renderComparison();};
+$('reset').onclick=()=>{query='';layer='all';$('search').value='';closeProfile();renderFilters();};$('search').oninput=e=>{query=e.target.value;render();};$('sort').onclick=()=>{ascending=!ascending;$('sort').textContent='Player '+(ascending?'A → Z':'Z → A');renderTable(visible());};$('research-leads').onchange=()=>{render();if(selected)select(selected);};
+for(const t of ['map','list'])$(t+'-tab').onclick=()=>{tab=t;for(const view of ['map','list']){$(view+'-view').hidden=view!==t;$(view+'-tab').classList.toggle('active',view===t);$(view+'-tab').setAttribute('aria-pressed',String(view===t));}requestAnimationFrame(drawEdges);};window.addEventListener('resize',()=>{$('tooltip').hidden=true;drawEdges();});
+const hash=()=>{if(location.hash.startsWith('#player-'))select(decodeURIComponent(location.hash.slice(8)));};window.addEventListener('hashchange',hash);renderFilters();render();renderComparison();hash();
+}catch(error){$('count').textContent='The player dataset could not load. Refresh to retry or open the public dataset.';$('columns').replaceChildren(node('p','Player information is temporarily unavailable.'));console.error(error);}
