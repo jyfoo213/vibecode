@@ -19,3 +19,11 @@ Progress is stored only in this browser using localStorage; if unavailable, it l
 ## Local vs cloud coding topic
 
 `coding-models.html` explains workspaces, repository review, and production as separate layers. Includes responsive architecture diagrams and cold / warm / resume scenarios. GitHub lifecycle and prebuild references were checked November 1, 2026; Codespaces is an illustrative provider, not an identification of this session’s service. This topic is linked from Topics and the homepage.
+
+## Agents and question evals
+
+Read [AGENTS.md](./AGENTS.md) before working in this repository. It documents architecture, evidence standards, safe collaboration, validation, and the PR/deployment workflow. Tools that do not discover AGENTS.md automatically should be explicitly pointed to it.
+
+`questions.html` is the human-reviewed question bank, linked from the hub and Topics. `data/questions.json` preserves stable IDs, revisions, labeled paraphrases, original user excerpts, proposed answers, acceptance criteria, evidence, and answer links. Update case revisions when substantive answers or criteria change. Reviews default to Not reviewed; agents must not mark their own answers correct.
+
+Verdicts and notes live in browser localStorage, with session-only fallback and JSON export. They do not sync to the repo or other devices. A changed case revision invalidates an old verdict while preserving its notes; exports include the earlier review. Only add conversation content intended for the public site. Root agent instructions are excluded from the static build.
