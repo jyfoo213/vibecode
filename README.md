@@ -15,3 +15,7 @@ Vendor facts, PM interpretation and pain-point hypotheses are distinguished in t
 Pushes to `main` run tests and build, then deploy only `dist/` through `.github/workflows/static.yml` to GitHub Pages. See HOSTING.md.
 
 Progress is stored only in this browser using localStorage; if unavailable, it lasts for the session. No account or analytics. External Google Fonts are optional; system and Georgia fallbacks work without them.
+
+## Local vs cloud coding topic
+
+`coding-models.html` explains workspaces, repository review, and production as separate layers. Includes responsive architecture diagrams and cold / warm / resume scenarios. GitHub lifecycle and prebuild references were checked November 1, 2026; Codespaces is an illustrative provider, not an identification of this session’s service. This topic is linked from Topics and the homepage.
