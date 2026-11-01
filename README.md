@@ -30,8 +30,10 @@ Verdicts and notes live in browser localStorage, with session-only fallback and 
 
 ## Navigation
 
-All ten pages share a static header and breadcrumb generated from `scripts/navigation.js`. Four groups organize content by intent: Learn (lessons, topics, skills, local/cloud), Explore (industry map, cost lab), Practice (question bank, interviews, journal), Reference (sources, glossary). The logo returns to the overview.
+All pages share a static header and breadcrumb generated from `scripts/navigation.js`. Four groups organize content by intent: Learn (lessons, topics, skills, local/cloud, coding-agent comparison), Explore (industry map, cost lab), Practice (question bank, interviews, journal), Reference (sources, glossary). The logo returns to the overview.
 
 Edit the navigation configuration, run `npm run nav`, and commit the updated HTML. `site-nav.css` and `site-nav.js` provide responsive disclosure menus with keyboard, Escape, and outside-click support. The links are present in HTML even without JavaScript. Existing URLs stay valid. Tests detect pages that drift from the shared navigation.
 
 Design guidance in AGENTS.md adapts the GOV.UK Government Design Principles to this learning hub, with progressive disclosure and a WCAG 2.2 AA target. It defines how agents should place new content, reuse patterns, and validate findability as the site grows.
+
+`coding-agents.html` compares Claude Code and Codex through public architecture references, a six-step workflow, expandable explanations, and a task-based comparison rubric. The question bank also records model-fit and plan-budget questions; budget remains unresolved until actual plan/usage data is available.
