@@ -13,6 +13,8 @@ Read this file and README.md before changing the repository. User instructions t
 - Buildless HTML/CSS and browser ES modules; Node.js 22+ for tooling. No framework, backend, runtime dependencies, API keys, or database needed.
 - `npm ci --ignore-scripts`; `npm start` (port 3000); `npm test`; `npm run build`.
 - `index.html`, `hub.css`, `hub.js`, `cost.js`: learning hub and calculator. `data/learning.json`: lessons, presets, sources.
+- Shared navigation: edit `scripts/navigation.js`, run `npm run nav`, and commit generated HTML for all pages. `site-nav.css` / `site-nav.js` own the common header. Keep global links consistent and use breadcrumbs for page context.
+- `coding-agents.html`: sourced Claude Code/Codex architecture comparison and prompt-to-implementation walkthrough.
 - `coding-models.*`: local vs cloud development topic. `questions.*`, `question-state.js`, `data/questions.json`: question bank and manual answer evaluation.
 - Existing notes and `industry.html` / `app.js` / `data/landscape.json` remain supported. Preserve their research-preview disclosures.
 - `scripts/build.js` defines public assets and writes `dist/`; `server.js` previews the same allowlist. Restart the server after adding public files.
@@ -24,6 +26,41 @@ Read this file and README.md before changing the repository. User instructions t
 - Check time-sensitive claims against primary sources. Record the check date, price units and tier, expiration dates, and exclusions. Do not label a dated snapshot live or imply a universal model ranking.
 - Distinguish sourced facts, PM analysis, hypotheses, and unverified historical data. Do not silently replace old evidence or claim a link was checked without checking it.
 - Separate development workspace, source repository, production hosting, and model inference. Sleeping, restarting, rebuilding, and deleting an environment are different events.
+
+## Design framework for a growing learning hub
+
+Use the **GOV.UK Government Design Principles**, adapted to AI Atlas: start from user needs, reuse working solutions, simplify complexity, iterate with evidence, and make the experience accessible. This is a design approach, not a requirement to copy GOV.UK branding or install its component library. Use **progressive disclosure** for optional depth and **WCAG 2.2 AA** as the accessibility target. Do not claim conformance without an appropriate audit.
+
+Sources checked November 1, 2026:
+- [GOV.UK Government Design Principles](https://www.gov.uk/guidance/government-design-principles)
+- [Nielsen Norman Group: Progressive Disclosure](https://www.nngroup.com/articles/progressive-disclosure/)
+- [W3C: WCAG 2.2 quick reference](https://www.w3.org/WAI/WCAG22/quickref/)
+
+### Start from the reader's task
+
+Before a meaningful feature or navigation change, state the reader's job and the observable outcome. Examples: understand a model trade-off, estimate monthly cost, find a primary reference, or judge whether an answer meets a rubric. These are product hypotheses until observed with users; do not invent research findings. Prefer the smallest change that improves that job.
+
+### Scale the information architecture before the menu
+
+- Give each page one canonical home: **Learn** (lessons, topics, skills, guides), **Explore** (industry and interactive tools), **Practice** (question evals, interview prep, journal), or **Reference** (sources, glossary). Cross-link related content without duplicating pages.
+- Add new topics within an existing collection first. Add a standalone page when it supports a distinct reader task or needs enough depth to benefit from its own URL. Do not add a top-level menu item for each new feature.
+- If a collection becomes hard to scan, improve its index, grouping, search or filters before adding another global category. Change the four-group structure only when repeated task/findability evidence shows that it no longer fits; it is a starting hypothesis, not an immutable taxonomy.
+- Use reader-facing labels, a visible page title, a breadcrumb, an active destination, and a relevant next step. Keep existing URLs stable; provide a migration path if moving content. Update the shared navigation configuration, not individual page menus.
+
+### Layer the content and reuse the patterns
+
+- Default learning pattern: **question or objective → short takeaway → optional explanation/example → source and date → exercise or next step**. Show the essential answer first; expandable sections hold additional depth.
+- Keep qualifications needed to interpret the answer visible. Never hide price units, expired assumptions, critical uncertainty, calculator errors, or the meaning of a review verdict behind a disclosure.
+- Use a diagram for relationships or flows, a table for comparisons, and an interactive control only when changing it teaches something or helps a real decision. Do not add decoration that competes with reading.
+- Reuse navigation, cards, disclosure behavior, form states, typography, spacing and color roles before introducing variants. Keep shared navigation styles in `site-nav.css`; consolidate repeated content patterns when they recur. Preserve the existing paper/green identity while improving older pages incrementally.
+- Keep content/evidence in structured data when it serves several views. Add stable IDs, categories and review metadata as the collection grows. More pages alone do not justify a framework migration, backend, or new dependency.
+
+### Validate the task, not only the screenshot
+
+- For relevant changes, walk through: find a lesson; reach the cost lab and interpret its estimate; locate evidence; review a question and retain feedback. Start from an unrelated page to test navigation, not a direct link alone.
+- Check narrow/mobile layouts, keyboard order and activation, visible focus, Escape/closing behavior, meaningful headings and labels, contrast, zoom/reflow, and empty/error/loading states. Prefer native HTML controls. Never rely only on hover or color.
+- Treat time-to-find, first navigation choice, wrong turns, task completion and user feedback as useful evaluation signals. Use small observed sessions or voluntary feedback before adding telemetry; do not invent metrics, install tracking, or treat an agent walkthrough as user research.
+- In a substantial design PR, briefly record the reader task, placement, reused pattern, and validation result. These are review notes, not a new approval gate. Iterate when evidence shows confusion; preserve working patterns when it does not.
 
 ## Question bank is a manual eval set
 

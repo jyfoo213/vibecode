@@ -160,6 +160,82 @@
         }
       ],
       "answerLocation": "./questions.html"
+    },
+    {
+      "id": "coding-agents",
+      "revision": 1,
+      "question": "How do Claude Code and Codex work, where do they differ, and what happens from prompt to implementation?",
+      "wording": "Original question excerpt",
+      "originalExcerpt": "im interested in how claude code and codex works, and where it differs or whether its similar? what are the key steps it makes from prompt to implementation.",
+      "origin": "Coding-agent comparison request in this conversation",
+      "proposedAnswer": "Both combine a model, a harness, tools and a workspace in a feedback loop. A useful walkthrough is task framing, context inspection, action selection, tool execution, verification/revision and reviewable handoff. Their model families, interfaces, instruction loading and execution settings differ. Local vs cloud is a separate choice; deployment is a workflow step, not automatic proof of implementation quality.",
+      "criteria": [
+        "Explains model vs harness vs tools vs workspace.",
+        "Shows a repeatable prompt \u2192 tool \u2192 observation loop, not just one-shot code generation.",
+        "Covers context, implementation, verification and handoff.",
+        "Describes sourced differences without a universal winner or local/cloud stereotype.",
+        "Distinguishes public architecture and illustrative examples from private model reasoning."
+      ],
+      "evidence": [
+        {
+          "label": "Claude Code mechanics",
+          "url": "https://code.claude.com/docs/en/how-claude-code-works"
+        },
+        {
+          "label": "Codex agent loop",
+          "url": "https://openai.com/index/unrolling-the-codex-agent-loop/"
+        }
+      ],
+      "answerLocation": "./coding-agents.html"
+    },
+    {
+      "id": "model-fit",
+      "revision": 1,
+      "question": "Is GPT-6.1 Sol with a light setting right for all the tasks so far?",
+      "wording": "Original question excerpt",
+      "originalExcerpt": "also let me know if gpt 6.1 sol light is the right model for all the tasks so far",
+      "origin": "Model suitability question in this conversation",
+      "proposedAnswer": "It is a reasonable default hypothesis for routine edits, styling, documentation and straightforward tests. A higher reasoning setting may help with difficult debugging, architecture or source reconciliation. This is task-based guidance, not a measured comparison, and the active UI setting cannot be confirmed here. Compare real outputs and checks before deciding that one setting fits everything.",
+      "criteria": [
+        "Does not claim to know an unobserved active model or UI setting.",
+        "Separates model choice from reasoning effort where supported.",
+        "Differentiates routine edits from harder tasks.",
+        "Treats recommendations as hypotheses without benchmark evidence."
+      ],
+      "evidence": [
+        {
+          "label": "Codex model and reasoning-effort controls",
+          "url": "https://learn.chatgpt.com/docs/codex/cli"
+        }
+      ],
+      "answerLocation": "./questions.html"
+    },
+    {
+      "id": "plan-budget",
+      "revision": 1,
+      "question": "Will this usage trajectory exhaust my current plan or stay within budget?",
+      "wording": "Original question excerpt",
+      "originalExcerpt": "whether based on my current trajectory of usage whether i'll burn out my current plan or will be fine and within budget",
+      "origin": "Plan and budget question in this conversation",
+      "proposedAnswer": "You reported a $20/month plan, assumed to be ChatGPT Plus rather than account-verified. Remaining headroom is still unknown without the usage meter, reset window and expected workload. Plus has included limits; API usage is billed separately. Eligible extra usage can consume purchased credits, and automatic credit reload can add spend if enabled. Check Settings \u2192 Usage for allowance, credits and reload settings. This static site makes no runtime model calls. Do not infer a safe daily session count from this conversation alone.",
+      "criteria": [
+        "States that the budget conclusion is pending missing account data.",
+        "Uses the reported $20 price as a Plus assumption and still requests usage, reset time and expected workload.",
+        "Separates subscription limits, API spend and workspace compute.",
+        "Does not invent remaining allowance, prices or a within-budget guarantee.",
+        "Explains optional credits and automatic reload without treating the subscription as an unlimited dollar budget."
+      ],
+      "evidence": [
+        {
+          "label": "OpenAI: ChatGPT Plus price and limits",
+          "url": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus"
+        },
+        {
+          "label": "OpenAI: usage credits and automatic reload",
+          "url": "https://help.openai.com/en/articles/12642688-using-credits-for-flexible-usage-in-chatgpt-personal-plans"
+        }
+      ],
+      "answerLocation": "./questions.html"
     }
   ]
 }
