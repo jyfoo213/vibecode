@@ -1,1 +1,2 @@
-export function recentUserQuestions(cases,{limit=6,needsReview=false,reviews={}}={}){return cases.filter(c=>c.provenance!=='ai-suggested'&&(!needsReview||!reviews[c.id]||reviews[c.id].revision!==c.revision||reviews[c.id].verdict!=='pass')).sort((a,b)=>(b.askedSequence||0)-(a.askedSequence||0)||a.id.localeCompare(b.id)).slice(0,limit);}
+import {questionLifecycle} from './question-lifecycle.js';
+export function recentUserQuestions(cases,{limit=6,needsReview=false,reviews={}}={}){return cases.filter(c=>c.provenance!=='ai-suggested'&&questionLifecycle(reviews[c.id])==='active'&&(!needsReview||!reviews[c.id]||reviews[c.id].revision!==c.revision||reviews[c.id].verdict!=='pass')).sort((a,b)=>(b.askedSequence||0)-(a.askedSequence||0)||a.id.localeCompare(b.id)).slice(0,limit);}

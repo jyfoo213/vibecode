@@ -95,6 +95,16 @@ Before a meaningful feature or navigation change, state the reader's job and the
 - Never automatically mark your own answer correct. The user records Pass / Needs work / Not reviewed and supporting notes. A pass is a human verdict, not an objective guarantee or automated benchmark score.
 - Reviews are browser-local, with JSON export. They are not automatically shared, committed, or synced among agents. Public question data must contain only material intended for this public site; do not add secrets or unrelated personal conversations.
 
+## Question completion and archive
+
+Done/Archive are independent of correctness verdicts. `question-lifecycle.js` defines active/done/archived states in the existing browser-local question record. Done and archived questions leave the active bank and homepage, but remain in Done & archived, direct links and exports. Restore and Undo must preserve notes, interest ratings and verdict revisions. Do not infer “Pass” from “Done.”
+
+The current release uses localStorage, not a provisioned server database. Explain that it is device/browser-specific. A future shared database needs an authenticated backend, per-user authorisation and explicit service configuration; GitHub Pages cannot host that backend. Do not put server secrets or private user states into the public repository. The owner explicitly chose browser-local storage with no sign-in for now. Do not add a shared backend unless they request a change.
+
+## Architecture learning content — do not confuse a lesson with implementation
+
+The owner explicitly requested architecture questions and diagrams for knowledge only. `architecture.html` explains the current site; architecture case records in `data/questions.json` include inline diagrams rendered by `answer-diagrams.js`. Future mobile/desktop apps and cloud database/auth/sync components are hypothetical lesson content. Do not provision or build those systems from these learning questions. The separately authorised browser-local Done/archive UI remains the chosen implementation.
+
 ## Validate and publish
 
 - Run `npm test` and `npm run build`. Add meaningful checks for changed behavior; avoid tests that simply restate static copy.
