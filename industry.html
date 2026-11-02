@@ -25,6 +25,40 @@
 <div id="list-view" hidden><div class="directory-note">Compare roles, offerings and likely buyers. Buyer descriptions are editorial; no market-cap or valuation ranking is implied.</div><div class="table-wrap"><table><thead><tr><th><button id="sort">Player A → Z</button></th><th>Layer</th><th>Offerings</th><th>Likely buyer · analysis</th><th>Compare</th></tr></thead><tbody id="company-rows"></tbody></table></div></div>
 </section>
 <section id="comparison"><h2>Compare two players.</h2><div class="comparison-controls"><label>First player<select id="compare-a"><option value="">Choose a player…</option></select></label><label>Second player<select id="compare-b"><option value="">Choose a player…</option></select></label><button id="clear-comparison" type="button">Clear comparison</button></div><p id="compare-status" role="status"></p><div class="table-wrap"><table id="comparison-table" hidden><thead><tr><th>Dimension</th><th id="compare-a-name"></th><th id="compare-b-name"></th></tr></thead><tbody id="comparison-body"></tbody></table></div></section><section class="learn"><p class="eyebrow">FOLLOW THE VALUE CHAIN</p><h2>AI is a stack. Nobody builds it alone.</h2><div class="lessons"><article><span>01 / COMPUTE</span><h3>Start with the physical world</h3><p>Chip equipment enables fabrication. Foundries manufacture chips. Designers turn those chips into accelerators for AI workloads.</p></article><article><span>02 / INTELLIGENCE</span><h3>Compute becomes capability</h3><p>Cloud providers operate compute infrastructure. Model labs use it to train and serve systems that generate text, images, and code.</p></article><article><span>03 / PRODUCTS</span><h3>Capability finds a customer</h3><p>Data platforms and applications connect models to useful work. Money, distribution, and feedback flow back through the stack.</p></article></div></section>
+
+<section id="circular-loop"><p class="eyebrow">FROM THE REEL · THE “AI BUBBLE” MAP</p>
+<h2>The loop, step by step.</h2>
+<p>Money goes in as investment, comes back as compute revenue, and the same companies sell the models. Customers, investors, distributors and competitors — all at once. Map total shown on screen: $26 trillion.</p>
+<ol class="concept-flow">
+<li>Investors fund the labs — Microsoft holds roughly 27% of OpenAI; NVIDIA puts $30 billion into OpenAI; SoftBank, OpenAI’s biggest outside investor, builds the data centre OpenAI leases through SB Energy; Amazon and Microsoft invest in Anthropic; AMD agrees up to $5 billion into Anthropic; NVIDIA invests in Anthropic; Google holds a large Anthropic stake, keeps investing, and backs $5 billion of loans Anthropic uses to lease data centres.</li>
+<li>Labs spend it back on compute — OpenAI buys NVIDIA chips in bulk, rents Oracle capacity, and uses Microsoft, Amazon and Google clouds plus CoreWeave; Anthropic runs on Google Cloud and commits $100 billion across Microsoft and Amazon clouds combined (split not stated).</li>
+<li>Suppliers book it and reinvest — Oracle buys tens of billions in NVIDIA chips for its data centres; NVIDIA invests in CoreWeave and $5 billion in Intel, buys CoreWeave’s unused capacity, and guarantees OpenAI’s SB Energy lease; CoreWeave stocks its centres with NVIDIA GPUs; OpenAI holds $350 million of CoreWeave stock.</li>
+<li>The same companies distribute the models — the clouds sell compute to the labs and sell the labs’ models onward, while building rival models of their own; Google sells compute to OpenAI while holding Anthropic; Meta buys capacity from Google Cloud and CoreWeave while running its own AI labs.</li>
+<li>Everyone competes while cooperating — that is the reel’s punchline: a customer is also a distribution partner, an investor, and a competitor.</li>
+<li>The reel’s question — the revenue is real, but is it enough to cover hundreds of billions in future commitments? If one company fails, the shock runs through the whole loop.</li>
+</ol>
+<p>Each line below is one new dashed line on the map. Dashed means unverified lead: enable “Include unverified historical relationship leads” to see them. Figures are as stated in the reel, not verified here. Lines the reel repeats that were already on the map — Microsoft into OpenAI, Amazon and Google into Anthropic, NVIDIA into CoreWeave, Oracle, Microsoft and Amazon — are unchanged.</p>
+<ul>
+<li><strong>NVIDIA → OpenAI.</strong> OpenAI buys chips in bulk; NVIDIA invests $30 billion in OpenAI. Investment and purchase flow opposite ways on the same pair.</li>
+<li><strong>Oracle → OpenAI.</strong> Oracle owns a small bit of OpenAI (no amount stated) and rents it computing power.</li>
+<li><strong>Amazon → OpenAI.</strong> OpenAI is an Amazon cloud customer.</li>
+<li><strong>AMD → OpenAI.</strong> AMD gives OpenAI the option to buy 160 million AMD shares.</li>
+<li><strong>Broadcom → OpenAI.</strong> OpenAI signs a Broadcom deal to avoid single-chipmaker dependence (terms not stated).</li>
+<li><strong>CoreWeave → OpenAI.</strong> OpenAI is a CoreWeave customer and receives $350 million of CoreWeave stock.</li>
+<li><strong>Microsoft → CoreWeave.</strong> Microsoft is a CoreWeave customer.</li>
+<li><strong>Microsoft → Anthropic.</strong> Microsoft invests in Anthropic; Anthropic’s $100 billion cloud commitment spans Microsoft and Amazon combined.</li>
+<li><strong>NVIDIA → Anthropic.</strong> NVIDIA invests in Anthropic; Anthropic buys NVIDIA chips.</li>
+<li><strong>AMD → Anthropic.</strong> Anthropic takes AMD as a chip supplier; AMD agrees up to $5 billion into Anthropic.</li>
+<li><strong>Broadcom → Google.</strong> Google uses Broadcom to design its custom chips.</li>
+<li><strong>Google → OpenAI.</strong> Google sells computing power to OpenAI; OpenAI is a Google cloud customer.</li>
+<li><strong>Meta → Google.</strong> Meta buys capacity from Google Cloud.</li>
+<li><strong>Meta → CoreWeave.</strong> Meta buys capacity from CoreWeave.</li>
+<li><strong>NVIDIA → Meta.</strong> Meta buys NVIDIA chips.</li>
+<li><strong>AMD → Meta.</strong> Meta buys AMD chips.</li>
+</ul>
+<p>Not drawn, and why: SoftBank / SB Energy, SpaceX and Intel are not among the map’s 45 players, so they appear here in text only — including NVIDIA’s $5 billion into Intel and the US government’s 10% of Intel. Meta renting up to $10 billion of data centres to Anthropic is talks, not a deal. One claim heard in the reel — a $50 billion Amazon investment in OpenAI — was unclear against the clearer Amazon investment in Anthropic, so it is not drawn. The recipient of SpaceX’s data-centre rental was not clearly audible.</p>
+<p class="small">Source: <a href="https://www.instagram.com/reel/DfNB4PSKlh1/">@matildehere reel</a>, 1 Nov 2026. Paraphrased, not transcribed.</p>
+</section>
 <section id="methodology"><h2>Working notes.</h2><p>Selection covers compute, models, infrastructure/tooling and applications relevant to AI PM learning. One primary layer is a navigation aid; players often span layers. A checked vendor reference supports a product description, not its performance claims. Broadcom and ServiceNow descriptions rely on primary-source search excerpts where full pages were not readable. Relationships have their own evidence status and dates. Unverified seed valuations are retained only inside optional historical records; they do not determine ordering. Dataset: <code>data/landscape.json</code>. No live market feed.</p></section>
 </main><footer>AI ATLAS <span>Designed to evolve.</span></footer>
 <dialog id="detail" hidden aria-label="Player profile"><button id="close" aria-label="Close company details">×</button><div id="detail-body"></div></dialog><div id="tooltip" role="tooltip" hidden></div>
