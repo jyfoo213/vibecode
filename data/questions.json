@@ -521,6 +521,248 @@
         }
       ],
       "answerLocation": "./questions.html#case-usage-window"
+    },
+    {
+      "id": "site-database",
+      "revision": 1,
+      "askedSequence": 12,
+      "question": "Can this site use a database so I can mark questions done or archive them?",
+      "wording": "Original question excerpt",
+      "originalExcerpt": "can the preview site have a database? i want to be able to mark some of the questions as done so it dont have to appear permanently there or it can be archived",
+      "origin": "Question archive/database request in this conversation",
+      "shortAnswer": "Yes\u2014a shared database needs a separate backend. Done/archive now uses browser-local storage, with restore and undo; it does not sync between devices.",
+      "proposedAnswer": "GitHub Pages serves static files, but its browser app can connect to an authenticated backend/database. You chose browser-local storage with no sign-in for now. The Done/Archive flow uses that storage: it removes questions from active views without deleting the public answer, preserves notes and verdicts, and offers restore, undo and export. A shared database and sign-in have not been provisioned. Cross-device private sync would require choosing and configuring a backend with per-user access controls; database secrets must never be embedded in the static website.",
+      "criteria": [
+        "Distinguishes static hosting from a separate database/backend.",
+        "States that the current implementation is browser-local, not a shared database.",
+        "Explains done/archive, restore, undo and preservation of answer history.",
+        "Separates completion from correctness and keeps private data out of public repo writes."
+      ],
+      "evidence": [
+        {
+          "label": "GitHub: what Pages hosts",
+          "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages"
+        }
+      ],
+      "answerLocation": "./questions.html#case-site-database"
+    },
+    {
+      "id": "site-architecture",
+      "revision": 1,
+      "askedSequence": 13,
+      "question": "How is AI Atlas built: frontend, backend, hosting and languages?",
+      "wording": "Original question excerpt",
+      "originalExcerpt": "give me a simple systems design breakdown of this site so i can learn more about its architecture frontend and backend and hosting including the choice of coding langage used to built. add this to the question bank",
+      "origin": "Systems-design learning request in this conversation",
+      "shortAnswer": "HTML and CSS present the site; JavaScript runs the interactions. GitHub Pages serves static files. Node.js powers development/build checks, not a live backend. Personal state stays in browser storage.",
+      "proposedAnswer": "AI Atlas is a static frontend built with HTML, CSS and browser JavaScript modules, with public content in JSON. GitHub Actions runs Node.js tests and build scripts, then publishes the dist/ files to GitHub Pages. The browser fetches those files and saves personal notes, verdicts and Done/archive state in localStorage. There is no production application server, shared database, sign-in or runtime model API. The cloud coding workspace and Node preview server are development tools, separate from the published site. A future authenticated backend/database could add cross-device sync, but it has not been provisioned.",
+      "criteria": [
+        "Shows the request and deployment flows separately.",
+        "Names HTML, CSS, JavaScript and the role of JSON, YAML and Markdown accurately.",
+        "Distinguishes Node.js development/build tooling from a production backend.",
+        "Explains browser-local state and its persistence limits.",
+        "Labels a future shared database as hypothetical, not currently deployed."
+      ],
+      "evidence": [
+        {
+          "label": "Repository build script",
+          "url": "https://github.com/jyfoo213/vibecode/blob/main/scripts/build.js"
+        },
+        {
+          "label": "Pages deployment workflow",
+          "url": "https://github.com/jyfoo213/vibecode/blob/main/.github/workflows/static.yml"
+        },
+        {
+          "label": "Question lifecycle implementation",
+          "url": "https://github.com/jyfoo213/vibecode/blob/main/question-lifecycle.js"
+        }
+      ],
+      "answerLocation": "./architecture.html",
+      "diagrams": [
+        {
+          "title": "Live site: what happens when you open a page",
+          "mode": "current",
+          "nodes": [
+            {
+              "title": "GitHub Pages",
+              "detail": "Returns HTML, CSS, JavaScript and public JSON over HTTPS."
+            },
+            {
+              "title": "Your browser",
+              "detail": "Renders content and runs interactions; no model call is needed."
+            },
+            {
+              "title": "localStorage",
+              "detail": "Keeps this browser\u2019s personal state. No shared database write."
+            }
+          ],
+          "caption": "The frontend executes on your device. Static hosting delivers files; it is not an application backend."
+        },
+        {
+          "title": "Deployment: how source changes reach readers",
+          "mode": "current",
+          "nodes": [
+            {
+              "title": "Coding workspace",
+              "detail": "Edit source and inspect changes."
+            },
+            {
+              "title": "GitHub PR \u2192 main",
+              "detail": "Version and review source."
+            },
+            {
+              "title": "GitHub Actions",
+              "detail": "Run Node.js tests and build."
+            },
+            {
+              "title": "dist/ \u2192 Pages",
+              "detail": "Publish static files for browsers."
+            }
+          ],
+          "caption": "The development workspace and the live website are independent. Node.js is development/build tooling here, not a production server."
+        }
+      ],
+      "designNotes": [
+        {
+          "title": "Languages vs formats",
+          "text": "HTML structures the page; CSS styles it; JavaScript implements behavior. Node.js runs JavaScript tooling. JSON holds data; YAML configures CI; Markdown documents instructions. The current frontend uses no React framework."
+        },
+        {
+          "title": "Backend today",
+          "text": "There is no production application backend, shared database, sign-in or runtime model API. Public content changes through Git; personal state stays in browser storage."
+        }
+      ],
+      "educationalOnly": true
+    },
+    {
+      "id": "site-scale",
+      "revision": 1,
+      "askedSequence": 14,
+      "question": "How could AI Atlas support mobile, desktop and an optional shared database?",
+      "wording": "Original question excerpt; educational only",
+      "originalExcerpt": "if i want to scale it into mobile and desktop comaptible with database option tell me about the architecture and give me diagrams",
+      "origin": "Future-architecture learning question; you explicitly requested explanation only, not an implementation",
+      "educationalOnly": true,
+      "shortAnswer": "The current responsive website already works in mobile and desktop browsers. Installed apps and cross-device data sync are separate choices; a shared database would sit behind authentication and an authorised API.",
+      "proposedAnswer": "For browser compatibility, keep one responsive HTML/CSS/JavaScript frontend. If installation or deeper device integration becomes valuable, consider a PWA, a desktop wrapper, or a native/cross-platform mobile client; none automatically creates shared storage. For cross-device data, clients could use a shared authenticated API and per-user database records while public content remains on a CDN. Backend logic could use JavaScript/TypeScript or another suitable language; the database could be managed PostgreSQL. These are architectural options for learning only. No installed app, service worker, sign-in, API backend or shared database has been built or provisioned.",
+      "criteria": [
+        "Distinguishes existing responsive browser support from hypothetical installed apps.",
+        "Separates client choice from database/sync choice.",
+        "Shows authentication, authorisation and per-user data boundaries.",
+        "Explains local/offline state and sync conflicts rather than assuming automatic sync.",
+        "Labels every future component as hypothetical and does not imply actual implementation."
+      ],
+      "evidence": [
+        {
+          "label": "MDN: responsive web design",
+          "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design"
+        },
+        {
+          "label": "MDN: progressive web apps",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps"
+        },
+        {
+          "label": "React Native: native components",
+          "url": "https://reactnative.dev/docs/intro-react-native-components"
+        },
+        {
+          "label": "Tauri architecture",
+          "url": "https://v2.tauri.app/concept/architecture/"
+        },
+        {
+          "label": "Supabase: row-level security example",
+          "url": "https://supabase.com/docs/guides/database/postgres/row-level-security"
+        }
+      ],
+      "answerLocation": "./questions.html#case-site-scale",
+      "diagrams": [
+        {
+          "title": "Option A: one responsive web application",
+          "mode": "hypothetical",
+          "nodes": [
+            {
+              "title": "Static frontend hosting",
+              "detail": "Returns public HTML/CSS/JavaScript; GitHub Pages is one option."
+            },
+            {
+              "title": "Phone + desktop browsers",
+              "items": [
+                "Same website URL",
+                "Layouts adapt to screen and input"
+              ]
+            },
+            {
+              "title": "Local state on each device",
+              "detail": "No sign-in or shared database. State does not automatically sync."
+            }
+          ],
+          "caption": "This represents the simplest browser-first approach, which the site already broadly follows. An installable PWA is an optional extension, not something added by this lesson."
+        },
+        {
+          "title": "Option B: shared data across several clients",
+          "mode": "hypothetical",
+          "nodes": [
+            {
+              "title": "Clients",
+              "items": [
+                "Responsive website / PWA",
+                "Optional mobile app",
+                "Optional desktop app"
+              ]
+            },
+            {
+              "title": "Identity + authorised API",
+              "detail": "Validate the user and enforce which records they can access."
+            },
+            {
+              "title": "Shared database",
+              "detail": "Per-user question state, notes and timestamps; backups and operating policies."
+            }
+          ],
+          "caption": "All clients can share the same account data. The API could be a managed service or custom backend; each read/write still needs enforced access controls. No provider has been selected."
+        },
+        {
+          "title": "Optional offline-first sync path",
+          "mode": "hypothetical",
+          "nodes": [
+            {
+              "title": "Local action",
+              "detail": "Store a pending done/archive change on the device."
+            },
+            {
+              "title": "Reconnect + authenticate",
+              "detail": "Send the queued operation with a record/version identifier."
+            },
+            {
+              "title": "Reconcile + refresh",
+              "detail": "Handle conflicts and update clients from the accepted server state."
+            }
+          ],
+          "caption": "Offline support, retries and conflict resolution must be designed. A second device may have changed the same record; installation alone does not solve this."
+        }
+      ],
+      "designNotes": [
+        {
+          "title": "When is a responsive website enough?",
+          "text": "When reading answers, browsing players and basic capture are the main jobs. It avoids app-store releases and keeps one web frontend. The existing site is already responsive; no new app is required to read it on a phone."
+        },
+        {
+          "title": "When might installed clients help?",
+          "text": "A PWA can add an app-like install/offline experience where supported. A desktop wrapper such as Tauri can package web UI with desktop integration. React Native is one option for native mobile UI using JavaScript; it is not a drop-in way to reuse every HTML/CSS screen. Each path adds release and support work."
+        },
+        {
+          "title": "What might the backend use?",
+          "text": "JavaScript/TypeScript could reuse the team\u2019s language; Python might fit a separate data/ML service. A managed PostgreSQL database is one possible data layer. These are examples, not a stack chosen or installed for Atlas."
+        },
+        {
+          "title": "What would the data model look like?",
+          "text": "Keep public question content separate from private user state. An illustrative state record is (user_id, question_id, lifecycle, updated_at, version). Notes and preferences may need their own records. Enforce ownership in API/database rules rather than trusting a hidden frontend control."
+        },
+        {
+          "title": "How should a PM choose?",
+          "text": "Start from the desired capability: screen compatibility, installation, OS features, offline use or cross-device sync. Add the smallest architectural change that enables it. More users or more content alone do not justify every client type and a backend."
+        }
+      ]
     }
   ]
 }

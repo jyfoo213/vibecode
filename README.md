@@ -55,3 +55,13 @@ The homepage prioritises the owner's latest questions and brief/full answers bef
 The landscape contains 45 curated player profiles, including product brands and corporate groups. `profile` separates dated primary product references from editorial buyer/commercial/strategy fields. Search covers roles, products and buyers; the directory sorts by player name, and two profiles can be compared. Deep links use `industry.html#player-ID`. Only primary-source-reviewed relationships are enabled by default; unverified historical leads are opt-in and dashed. Old valuation seed records remain optional history, not the directory's ranking.
 
 The current user priority and near-term outcomes are recorded in AGENTS.md. SITE_AUDIT.md records observed product gaps and a prioritised learning-focused backlog; no telemetry or user metrics are inferred.
+
+## Done and archive
+
+Each question has an independent active / done / archived lifecycle. Mark done from the homepage or bank to remove it from active lists; use Done & archived to restore it, or Undo the last state change. Direct links can still open completed answers, and review exports include lifecycle state. Grades, notes and interest are preserved.
+
+The owner chose browser-local storage with no sign-in. This implementation uses that existing storage, not a shared database. GitHub Pages can connect to a separate authenticated backend if cross-device sync is selected later. No backend, paid database or sign-in service has been provisioned. Private status writes must not be committed to the public question dataset.
+
+`architecture.html` is the systems-design tour: live file-delivery path, development/deployment path, languages and formats, local Done/archive persistence, and the boundary for a future authenticated backend. It is linked under Learn and recorded as an owner question.
+
+Architecture Q&A includes inline structured diagrams. `site-scale` is explicitly educational-only: responsive web, hypothetical installed clients, auth/API/database and offline sync are explained, not implemented. `answer-diagrams.js` renders these records without external diagram dependencies.
