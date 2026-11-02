@@ -2107,6 +2107,95 @@
     ],
     "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis—not verified market outcomes."
    }
+  },
+  {
+   "id": "marvell",
+   "name": "Marvell",
+   "ticker": "MRVL",
+   "ownership": "Public",
+   "focus": "Diversified",
+   "layer": "silicon",
+   "description": "Custom chipmaker building silicon for data-centre infrastructure.",
+   "website": "https://www.marvell.com/",
+   "valuation": {
+    "usdBillions": null,
+    "asOf": null,
+    "basis": "Market capitalization",
+    "status": "research pending",
+    "sourceUrl": null
+   },
+   "researchStatus": "Reel-sourced; primary product reference not yet reviewed",
+   "role": "Custom silicon",
+   "profile": {
+    "offerings": [
+     "Custom silicon",
+     "Data-centre infrastructure silicon"
+    ],
+    "buyer": "Data-centre operators and systems builders",
+    "commercialLens": "Chip sales and custom-silicon contracts",
+    "whyItMatters": "Custom silicon is how the big AI spenders differentiate their infrastructure — and this deal extends Marvell from chips into the optical links between them.",
+    "tradeoffs": "No closing date or completion terms were stated in the segment; integration and customer concentration are open questions.",
+    "pmQuestion": "If your compute roadmap depends on custom silicon, what does owning the optical links change for you?",
+    "compareWith": [
+     "broadcom",
+     "nvidia"
+    ],
+    "example": "Use as a candidate when investigating custom silicon. Validate fit on your own task and constraints.",
+    "checked": "2026-11-02 (news reel, not a product reference)",
+    "evidence": [
+     {
+      "title": "CNBC reel on the acquisition",
+      "url": "https://www.instagram.com/reel/DfPbyBbikLF/",
+      "checked": "2026-11-02",
+      "supports": "Deal terms and framing as stated in the segment and its written caption; not a primary product reference."
+     }
+    ],
+    "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis—not verified market outcomes."
+   }
+  },
+  {
+   "id": "lumentum",
+   "name": "Lumentum",
+   "ticker": "LITE",
+   "ownership": "Public",
+   "focus": "Diversified",
+   "layer": "silicon",
+   "description": "Makes optical components that move data at high speeds inside data centres.",
+   "website": "https://www.lumentum.com/",
+   "valuation": {
+    "usdBillions": null,
+    "asOf": null,
+    "basis": "Market capitalization",
+    "status": "research pending",
+    "sourceUrl": null
+   },
+   "researchStatus": "Reel-sourced; primary product reference not yet reviewed",
+   "role": "Optical components",
+   "profile": {
+    "offerings": [
+     "Optical components for high-speed data movement"
+    ],
+    "buyer": "Data-centre operators and systems builders",
+    "commercialLens": "Optical component sales",
+    "whyItMatters": "Moving data at high speeds between AI accelerators is a bottleneck the AI build-out has to solve; optical components sit on that path.",
+    "tradeoffs": "Demand depends on big-tech AI infrastructure spending continuing at its current pace.",
+    "pmQuestion": "Where does optical interconnect sit on your AI infrastructure bottleneck list?",
+    "compareWith": [
+     "marvell",
+     "broadcom"
+    ],
+    "example": "Use as a candidate when investigating optical interconnect. Validate fit on your own task and constraints.",
+    "checked": "2026-11-02 (news reel, not a product reference)",
+    "evidence": [
+     {
+      "title": "CNBC reel on the acquisition",
+      "url": "https://www.instagram.com/reel/DfPbyBbikLF/",
+      "checked": "2026-11-02",
+      "supports": "Deal terms and framing as stated in the segment and its written caption; not a primary product reference."
+     }
+    ],
+    "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis—not verified market outcomes."
+   }
   }
  ],
  "relationships": [
@@ -2528,6 +2617,36 @@
    "description": "As stated in the reel: Meta buys chips from AMD.",
    "sourceUrl": "https://www.instagram.com/reel/DfNB4PSKlh1/",
    "asOf": "2026-11-01",
+   "status": "unverified research lead"
+  },
+  {
+   "id": "deal-marvell-lumentum",
+   "source": "marvell",
+   "target": "lumentum",
+   "type": "acquires",
+   "description": "As stated in the reel: Marvell is buying Lumentum in an all-stock deal — 4.5 Marvell shares per Lumentum share, about $1,132 per share, a 23.9% premium to the last price before talks were rumoured (28 Oct). The $115 billion deal value comes from the post's written caption, not the spoken segment.",
+   "sourceUrl": "https://www.instagram.com/reel/DfPbyBbikLF/",
+   "asOf": "2026-11-02",
+   "status": "unverified research lead"
+  },
+  {
+   "id": "reel-nvidia-marvell",
+   "source": "nvidia",
+   "target": "marvell",
+   "type": "invests / cloud",
+   "description": "As stated in the reel, citing reports: NVIDIA invested $2 billion in Marvell earlier in 2026; no further detail was given in the segment.",
+   "sourceUrl": "https://www.instagram.com/reel/DfPbyBbikLF/",
+   "asOf": "2026-11-02",
+   "status": "unverified research lead"
+  },
+  {
+   "id": "reel-nvidia-lumentum",
+   "source": "nvidia",
+   "target": "lumentum",
+   "type": "invests / cloud",
+   "description": "As stated in the reel, citing reports: NVIDIA invested $2 billion in Lumentum earlier in 2026; no further detail was given in the segment.",
+   "sourceUrl": "https://www.instagram.com/reel/DfPbyBbikLF/",
+   "asOf": "2026-11-02",
    "status": "unverified research lead"
   }
  ],
