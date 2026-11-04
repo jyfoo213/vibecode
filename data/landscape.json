@@ -2196,6 +2196,194 @@
     ],
     "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis—not verified market outcomes."
    }
+  },
+  {
+   "id": "intel",
+   "name": "Intel",
+   "ticker": "INTC",
+   "ownership": "Public",
+   "focus": "Diversified",
+   "layer": "silicon",
+   "description": "Makes CPUs and AI accelerators, and runs a foundry trying to return to leading-edge manufacturing.",
+   "website": "https://www.intel.com/",
+   "valuation": {
+    "usdBillions": null,
+    "asOf": null,
+    "basis": "Market capitalization",
+    "status": "research pending",
+    "sourceUrl": null
+   },
+   "researchStatus": "General-knowledge addition; primary product reference not yet reviewed",
+   "role": "CPUs, AI accelerators & foundry",
+   "profile": {
+    "offerings": [
+     "Client and data-centre CPUs",
+     "Gaudi AI accelerators",
+     "Foundry manufacturing services"
+    ],
+    "buyer": "PC makers, data-centre operators, and (for foundry) chip designers",
+    "commercialLens": "Chip sales plus foundry service contracts",
+    "whyItMatters": "The only US company attempting leading-edge logic manufacturing at scale — and the AI race's clearest laggard so far: it missed the accelerator wave while NVIDIA and AMD took it.",
+    "tradeoffs": "Foundry turnaround is unproven and capital-hungry; 14A is the test, with risk production in 2027.",
+    "pmQuestion": "If a supplier's roadmap keeps slipping, how do you de-risk your compute plan?",
+    "compareWith": [
+     "tsmc",
+     "nvidia",
+     "amd"
+    ],
+    "example": "Use as a candidate when investigating this part of the AI supply chain. Validate fit on your own task and constraints.",
+    "checked": "2026-11-03 (general knowledge, not a product reference)",
+    "evidence": [
+     {
+      "title": "Yahoo Finance post on AMD/Intel earnings",
+      "url": "https://www.instagram.com/p/DfS13plF2VQ/",
+      "checked": "2026-11-03",
+      "supports": "AMD Q3 beat and Intel weak guidance as stated in the caption; not a primary product reference."
+     },
+     {
+      "title": "AI bubble reel",
+      "url": "https://www.instagram.com/reel/DfNB4PSKlh1/",
+      "checked": "2026-11-01",
+      "supports": "NVIDIA $5 billion Intel investment and US government 10% stake, as stated in the reel."
+     }
+    ],
+    "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis—not verified market outcomes."
+   }
+  },
+  {
+   "id": "skhynix",
+   "name": "SK Hynix",
+   "ticker": "000660.KS",
+   "ownership": "Public",
+   "focus": "Diversified",
+   "layer": "silicon",
+   "description": "Memory maker and the leading supplier of HBM — the stacked memory AI accelerators cannot run without.",
+   "website": "https://www.skhynix.com/",
+   "valuation": {
+    "usdBillions": null,
+    "asOf": null,
+    "basis": "Market capitalization",
+    "status": "research pending",
+    "sourceUrl": null
+   },
+   "researchStatus": "General-knowledge addition; primary product reference not yet reviewed",
+   "role": "HBM & memory",
+   "profile": {
+    "offerings": [
+     "HBM3E and HBM4 stacks",
+     "DRAM and NAND memory"
+    ],
+    "buyer": "Accelerator makers (NVIDIA, AMD) and device makers",
+    "commercialLens": "Memory component sales under long-term allocation",
+    "whyItMatters": "HBM is the binding constraint on AI compute: every accelerator needs stacks of it, only three companies make it, and SK Hynix qualified first with NVIDIA.",
+    "tradeoffs": "Capacity takes 12–18 months to expand; allocation, not price, is the negotiation.",
+    "pmQuestion": "If your accelerator roadmap depends on one scarce input, how do you secure allocation?",
+    "compareWith": [
+     "samsung",
+     "micron"
+    ],
+    "example": "Use as a candidate when investigating this part of the AI supply chain. Validate fit on your own task and constraints.",
+    "checked": "2026-11-03 (general knowledge, not a product reference)",
+    "evidence": [
+     {
+      "title": "HBM market and qualification tracker",
+      "url": "https://siliconanalysts.com/tools/hbm-analysis",
+      "checked": "2026-11-03",
+      "supports": "SK Hynix as HBM leader with early NVIDIA qualification; not a primary product reference."
+     }
+    ],
+    "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis—not verified market outcomes."
+   }
+  },
+  {
+   "id": "micron",
+   "name": "Micron",
+   "ticker": "MU",
+   "ownership": "Public",
+   "focus": "Diversified",
+   "layer": "silicon",
+   "description": "US memory maker and one of only three HBM producers, now shipping HBM4 into next-generation accelerators.",
+   "website": "https://www.micron.com/",
+   "valuation": {
+    "usdBillions": null,
+    "asOf": null,
+    "basis": "Market capitalization",
+    "status": "research pending",
+    "sourceUrl": null
+   },
+   "researchStatus": "General-knowledge addition; primary product reference not yet reviewed",
+   "role": "HBM & memory",
+   "profile": {
+    "offerings": [
+     "HBM3E and HBM4 stacks",
+     "DRAM and NAND memory"
+    ],
+    "buyer": "Accelerator makers (NVIDIA, AMD) and device makers",
+    "commercialLens": "Memory component sales under long-term allocation",
+    "whyItMatters": "The US-based HBM option; its 2026 HBM output is reported sold out under long-term contracts — scarcity is the story.",
+    "tradeoffs": "Smaller HBM share than SK Hynix; ramping capacity takes years.",
+    "pmQuestion": "When a critical input is sold out a year ahead, what do you design differently?",
+    "compareWith": [
+     "skhynix",
+     "samsung"
+    ],
+    "example": "Use as a candidate when investigating this part of the AI supply chain. Validate fit on your own task and constraints.",
+    "checked": "2026-11-03 (general knowledge, not a product reference)",
+    "evidence": [
+     {
+      "title": "HBM market and qualification tracker",
+      "url": "https://siliconanalysts.com/tools/hbm-analysis",
+      "checked": "2026-11-03",
+      "supports": "Micron as an HBM3E/HBM4 supplier to NVIDIA; not a primary product reference."
+     }
+    ],
+    "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis—not verified market outcomes."
+   }
+  },
+  {
+   "id": "samsung",
+   "name": "Samsung Electronics",
+   "ticker": "005930.KS",
+   "ownership": "Public",
+   "focus": "Diversified",
+   "layer": "silicon",
+   "description": "The world's largest memory maker, plus a foundry chasing TSMC — HBM supplier to NVIDIA and, under a new multi-year agreement, to AMD.",
+   "website": "https://www.samsung.com/",
+   "valuation": {
+    "usdBillions": null,
+    "asOf": null,
+    "basis": "Market capitalization",
+    "status": "research pending",
+    "sourceUrl": null
+   },
+   "researchStatus": "General-knowledge addition; primary product reference not yet reviewed",
+   "role": "Memory & foundry",
+   "profile": {
+    "offerings": [
+     "HBM and DRAM memory",
+     "Foundry manufacturing"
+    ],
+    "buyer": "Accelerator makers, device makers, and chip designers",
+    "commercialLens": "Memory component sales plus foundry service contracts",
+    "whyItMatters": "Scale in memory plus a foundry arm makes it the only player attacking the AI stack from two sides — though its foundry still trails TSMC.",
+    "tradeoffs": "Foundry competitiveness and HBM share are both catch-up stories.",
+    "pmQuestion": "When a supplier is second in two races at once, which race do you bet on?",
+    "compareWith": [
+     "skhynix",
+     "tsmc"
+    ],
+    "example": "Use as a candidate when investigating this part of the AI supply chain. Validate fit on your own task and constraints.",
+    "checked": "2026-11-03 (general knowledge, not a product reference)",
+    "evidence": [
+     {
+      "title": "HBM market and qualification tracker",
+      "url": "https://siliconanalysts.com/tools/hbm-analysis",
+      "checked": "2026-11-03",
+      "supports": "Samsung as an HBM supplier with HBM4 qualification; not a primary product reference."
+     }
+    ],
+    "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis—not verified market outcomes."
+   }
   }
  ],
  "relationships": [
@@ -2647,6 +2835,66 @@
    "description": "As stated in the reel, citing reports: NVIDIA invested $2 billion in Lumentum earlier in 2026; no further detail was given in the segment.",
    "sourceUrl": "https://www.instagram.com/reel/DfPbyBbikLF/",
    "asOf": "2026-11-02",
+   "status": "unverified research lead"
+  },
+  {
+   "id": "reel-nvidia-intel",
+   "source": "nvidia",
+   "target": "intel",
+   "type": "invests / cloud",
+   "description": "As stated in the reel: NVIDIA invested $5 billion in Intel. The US government's 10% of Intel is not drawn (not a map player).",
+   "sourceUrl": "https://www.instagram.com/reel/DfNB4PSKlh1/",
+   "asOf": "2026-11-03",
+   "status": "unverified research lead"
+  },
+  {
+   "id": "asml-intel",
+   "source": "asml",
+   "target": "intel",
+   "type": "equipment",
+   "description": "Intel is ASML's High-NA EUV launch customer: first production tools, first high-volume logic product with High-NA (Panther Lake, July 2026).",
+   "sourceUrl": "https://investor.asml.com/node/10261/pdf",
+   "asOf": "2026-11-03",
+   "status": "unverified research lead"
+  },
+  {
+   "id": "skhynix-nvidia",
+   "source": "skhynix",
+   "target": "nvidia",
+   "type": "supplies memory",
+   "description": "SK Hynix supplies HBM stacks for NVIDIA accelerators — first to mass-produce HBM3E for NVIDIA, and an HBM4 supplier for Vera Rubin.",
+   "sourceUrl": "https://siliconanalysts.com/tools/hbm-analysis",
+   "asOf": "2026-11-03",
+   "status": "unverified research lead"
+  },
+  {
+   "id": "micron-nvidia",
+   "source": "micron",
+   "target": "nvidia",
+   "type": "supplies memory",
+   "description": "Micron supplies HBM3E and HBM4 for NVIDIA accelerators, including HBM4 in high-volume production for Vera Rubin.",
+   "sourceUrl": "https://siliconanalysts.com/tools/hbm-analysis",
+   "asOf": "2026-11-03",
+   "status": "unverified research lead"
+  },
+  {
+   "id": "samsung-nvidia",
+   "source": "samsung",
+   "target": "nvidia",
+   "type": "supplies memory",
+   "description": "Samsung supplies HBM to NVIDIA, with HBM4 qualification passed for the Vera Rubin platform.",
+   "sourceUrl": "https://siliconanalysts.com/tools/hbm-analysis",
+   "asOf": "2026-11-03",
+   "status": "unverified research lead"
+  },
+  {
+   "id": "samsung-amd",
+   "source": "samsung",
+   "target": "amd",
+   "type": "supplies memory",
+   "description": "Samsung supplies memory to AMD under a multi-year agreement covering HBM4, advanced DDR5, joint memory development, and advanced packaging.",
+   "sourceUrl": "https://tech-insider.org/hbm4-memory-shortage-amd-samsung-sk-hynix-price-spike-2026/",
+   "asOf": "2026-11-03",
    "status": "unverified research lead"
   }
  ],
