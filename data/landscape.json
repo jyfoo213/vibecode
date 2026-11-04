@@ -2384,6 +2384,97 @@
     ],
     "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis—not verified market outcomes."
    }
+  },
+  {
+   "id": "conductor",
+   "name": "Conductor",
+   "ticker": null,
+   "ownership": "Not assessed",
+   "focus": "AI-focused",
+   "layer": "apps",
+   "description": "AI coding startup that helps developers manage multiple AI agents simultaneously.",
+   "website": null,
+   "valuation": {
+    "usdBillions": null,
+    "asOf": null,
+    "basis": "Market capitalization",
+    "status": "research pending",
+    "sourceUrl": null
+   },
+   "researchStatus": "Post-sourced addition; primary product reference not yet reviewed",
+   "role": "Multi-agent coding orchestration",
+   "profile": {
+    "offerings": [
+     "Assign coding tasks to AI agents",
+     "Track agent progress",
+     "Review agent work in one place"
+    ],
+    "buyer": "Software developers and engineering teams",
+    "commercialLens": "Developer tool, now inside Meta's AI coding push",
+    "whyItMatters": "Coding agents are moving from one agent per task to fleets of agents — and someone has to manage the fleet. Conductor is the orchestration layer for that shift, which is why Meta bought it.",
+    "tradeoffs": "Small, young company (founded 2024); its standalone future is now Meta's roadmap, not its own.",
+    "pmQuestion": "When agents multiply, what does the human's job become — reviewer, router, or editor?",
+    "compareWith": [
+     "cursor",
+     "github"
+    ],
+    "example": "Use as a candidate when investigating this part of the AI coding stack. Validate fit on your own task and constraints.",
+    "checked": "2026-11-04 (Instagram post, not a product reference)",
+    "evidence": [
+     {
+      "title": "The Rundown AI post on the Meta–Conductor acquisition",
+      "url": "https://www.instagram.com/p/DfVM_fVyCfd/",
+      "checked": "2026-11-04",
+      "supports": "Acquisition and product description as stated in the post (source: Bloomberg, per the post); not a primary product reference."
+     }
+    ],
+    "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis—not verified market outcomes."
+   }
+  },
+  {
+   "id": "pierre",
+   "name": "Pierre Computer",
+   "ticker": null,
+   "ownership": "Not assessed",
+   "focus": "AI-focused",
+   "layer": "apps",
+   "description": "Startup focused on code storage and management, reportedly being acquired by OpenAI.",
+   "website": null,
+   "valuation": {
+    "usdBillions": null,
+    "asOf": null,
+    "basis": "Market capitalization",
+    "status": "research pending",
+    "sourceUrl": null
+   },
+   "researchStatus": "Post-sourced addition; primary product reference not yet reviewed",
+   "role": "Code storage & management",
+   "profile": {
+    "offerings": [
+     "Code storage",
+     "Code management for AI-assisted development"
+    ],
+    "buyer": "Developers and engineering teams",
+    "commercialLens": "Developer infrastructure, reportedly joining OpenAI's coding stack",
+    "whyItMatters": "Coding agents need somewhere to keep and manage code — storage is the unglamorous half of the coding-agent stack, and OpenAI is buying into it.",
+    "tradeoffs": "Deal is announced plans per the post, not a closed acquisition; terms unstated.",
+    "pmQuestion": "What breaks first when agents write code faster than humans can review it — storage, review, or trust?",
+    "compareWith": [
+     "github",
+     "cursor"
+    ],
+    "example": "Use as a candidate when investigating this part of the AI coding stack. Validate fit on your own task and constraints.",
+    "checked": "2026-11-04 (Instagram post, not a product reference)",
+    "evidence": [
+     {
+      "title": "The Rundown AI post on the Meta–Conductor acquisition",
+      "url": "https://www.instagram.com/p/DfVM_fVyCfd/",
+      "checked": "2026-11-04",
+      "supports": "Acquisition and product description as stated in the post (source: Bloomberg, per the post); not a primary product reference."
+     }
+    ],
+    "analysisLabel": "Buyer, commercial lens, strategic interpretation and questions are editorial PM analysis—not verified market outcomes."
+   }
   }
  ],
  "relationships": [
@@ -2895,6 +2986,26 @@
    "description": "Samsung supplies memory to AMD under a multi-year agreement covering HBM4, advanced DDR5, joint memory development, and advanced packaging.",
    "sourceUrl": "https://tech-insider.org/hbm4-memory-shortage-amd-samsung-sk-hynix-price-spike-2026/",
    "asOf": "2026-11-03",
+   "status": "unverified research lead"
+  },
+  {
+   "id": "meta-conductor",
+   "source": "meta",
+   "target": "conductor",
+   "type": "acquires",
+   "description": "As stated in the post: Meta has acquired Conductor, an AI coding startup founded in 2024 that helps developers manage multiple AI agents at once. No terms stated in the post.",
+   "sourceUrl": "https://www.instagram.com/p/DfVM_fVyCfd/",
+   "asOf": "2026-11-04",
+   "status": "unverified research lead"
+  },
+  {
+   "id": "openai-pierre",
+   "source": "openai",
+   "target": "pierre",
+   "type": "acquires (planned)",
+   "description": "As stated in the post: OpenAI has announced plans to acquire Pierre Computer, a startup focused on code storage and management. Announced plans, not a closed deal; no terms stated.",
+   "sourceUrl": "https://www.instagram.com/p/DfVM_fVyCfd/",
+   "asOf": "2026-11-04",
    "status": "unverified research lead"
   }
  ],
